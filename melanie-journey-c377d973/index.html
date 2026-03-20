@@ -3,405 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Consciousness Cartography of melanie-journey</title>
-  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --bg: #0B0718;
-    --bg-mid: #130D2A;
-    --bg-card: #1C1040;
-    --gold: #C9A255;
-    --gold-pale: #E8D5A0;
-    --gold-glow: rgba(201,162,85,0.08);
-    --lavender: #A89BC4;
-    --white: #F5F0FF;
-    --amethyst: #7B5EA7;
-    --rose: #9B4F72;
-    --teal: #2E5F6B;
-    --display: 'Cormorant Garamond', Georgia, serif;
-    --body: 'Lora', Georgia, serif;
-  }
-
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--gold-pale);
-    font-family: var(--body); font-size: 18px; line-height: 1.85;
-    overflow-x: hidden;
-  }
-
-  /* ═══ COSMIC CANVAS ═══ */
-  .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-  .cosmos canvas { width: 100%; height: 100%; }
-
-  /* ═══ MAIN SCROLL ═══ */
-  main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ═══ HERO ═══ */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center;
-    position: relative;
-  }
-  .hero-rings {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 440px; height: 440px; opacity: 0; animation: fadeIn 3s 0.5s forwards;
-  }
-  .hero-rings .ring {
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(201,162,85,0.12);
-    top: 50%; left: 50%; transform: translate(-50%,-50%);
-    animation: pulse 8s infinite ease-in-out;
-  }
-  .hero-rings .ring:nth-child(1){width:260px;height:260px}
-  .hero-rings .ring:nth-child(2){width:340px;height:340px;animation-delay:1s}
-  .hero-rings .ring:nth-child(3){width:440px;height:440px;animation-delay:2s}
-  .hero-glow {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 60px; height: 60px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,162,85,0.35), transparent 70%);
-    animation: glowPulse 4s infinite;
-  }
-  .hero h1 {
-    font-family: var(--display); font-size: clamp(2.8rem,6vw,4.2rem);
-    font-weight: 300; color: var(--white); letter-spacing: 0.02em;
-    opacity: 0; animation: fadeUp 2s 0.3s forwards; position: relative;
-  }
-  .hero h1 em { font-style: italic; font-weight: 600; color: var(--gold); display: block; font-size: 1.15em; }
-  .hero .meta {
-    font-family: var(--display); font-size: 0.95rem; color: var(--lavender);
-    letter-spacing: 0.12em; margin-top: 1.5rem;
-    opacity: 0; animation: fadeUp 2s 1s forwards;
-  }
-  .hero .scroll-hint {
-    position: absolute; bottom: 2.5rem; opacity: 0;
-    animation: fadeIn 2s 3s forwards, float 3s 3s infinite;
-    color: var(--amethyst); font-family: var(--display);
-    font-size: 0.8rem; letter-spacing: 0.25em;
-  }
-  .hero .scroll-hint::after {
-    content:''; display:block; width:1px; height:35px;
-    background: linear-gradient(to bottom, var(--amethyst), transparent);
-    margin: 0.7rem auto 0;
-  }
-
-  /* ═══ PROSE BLOCKS ═══ */
-  .prose { margin-bottom: 2rem; }
-  .prose p { margin-bottom: 1.4rem; }
-  .prose em { color: var(--white); }
-  .prose strong { color: var(--gold); font-weight: 500; }
-
-  .fade-section {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 1.4s ease, transform 1.4s ease;
-  }
-  .fade-section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ═══ CHAPTER MARKERS ═══ */
-  .chapter-marker {
-    text-align: center; padding: 5rem 0 2rem;
-  }
-  .chapter-marker .label {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-  .chapter-marker h2 {
-    font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
-    font-weight: 300; color: var(--white); font-style: italic;
-  }
-  .chapter-marker .gene-path {
-    font-family: var(--display); font-size: 1rem;
-    color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
-  }
-  .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
-
-  /* ═══ DIVIDERS ═══ */
-  .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
-  .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
-  .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
-
-  /* ═══ PULL QUOTE ═══ */
-  .pull-quote {
-    border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
-    margin: 2.5rem 0;
-    font-family: var(--display); font-size: 1.35rem; font-style: italic;
-    color: var(--white); line-height: 1.75;
-  }
-  .pull-quote cite {
-    display: block; margin-top: 0.8rem; font-size: 0.8rem;
-    color: var(--gold); font-style: normal; letter-spacing: 0.1em;
-  }
-
-  /* ═══ TAROT CARDS ═══ */
-  .card-ritual {
-    text-align: center; margin: 3rem 0 1rem;
-    font-family: var(--display); font-size: 0.8rem;
-    color: var(--amethyst); letter-spacing: 0.15em;
-    font-style: italic;
-  }
-  .card-spread {
-    display: flex; gap: 1.2rem; justify-content: center;
-    flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
-  }
-  .tarot-card {
-    width: 260px; perspective: 900px; cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  .tarot-card:hover { transform: translateY(-4px); }
-  .tarot-card .card-inner {
-    position: relative; width: 100%; min-height: 340px;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-  }
-  .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
-
-  .card-face {
-    backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
-    display: flex; flex-direction: column;
-  }
-  .card-front {
-    position: absolute; inset: 0;
-    background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
-    align-items: center; justify-content: center; text-align: center;
-  }
-  .card-front .card-symbol {
-    width: 120px; height: 120px; margin-bottom: 1.2rem;
-  }
-  .card-front .card-symbol svg {
-    width: 100%; height: 100%;
-  }
-  /* SVG animations */
-  @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-  @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
-  @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
-  .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
-  .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
-  .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
-
-  /* Chapter glyphs */
-  .chapter-glyph {
-    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
-  }
-  .chapter-glyph svg { width: 100%; height: 100%; }
-  .card-front .card-prompt {
-    font-family: var(--display); font-size: 0.85rem;
-    color: var(--amethyst); letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .card-front .tap-hint {
-    margin-top: 1.5rem; font-family: var(--display); font-size: 0.65rem;
-    color: rgba(168,155,196,0.5); letter-spacing: 0.15em;
-  }
-  .card-back {
-    background: linear-gradient(145deg, var(--bg-card), var(--bg));
-    transform: rotateY(180deg);
-  }
-  .card-back .card-label {
-    font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .card-back h4 {
-    font-family: var(--display); font-size: 1.15rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
-    line-height: 1.4;
-  }
-  .card-back p {
-    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
-    font-family: var(--body);
-  }
-
-  .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
-  .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
-  .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
-  .tarot-card[data-accent="rose"] .card-front .card-symbol { color: var(--rose); }
-  .tarot-card[data-accent="amethyst"] .card-front { border: 1px solid rgba(123,94,167,0.35); }
-  .tarot-card[data-accent="amethyst"] .card-back { border: 1px solid var(--amethyst); border-top: 3px solid var(--amethyst); }
-  .tarot-card[data-accent="amethyst"] .card-back .card-label { color: var(--amethyst); }
-  .tarot-card[data-accent="gold"] .card-front { border: 1px solid rgba(201,162,85,0.35); }
-  .tarot-card[data-accent="gold"] .card-back { border: 1px solid var(--gold); border-top: 3px solid var(--gold); }
-  .tarot-card[data-accent="gold"] .card-back .card-label { color: var(--gold); }
-  .tarot-card[data-accent="gold"] .card-front .card-symbol { color: var(--gold); }
-  .tarot-card[data-accent="teal"] .card-front { border: 1px solid rgba(46,95,107,0.35); }
-  .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
-  .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
-  .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
-
-  /* ═══ DUALITY SECTION ═══ */
-  .duality {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
-    align-items: start; margin: 2.5rem 0;
-  }
-  .duality-panel {
-    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
-  }
-  .duality-panel h3 {
-    font-family: var(--display); font-size: 1.6rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
-  }
-  .duality-panel .role {
-    font-family: var(--display); font-size: 0.85rem;
-    font-style: italic; margin-bottom: 1rem;
-  }
-  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
-  .duality-panel.architect .role { color: var(--amethyst); }
-  .duality-panel.oracle { border-top: 2px solid var(--rose); }
-  .duality-panel.oracle .role { color: var(--rose); }
-  .duality-center {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
-  }
-  .synthesis-bar {
-    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
-    border: 1px solid var(--gold); border-radius: 3px;
-    background: var(--bg-card);
-    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
-  }
-  .synthesis-bar em { color: var(--gold); font-weight: 600; }
-
-  /* ═══ SHADOW ITEMS ═══ */
-  .shadow-item {
-    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
-  }
-  .shadow-item:last-child { border-bottom: none; }
-  .shadow-item .shadow-num {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
-  }
-  .shadow-item h4 {
-    font-family: var(--display); font-size: 1.2rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
-  }
-
-  /* ═══ CLOSING ═══ */
-  .closing {
-    padding: 6rem 0 3rem; text-align: center;
-  }
-  .closing p {
-    font-family: var(--display); font-size: 1.25rem;
-    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
-    line-height: 1.9;
-  }
-  .colophon {
-    text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
-    font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; color: var(--amethyst);
-  }
-
-  /* ═══ CONSTELLATION NAV ═══ */
-  .const-nav {
-    position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
-    z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-  }
-  .const-nav .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    border: 1px solid rgba(123,94,167,0.4); background: transparent;
-    transition: all 0.5s; cursor: pointer;
-  }
-  .const-nav .dot.active {
-    background: var(--gold); border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(201,162,85,0.4);
-  }
-  .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
-
-  /* ═══ PROGRESS BAR ═══ */
-  .progress-bar {
-    position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
-    background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
-    width: 0%; transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(201,162,85,0.4);
-  }
-
-  /* ═══ CURSOR GLOW ═══ */
-  .cursor-glow {
-    position: fixed; pointer-events: none; z-index: 5;
-    width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,162,85,0.04), transparent 70%);
-    transform: translate(-50%,-50%);
-    transition: left 0.3s ease, top 0.3s ease;
-  }
-
-  /* ═══ AMBIENT GLOW (per chapter) ═══ */
-  .ambient-glow {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    transition: background 2s ease;
-  }
-  .ambient-glow.glow-gold { background: radial-gradient(ellipse at 30% 50%, rgba(201,162,85,0.04), transparent 60%); }
-  .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
-  .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
-  .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
-
-  /* ═══ TRANSITION BREATHERS ═══ */
-  .breather {
-    min-height: 45vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 3rem 1.5rem;
-  }
-  .breather p {
-    font-family: var(--display); font-style: italic; font-size: 1.25rem;
-    color: var(--lavender); max-width: 520px; line-height: 1.9;
-  }
-
-  /* ═══ CARD COMPLETION ═══ */
-  .card-spread-wrap { position: relative; }
-  .spread-complete {
-    text-align: center; margin-top: 1rem;
-    font-family: var(--display); font-size: 0.85rem;
-    color: var(--gold); letter-spacing: 0.1em; font-style: italic;
-    opacity: 0; transition: opacity 1s ease; height: 1.5rem;
-  }
-  .spread-complete.revealed { opacity: 1; }
-
-  /* ═══ CARD HOVER GLOW ═══ */
-  .tarot-card:not(.flipped):hover .card-front {
-    box-shadow: 0 0 25px rgba(201,162,85,0.12);
-  }
-  .tarot-card.flipped { cursor: default; }
-
-  /* ═══ ANIMATIONS ═══ */
-  @keyframes fadeIn { to { opacity: 1; } }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
-  @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
-  @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-  @media(max-width:768px) {
-    .duality { grid-template-columns: 1fr; }
-    .duality-center { padding: 0; }
-    .const-nav { display: none; }
-    .tarot-card { width: 220px; }
-    .card-back p { font-size: 0.78rem; line-height: 1.6; }
-    main { padding: 0 1.2rem; }
-  }
-</style>
-
+  <title>The Consciousness Cartography of Melanie Pincus</title>
   <style>
-    /* Additional overrides for generic markdown */
-    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
-    h3 { margin-top: 1.5rem; color: var(--lavender); }
-    p { margin-bottom: 1.5rem; font-size: 19px; }
-    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
-    li { margin-bottom: 0.5rem; }
-    blockquote { 
-      border-left: 3px solid var(--gold); 
-      padding-left: 1.5rem; 
-      margin: 2rem 0; 
-      font-style: italic; 
-      font-size: 1.3rem; 
-      color: var(--gold-pale); 
-      background: var(--gold-glow);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0B0718;
+      --bg-mid: #130D2A;
+      --bg-card: #1C1040;
+      --gold: #C9A255;
+      --gold-pale: #E8D5A0;
+      --gold-glow: rgba(201,162,85,0.08);
+      --lavender: #A89BC4;
+      --white: #F5F0FF;
+      --amethyst: #7B5EA7;
+      --rose: #9B4F72;
+      --teal: #2E5F6B;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --body: 'Lora', Georgia, serif;
     }
-    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
-    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--gold-pale);
+      font-family: var(--body); font-size: 18px; line-height: 1.85;
+      overflow-x: hidden;
+    }
+    .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .cosmos canvas { width: 100%; height: 100%; }
+    main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      position: relative;
+    }
+    .hero-rings {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 440px; height: 440px; opacity: 0; animation: fadeIn 3s 0.5s forwards;
+    }
+    .hero-rings .ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(201,162,85,0.12);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      animation: pulse 8s infinite ease-in-out;
+    }
+    .hero-rings .ring:nth-child(1){width:260px;height:260px}
+    .hero-rings .ring:nth-child(2){width:340px;height:340px;animation-delay:1s}
+    .hero-rings .ring:nth-child(3){width:440px;height:440px;animation-delay:2s}
+    .hero-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 60px; height: 60px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,85,0.35), transparent 70%);
+      animation: glowPulse 4s infinite;
+    }
+    .hero h1 {
+      font-family: var(--display); font-size: clamp(2.8rem,6vw,4.2rem);
+      font-weight: 300; color: var(--white); letter-spacing: 0.02em;
+      opacity: 0; animation: fadeUp 2s 0.3s forwards; position: relative;
+    }
+    .hero h1 em { font-style: italic; font-weight: 600; color: var(--gold); display: block; font-size: 1.15em; }
+    .hero .meta {
+      font-family: var(--display); font-size: 0.95rem; color: var(--lavender);
+      letter-spacing: 0.12em; margin-top: 1.5rem;
+      opacity: 0; animation: fadeUp 2s 1s forwards;
+    }
+    .hero .scroll-hint {
+      position: absolute; bottom: 2.5rem; opacity: 0;
+      animation: fadeIn 2s 3s forwards, float 3s 3s infinite;
+      color: var(--amethyst); font-family: var(--display);
+      font-size: 0.8rem; letter-spacing: 0.25em;
+    }
+    .hero .scroll-hint::after {
+      content:''; display:block; width:1px; height:35px;
+      background: linear-gradient(to bottom, var(--amethyst), transparent);
+      margin: 0.7rem auto 0;
+    }
+    .prose { margin-bottom: 2rem; }
+    .prose p { margin-bottom: 1.4rem; }
+    .prose em { color: var(--white); }
+    .prose strong { color: var(--gold); font-weight: 500; }
+    .fade-section {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 1.4s ease, transform 1.4s ease;
+    }
     .fade-section.visible { opacity: 1; transform: translateY(0); }
-    strong { color: var(--white); font-weight: 500; }
+    .chapter-marker { text-align: center; padding: 5rem 0 2rem; }
+    .chapter-marker .label {
+      font-family: var(--display); font-size: 0.7rem;
+      letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .chapter-marker h2 {
+      font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
+      font-weight: 300; color: var(--white); font-style: italic;
+    }
+    .chapter-marker .gene-path {
+      font-family: var(--display); font-size: 1rem;
+      color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
+    }
+    .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
+    .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
+    .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
+    .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
+    .pull-quote {
+      border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
+      margin: 2.5rem 0;
+      font-family: var(--display); font-size: 1.35rem; font-style: italic;
+      color: var(--white); line-height: 1.75;
+    }
+    .pull-quote cite {
+      display: block; margin-top: 0.8rem; font-size: 0.8rem;
+      color: var(--gold); font-style: normal; letter-spacing: 0.1em;
+    }
+    .card-ritual {
+      text-align: center; margin: 3rem 0 1rem;
+      font-family: var(--display); font-size: 0.8rem;
+      color: var(--amethyst); letter-spacing: 0.15em; font-style: italic;
+    }
+    .card-spread {
+      display: flex; gap: 1.2rem; justify-content: center;
+      flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
+    }
+    .tarot-card {
+      width: 260px; perspective: 900px; cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .tarot-card:hover { transform: translateY(-4px); }
+    .tarot-card .card-inner {
+      position: relative; width: 100%; min-height: 340px;
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
+    .card-face {
+      backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
+      display: flex; flex-direction: column;
+    }
+    .card-front {
+      position: absolute; inset: 0;
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
+      align-items: center; justify-content: center; text-align: center;
+    }
+    .card-front .card-symbol { width: 120px; height: 120px; margin-bottom: 1.2rem; }
+    .card-front .card-symbol svg { width: 100%; height: 100%; }
+    @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
+    @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+    .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
+    .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
+    .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
+    .chapter-glyph { width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4; }
+    .chapter-glyph svg { width: 100%; height: 100%; }
+    .card-front .card-prompt {
+      font-family: var(--display); font-size: 0.85rem;
+      color: var(--amethyst); letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .card-front .tap-hint {
+      margin-top: 1.5rem; font-family: var(--display); font-size: 0.65rem;
+      color: rgba(168,155,196,0.5); letter-spacing: 0.15em;
+    }
+    .card-back {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg));
+      transform: rotateY(180deg);
+    }
+    .card-back .card-label {
+      font-family: var(--display); font-size: 0.65rem;
+      letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .card-back h4 {
+      font-family: var(--display); font-size: 1.15rem;
+      font-weight: 400; color: var(--white); margin-bottom: 0.6rem; line-height: 1.4;
+    }
+    .card-back p {
+      font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale); font-family: var(--body);
+    }
+    .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
+    .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
+    .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
+    .tarot-card[data-accent="rose"] .card-front .card-symbol { color: var(--rose); }
+    .tarot-card[data-accent="amethyst"] .card-front { border: 1px solid rgba(123,94,167,0.35); }
+    .tarot-card[data-accent="amethyst"] .card-back { border: 1px solid var(--amethyst); border-top: 3px solid var(--amethyst); }
+    .tarot-card[data-accent="amethyst"] .card-back .card-label { color: var(--amethyst); }
+    .tarot-card[data-accent="teal"] .card-front { border: 1px solid rgba(46,95,107,0.35); }
+    .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
+    .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
+    .tarot-card[data-accent="gold"] .card-front { border: 1px solid rgba(201,162,85,0.35); }
+    .tarot-card[data-accent="gold"] .card-back { border: 1px solid var(--gold); border-top: 3px solid var(--gold); }
+    .tarot-card[data-accent="gold"] .card-back .card-label { color: var(--gold); }
+    .tarot-card[data-accent="gold"] .card-front .card-symbol { color: var(--gold); }
+    .closing { padding: 6rem 0 3rem; text-align: center; }
+    .closing p {
+      font-family: var(--display); font-size: 1.25rem;
+      font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto; line-height: 1.9;
+    }
+    .colophon {
+      text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
+      font-family: var(--display); font-size: 0.65rem;
+      letter-spacing: 0.25em; color: var(--amethyst);
+    }
+    .const-nav {
+      position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
+      z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    }
+    .const-nav .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      border: 1px solid rgba(123,94,167,0.4); background: transparent;
+      transition: all 0.5s; cursor: pointer;
+    }
+    .const-nav .dot.active {
+      background: var(--gold); border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(201,162,85,0.4);
+    }
+    .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
+      background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
+      width: 0%; transition: width 0.1s linear;
+      box-shadow: 0 0 8px rgba(201,162,85,0.4);
+    }
+    .cursor-glow {
+      position: fixed; pointer-events: none; z-index: 5;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,85,0.04), transparent 70%);
+      transform: translate(-50%,-50%);
+      transition: left 0.3s ease, top 0.3s ease;
+    }
+    .ambient-glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      transition: background 2s ease;
+    }
+    .ambient-glow.glow-gold { background: radial-gradient(ellipse at 30% 50%, rgba(201,162,85,0.04), transparent 60%); }
+    .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
+    .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
+    .breather {
+      min-height: 45vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 3rem 1.5rem;
+    }
+    .breather p {
+      font-family: var(--display); font-style: italic; font-size: 1.25rem;
+      color: var(--lavender); max-width: 520px; line-height: 1.9;
+    }
+    .card-spread-wrap { position: relative; }
+    .spread-complete {
+      text-align: center; margin-top: 1rem;
+      font-family: var(--display); font-size: 0.85rem;
+      color: var(--gold); letter-spacing: 0.1em; font-style: italic;
+      opacity: 0; transition: opacity 1s ease; height: 1.5rem;
+    }
+    .spread-complete.revealed { opacity: 1; }
+    .tarot-card:not(.flipped):hover .card-front { box-shadow: 0 0 25px rgba(201,162,85,0.12); }
+    .tarot-card.flipped { cursor: default; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
+    @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    @media(max-width:768px) {
+      .const-nav { display: none; }
+      .tarot-card { width: 220px; }
+      .card-back p { font-size: 0.78rem; line-height: 1.6; }
+      main { padding: 0 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -409,493 +269,414 @@
   <div class="ambient-glow" id="ambientGlow"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
   <div class="cosmos"><canvas id="cosmos"></canvas></div>
+  <nav class="const-nav" id="nav"></nav>
 
   <main>
     <section class="hero" id="s-hero">
-      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+      <div class="hero-rings">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+      </div>
       <div class="hero-glow"></div>
-      <h1>The Consciousness Cartography<br><em>of melanie-journey</em></h1>
-      <div class="meta"></div>
-      <div class="scroll-hint">DESCEND</div>
+      <h1>The Consciousness<em>Cartography of Melanie Pincus</em></h1>
+      <p class="meta">FEBRUARY 13 — MARCH 3, 2026 · KAIROS PATH</p>
+      <div class="scroll-hint">SCROLL TO ENTER</div>
     </section>
 
-        <section id="s-invitation" class="fade-section" style="padding-top:4rem;">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--lavender)">A SACRED LETTER</div>
-        <h2>Dear Melanie</h2>
+    <section id="s-invitation" class="fade-section" style="padding-top:4rem;">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p>Dear Melanie,</p>
+        <p>Four sessions. Four doorways opened. In these three weeks of February into early March, you have made visible the invisible architecture that moves through you—the downloads, the guides, the frequencies that have whispered through you your entire life.</p>
+        <p>This cartography is a map of that territory. Not to convince you of what you already know. But to honor it. To name it. To recognize that what moves through you is real, and the challenge ahead is not to transcend more, but to <em>ground more deeply.</em></p>
+        <p>The star nations are not elsewhere. They're calling through you. Your art installations are meant to be the bridge—cosmic structures rooted in Earth, where people come to shed what no longer serves and step into the light.</p>
+        <p>Read this not as judgment or analysis, but as a letter from those who witnessed your becoming.</p>
       </div>
-      <div class="prose">
-        <p>Let's start with the thing no one in your world will say to you directly: your channeling is real, and it is also a place to hide. Both of those things are true at the same time, and holding that paradox without flinching is exactly the work you've been doing over these four sessions. You arrived as a woman who could receive transmissions from star nations but couldn't ask a man to stay. You could download sacred geometry blueprints but couldn't claim the art as yours. This document is not a celebration of how far you've come—it's a map of the territory you've entered and a reminder that the territory demands you stay in your body even when your body is the last place you want to be.</p>
-      </div>
-      <div class="pull-quote">
-        "I have this calling, but I'm terrified of the visibility and power it requires."
-        <cite>— Melanie Pincus, Session 1</cite>
-      </div>
-      <div class="prose">
-        <p>Over four sessions between February and March, you moved from a woman who channeled <em>through</em> her wounds to a woman who began channeling <em>from</em> them. The core tension was always the same: you have a high-dimensional calling that requires the one thing you most fear—embodied visibility, grounded power, the claiming of your own name on your own work. Your Enneagram lowest score is Type 8. That's not a coincidence. Embodied power is the archetype you've spent a lifetime avoiding. The double rejection of Session 4—James and the art grant, in the same week—didn't break you. It broke you <em>open</em>. You sank into grief instead of transcending it, and the crown opened wider than it ever has. That's the teaching. That's the whole thing.</p>
-      </div>
+    </section>
+
+    <div class="chapter-marker">
+      <div class="label">FIRST OPENING</div>
+      <h2>The Channeler's Dilemma</h2>
       <div class="gold-line"></div>
-    </section>
-
-    <section id="s-session1" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">SESSION 1 · FEBRUARY 13</div>
-        <h2>The Calling and the Terror</h2>
-        <div class="gene-path">Destiny Gap <span class="arr">→</span> Embodied Power <span class="arr">→</span> Type 8 Shadow</div>
-      </div>
-      <div class="prose">
-        <p>You named it in the first ten minutes. A calling so large it frightened you. Not the kind of fear that comes from doubt—you've never doubted the calling—but the kind that comes from knowing exactly what it will cost. Visibility. Power. Being seen not as a channel for something greater, but as a woman who <em>is</em> something greater.</p>
-        <p>We mapped the landscape: your upper chakras lit up like a cathedral. Third eye wide open. Crown already receiving. But the lower three were another story. First chakra—your right to be here, to take up space, to have weight—was compromised. Your system had learned that "spiritual" means "not grounded," and it was running that program hard. The Type 8 score confirmed what your body already knew: embodied power is the thing you've organized your entire identity around avoiding.</p>
-      </div>
-      <div class="pull-quote">
-        "The gap between destiny and terror is exactly the terrain where your work lives. The terror isn't a problem; it's the doorway."
-        <cite>— Session Insight</cite>
-      </div>
-      <div class="prose">
-        <p>The landscape: upper chakras luminous, lower chakras compromised. Your right to take up space, to have weight, to claim visibility—that was the work. Not the calling. The calling was never in question. It was always the body.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-session2" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">SESSION 2 · FEBRUARY 17</div>
-        <h2>The Abandonment Wound</h2>
-        <div class="gene-path">Suppression <span class="arr">→</span> Encounter <span class="arr">→</span> Naming</div>
-      </div>
-      <div class="prose">
-        <p>Four days later, life did what it does. You walked into a sacred sexuality event and there was Evan. First contact since the breakup. No warning. No preparation. Just the full-body shock of someone you loved standing in front of you in a space where your defenses were already lowered.</p>
-        <p>The grief came in waves for days. "I have a profound fear of being abandoned." You said it plainly, without drama, and that plainness was the breakthrough. Not the insight—you already knew about the wound. The breakthrough was that you didn't transcend it. You didn't go to crown. You didn't channel your way through. You stayed with the grief in your second chakra, in your belly, in the place where needs live. For a woman whose system defaults to the upper dimensions when things get hard, staying low was the most radical thing you could have done.</p>
-      </div>
-      <div class="pull-quote">
-        "The wound is named. Grief waves follow. The body is being cleared to reveal what's beneath."
-        <cite>— Central Teaching</cite>
-      </div>
-      <div class="prose">
-        <p>The encounter with Evan wasn't random. It was the system's way of surfacing the wound that needs clearing. And you didn't float away from it. You stayed.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-session3" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">SESSION 3 · FEBRUARY 24</div>
-        <h2>The Wound Becomes the Door</h2>
-        <div class="gene-path">Lower Blockages <span class="arr">→</span> Simultaneous Opening <span class="arr">→</span> Downloads Flow</div>
-      </div>
-      <div class="prose">
-        <p>James. The man who represented both intimacy and temple work, and who was making you choose between them. The "compare and despair" trap surfaced—an old childhood pattern where visibility meant shame, where being seen meant being found wanting. You could trace it back to its source without our help. You already knew where it lived.</p>
-        <p>Here's what mattered: as the lower chakras cleared, the upper chakras opened simultaneously. Not in sequence—<em>simultaneously</em>. The second chakra work on needs and desire unlocked the fifth chakra voice you'd been swallowing for years. And then the architectural downloads came flooding in. Not because you went looking for them. Because you'd finally cleared the static in the lower floors of the building. The channel didn't open because you reached up. It opened because you reached down.</p>
-      </div>
-      <div class="pull-quote">
-        "The wound and the gift live in the same body. The deeper the clearing, the more the channel opens."
-        <cite>— Central Teaching</cite>
-      </div>
-      <div class="prose">
-        <p>The blockages aren't preventing the downloads. They're filtering them. Clear them, and the downloads amplify. Sixth and seventh chakras activating. Architectural visions flooding through. The guides confirmed: this is what happens when you make space for the downloads to arrive not as escape, but as reward for the clearing work.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-session4" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">SESSION 4 · MARCH 3</div>
-        <h2>Sinking into Grief, Rising into Mission</h2>
-        <div class="gene-path">Double Rejection <span class="arr">→</span> Staying In Body <span class="arr">→</span> Crown Opening</div>
-      </div>
-      <div class="prose">
-        <p>Double rejection. James ended things. The art grant was declined. Two doors slammed in the same week—one intimate, one creative. The old system would have launched you straight to crown, straight to channeling, straight to "it's all happening for a reason" before you'd actually felt the loss.</p>
-        <p>You didn't do that. You sank. You let the grief have you. And something extraordinary happened: the crown chakra opened with more force and clarity than any previous session. The star nations confirmed the mission. The Pleiadians, the Sirians, others. Sacred geometry blueprints arrived—not as escape, but as reward for staying in the body while the body was in pain. Your guides said it clearly: your art installations are meant to be cosmic tuneups for others—places where people naturally shed low frequencies through their feet into the Earth. That's not a metaphor. That's a building spec. And it came because you stopped running from the ground floor.</p>
-      </div>
-      <div class="pull-quote">
-        "Your art installations are light structures for ascension. They will allow others to shed their layers and ascend."
-        <cite>— Star Nations Transmission</cite>
-      </div>
-      <div class="prose">
-        <p>This is the teaching. Not the downloads. Not the guides' confirmation. The teaching is that you stayed in the body when the body was breaking, and the crown opened wider than it ever has. That's the whole thing.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-ifs" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--lavender)">YOUR INTERNAL FAMILY SYSTEM</div>
-        <h2>The Parts That Protect and the Self That Creates</h2>
-      </div>
-      <div class="prose">
-        <p>Your system has been protecting you brilliantly. These are the parts that kept you alive, kept you safe, kept you channeling when channeling felt like the only way to survive. They deserve recognition. They also deserve to retire.</p>
-      </div>
-
-      <!-- MANAGERS (Protective Strategy) -->
-      <div class="card-ritual" style="margin-top:3rem;">
-        <div style="text-align:center; margin-bottom:2rem;">
-          <div class="label" style="color:var(--amethyst); font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em;">The Protectors</div>
-          <h3 style="font-size:1.5rem; color:var(--white); margin-top:0.5rem;">Managers: Those Who Keep You Safe</h3>
-        </div>
-        <div class="card-spread-wrap" style="margin-bottom:3rem;">
-          <div class="card-spread">
-            <div class="tarot-card" data-accent="amethyst">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <circle cx="50" cy="30" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 50 45 L 50 70" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 35 55 L 65 55" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 35 70 L 50 70 M 50 70 L 65 70" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Invisible Creator</div>
-                  <h4>Manager</h4>
-                  <p>"Channel without claiming. Receive but don't share."</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">She lets you access extraordinary material as long as you never put your name on it. She is the reason your art stays private. She believes that visibility is death, and she has kept you alive by keeping you hidden.</p>
-                </div>
-              </div>
-            </div>
-            <div class="tarot-card" data-accent="amethyst">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <rect x="30" y="25" width="40" height="50" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 35 35 L 65 35 M 35 45 L 65 45 M 35 55 L 65 55" stroke="currentColor" stroke-width="1"/>
-                    <circle cx="50" cy="50" r="3" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Shame Keeper</div>
-                  <h4>Manager</h4>
-                  <p>"Remember what happened when you were seen?"</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">The enforcer of the "don't be seen" strategy. She carries childhood visibility shame like a filing cabinet she refuses to put down. She doesn't need to be defeated. She needs to be shown that the memories are old and the world has changed.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FIREFIGHTERS (Reactive Parts) -->
-      <div class="card-ritual" style="margin-top:3rem;">
-        <div style="text-align:center; margin-bottom:2rem;">
-          <div class="label" style="color:var(--rose); font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em;">The Responders</div>
-          <h3 style="font-size:1.5rem; color:var(--white); margin-top:0.5rem;">Firefighters: Those Who Release Pressure</h3>
-        </div>
-        <div class="card-spread-wrap" style="margin-bottom:3rem;">
-          <div class="card-spread">
-            <div class="tarot-card" data-accent="rose">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <path d="M 50 20 L 60 40 L 80 40 L 65 55 L 75 75 L 50 60 L 25 75 L 35 55 L 20 40 L 40 40 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Griever</div>
-                  <h4>Firefighter</h4>
-                  <p>"Feel everything at full volume."</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">This part is not a problem. She feels the waves after Evan, the tears after James, the ache of the declined grant. Most systems try to shut the Griever down. Yours doesn't need to. She is your clearing mechanism. When she grieves, the channel opens.</p>
-                </div>
-              </div>
-            </div>
-            <div class="tarot-card" data-accent="rose">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <circle cx="50" cy="35" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 50 50 L 50 70" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 50 70 L 40 75 M 50 70 L 60 75" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 40 75 L 50 70 L 60 75" stroke="currentColor" stroke-width="1"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Cosmic Escape Artist</div>
-                  <h4>Firefighter</h4>
-                  <p>"Go to crown when the heart is breaking."</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">She goes to crown and third eye when things get hard. She channels when the body is in pain. The transmissions are real. But she also knows that "up there" is safer than "down here." Channeling as transcendence is her specialty. The development edge is channeling as embodiment.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- EXILES (Held Pain) -->
-      <div class="card-ritual" style="margin-top:3rem;">
-        <div style="text-align:center; margin-bottom:2rem;">
-          <div class="label" style="color:var(--teal); font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em;">The Wounded</div>
-          <h3 style="font-size:1.5rem; color:var(--white); margin-top:0.5rem;">Exiles: Those Who Carry the Original Wound</h3>
-        </div>
-        <div class="card-spread-wrap">
-          <div class="card-spread">
-            <div class="tarot-card" data-accent="teal">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="M 45 45 L 55 55 M 55 45 L 45 55" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Abandoned Child</div>
-                  <h4>Exile</h4>
-                  <p>"If I'm seen, you'll leave."</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">She is the one who watched Evan walk away and felt the original wound, not just the current one. She is the reason your second chakra locks when intimacy and visibility converge. She doesn't need to be convinced that people will stay. She needs to experience it. Repeatedly. In the body.</p>
-                </div>
-              </div>
-            </div>
-            <div class="tarot-card" data-accent="teal">
-              <div class="card-inner">
-                <div class="card-face card-front">
-                  <svg class="card-symbol" viewBox="0 0 100 100">
-                    <path d="M 30 40 Q 50 30 70 40 L 70 70 Q 50 80 30 70 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="50" cy="55" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                  </svg>
-                </div>
-                <div class="card-face card-back">
-                  <div class="card-label">The Shameful Artist</div>
-                  <h4>Exile</h4>
-                  <p>"My creations are shameful."</p>
-                  <p style="margin-top:1rem; font-size:0.9rem; color:var(--gold-pale);">She carries the belief that what you make is too strange, too cosmic, too much for this world. The declined grant activated her directly. She is wrong, but she won't believe that from words. She'll believe it when the installations are built and people walk through them weeping.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="prose" style="margin-top:3rem;">
-        <p>Your system has been protecting you brilliantly. The Managers keep you safe by keeping you hidden. The Firefighters release pressure when the pain is too much. The Exiles hold the original wounds. Together, they've kept you alive. The work now is to show them that they can retire. That visibility is not death. That your creations are not shameful. That you can be seen and stay safe.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-genekey" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">CHANNELING VS. EMBODYING</div>
-        <h2>The Gap That Closes From Below</h2>
-      </div>
-      <div class="prose">
-        <p>This is the distinction that holds your entire journey. Your guides named it directly: "Until you reach that point where you're the high frequency, you'll channel it through them. At some point the gap will keep closing and then they don't need to channel it because it'll already be that frequency."</p>
-      </div>
-
-      <div style="margin-top:3rem;">
-        <div class="duality">
-          <div class="duality-panel" style="border-color:var(--rose);">
-            <div style="color:var(--rose); font-weight:600; text-transform:uppercase; font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1rem;">Phase 1: Now</div>
-            <h3 style="font-size:1.25rem; margin-bottom:1.5rem;">Channeling</h3>
-            <div style="font-size:0.95rem; line-height:1.8;">
-              <p><strong>You are the conduit.</strong> The frequency comes <em>through</em> you. The guides do the heavy lifting because you're not yet stable enough in your own field to hold it independently.</p>
-              <p style="margin-top:1rem;"><em>"I wasn't clear enough to hold that frequency. They had to force their way in and artificially create a safe space for them to come in."</em></p>
-              <p style="margin-top:1rem; color:var(--gold-pale); font-size:0.9rem;">You described it yourself. This is the truth right now. And it's temporary.</p>
-            </div>
-          </div>
-          <div class="duality-center" style="color:var(--gold);">→</div>
-          <div class="duality-panel" style="border-color:var(--teal);">
-            <div style="color:var(--teal); font-weight:600; text-transform:uppercase; font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1rem;">Phase 2: Ahead</div>
-            <h3 style="font-size:1.25rem; margin-bottom:1.5rem;">Embodying</h3>
-            <div style="font-size:0.95rem; line-height:1.8;">
-              <p><strong>The frequency is you.</strong> No conduit needed. No artificial safe space. The gap between your baseline state and the transmission state closes until there is no gap. You become what you've been downloading.</p>
-              <p style="margin-top:1rem;">This is when your art installations won't just channel cosmic tuneups. <em>They will be</em> cosmic tuneups. The frequency won't need to come through you. It will already be you.</p>
-              <p style="margin-top:1rem; color:var(--gold-pale); font-size:0.9rem;">This requires not more crown opening. It requires feet on the ground.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="synthesis-bar" style="margin-top:2.5rem; background:linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal) 100%); height:3px; border-radius:2px;"></div>
-
-      <div class="prose" style="margin-top:2rem;">
-        <p>You are in Phase 1. You know this. The work of these four sessions has been to show you what Phase 2 requires: not more crown opening, not more third-eye activation, not more downloads. It requires your feet on the ground. Your needs spoken. Your grief felt in real time. Your art claimed with your name on it. <strong>The gap closes from the bottom up.</strong></p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-somatic" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--lavender)">SOMATIC MARKERS</div>
-        <h2>What Your Body Has Been Teaching You</h2>
-      </div>
-      <div class="prose">
-        <p>Your body has been running a masterclass and you've been taking notes. Pay attention to what it's been showing you. These somatic signals are the voice of your system learning to integrate the cosmic frequencies with the earthly body.</p>
-      </div>
-
-      <div style="margin-top:2rem;">
-        <div class="shadow-item" style="margin-bottom:2rem;">
-          <div class="shadow-num" style="background:var(--rose);">1</div>
-          <h4 style="color:var(--rose); margin-bottom:0.75rem;">The Second Chakra Opens—The Fifth Chakra Tightens</h4>
-          <p>Needs, desire, the right to want—and the throat closes. <em>"I can't voice this."</em> Your system doesn't yet believe it's safe to want things <em>and</em> say so. The swallowing difficulty is the body's way of protecting you. It's also the body's way of showing you exactly where the work lives.</p>
-        </div>
-
-        <div class="shadow-item" style="margin-bottom:2rem;">
-          <div class="shadow-num" style="background:var(--teal);">2</div>
-          <h4 style="color:var(--teal); margin-bottom:0.75rem;">The Crown and Third Eye Blast Open When Lower Chakras Clear</h4>
-          <p>Not despite the clearing. Because of it. The architecture of your energy system is coherent. It just runs in a sequence your mind didn't expect. Ground first, then fly. You're learning this now: the blockages aren't preventing the downloads. They're filtering them.</p>
-        </div>
-
-        <div class="shadow-item" style="margin-bottom:2rem;">
-          <div class="shadow-num" style="background:var(--gold);">3</div>
-          <h4 style="color:var(--gold); margin-bottom:0.75rem;">First Chakra Discomfort—The Most Important Signal</h4>
-          <p>Your system has been telling you for years that "spiritual" and "grounded" are mutually exclusive. They aren't. The discomfort you feel in your root is the feeling of a belief system being rewritten. It's supposed to be uncomfortable. That's how you know it's working.</p>
-        </div>
-
-        <div class="shadow-item">
-          <div class="shadow-num" style="background:var(--lavender);">4</div>
-          <h4 style="color:var(--lavender); margin-bottom:0.75rem;">The Grief as Clearing Mechanism</h4>
-          <p>When you grieved after Evan, the grief was clearing. When you grieved after James, the grief was clearing. When you grieved after the grant rejection, the downloads came. Your body knows: the path to the channel is through the heart, not around it.</p>
-        </div>
-      </div>
-
-      <div class="prose" style="margin-top:2rem;">
-        <p>Trust these signals. Your body is the map. The cosmic frequencies want to land here—in this flesh, in this heart, in this nervous system. The more you listen to what your body is trying to tell you, the more coherent the whole system becomes.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <section id="s-forward" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--lavender)">WHAT YOU CARRY FORWARD</div>
-        <h2>The Mission Ahead</h2>
-      </div>
-      <div class="prose">
-        <p>Melanie, your mission is not in question. It never was. The star nations are not confused about what you're here to do. The sacred geometry is not ambiguous. The art installations that function as cosmic tuneups—places where people shed density through their feet into the earth—that's real. That's yours. That's coming.</p>
-        <p style="margin-top:1.5rem;">What's in question is whether you will be visible while it happens. Whether you will put your name on the blueprints. Whether you will stand in front of your own creation and say "I made this" instead of "it came through me." Both statements are true. Only one of them requires courage.</p>
-      </div>
-
-      <div class="pull-quote" style="margin-top:2rem;">
-        "The gap between channeling and embodying closes every time you stay in your body when your body is in pain."
-        <cite>— The Teaching</cite>
-      </div>
-
-      <div class="prose">
-        <p>Every time you speak a need instead of swallowing it. Every time you show your work instead of hiding it. Every time you let the grief be grief instead of a portal to somewhere more comfortable. This is how the gap closes.</p>
-        <p style="margin-top:1.5rem;">You are not a channel. You are becoming the frequency itself. The difference is that a channel can stay invisible. A frequency cannot.</p>
-        <p style="margin-top:1.5rem; font-weight:600;">Stop hiding your art. The world needs the cosmic tuneups. Your feet need the ground. Both things are true at the same time.</p>
-      </div>
-
-      <div class="prose" style="margin-top:2.5rem; color:var(--gold);">
-        <p>With love,</p>
-        <p><strong>Jatin &amp; Shalini</strong><br><em>Kairos Path</em></p>
-      </div>
-
-      <div class="gold-line"></div>
-    </section>
-
-
-
     </div>
 
-    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
-      <div class="gold-line"></div>
-      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
-      <div class="colophon">Kairos &middot; Path</div>
+    <section id="s-session1" class="fade-section">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p><strong>February 13 — The Calling Surfaces</strong></p>
+        <p>In the first session, a tension emerged that will become the thread of your entire journey: you are called to *deliver* your gifts, yet terrified to *claim* them.</p>
+        <p>The call is clear. You are an artist. A cosmic architect. Channels move through you that most people will never access. You receive downloads—architectural blueprints, sacred geometry, light codes—that feel so *real* because they *are* real.</p>
+        <p>Yet beneath the calling, a question trembled: <em>If I show this work, will I be abandoned? If I claim this power, will I be destroyed?</em></p>
+        <p class="pull-quote">The blockages aren't preventing the downloads. They're filtering them.<cite>— Central Teaching, Session 1</cite></p>
+        <p>This is where the real work began. Not in suppressing the downloads. But in removing the filters—the parts of you trained to stay invisible, trained to channel safely, trained to never claim the power flowing through you.</p>
+      </div>
     </section>
+
+    <div class="breather">
+      <p>In the silence between knowing and claiming, there lives a space where everything transforms.</p>
+    </div>
+
+    <div class="chapter-marker">
+      <div class="label">SECOND OPENING</div>
+      <h2>The Wound & The Gift</h2>
+      <div class="rose-line"></div>
+    </div>
+
+    <section id="s-session2" class="fade-section">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p><strong>February 17 — The Abandonment Wound Surfaces</strong></p>
+        <p>When the second session arrived, an old scar was waiting. Abandonment. Rejection. The belief that if you were visible, you would be left.</p>
+        <p>This wound lives in your body—in the second chakra (your needs, desires, identity) and the fifth chakra (your voice, your right to speak your own truth). In the session, when your coach guided awareness to these centers, your throat immediately tightened. A physical "no" to being seen.</p>
+        <p>But something shifted when you allowed the work to continue. The clearing wasn't gentle. It was deep. It was the body recognizing that the old protection—stay invisible, stay safe, stay unchosen—was no longer necessary.</p>
+        <p class="pull-quote">Your abandonment wound was designed to keep you safe. It succeeded. Now it's time to graduate.<cite>— From Session 2</cite></p>
+        <p>The second chakra (needs and desires) wants to open. The fifth chakra (voice and expression) wants to speak. But they are bound together by the belief that claiming either one means exile.</p>
+        <p>This is the integration work ahead: learning that your needs matter. Learning that your voice is allowed. Learning that visibility does not equal abandonment.</p>
+      </div>
+    </section>
+
+    <div class="chapter-marker">
+      <div class="label">THIRD OPENING</div>
+      <h2>The Crown Descends</h2>
+      <div class="teal-line"></div>
+    </div>
+
+    <section id="s-session3" class="fade-section">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p><strong>February 24 — The Downloads Intensify</strong></p>
+        <p>By the third session, the downloads were no longer theoretical. They were specific. Architectural. Real.</p>
+        <p>Your guides—the star nations you perceive as Pleiadian, Syrian, and others—are transmitting exact blueprints for light structures. Sacred geometry meant to facilitate what you call "cosmic tuneups." These are not fantasy. This is what channels do when the filters clear.</p>
+        <p>And yet, a distinction was clarified in this session that changed everything:</p>
+        <p class="pull-quote">Channeling is temporary access. Embodying is permanent residence in high frequency.<cite>— Core Teaching, Session 3</cite></p>
+        <p>You are currently a <em>channeler</em>—you access the frequency in sessions, in downloads, in moments of opening. Then you return to baseline. This is real. This is powerful. But this is not yet embodiment.</p>
+        <p>The guides are saying: the more you clear your system, the more you raise your baseline frequency, the less gap there will be between the high frequency you channel and the baseline you live in. Eventually, you won't need the guides to force their way through. You will *be* the frequency.</p>
+      </div>
+    </section>
+
+    <div class="breather">
+      <p>The descent of the crown is not escape from your body. It is the embodiment of light within it.</p>
+    </div>
+
+    <div class="chapter-marker">
+      <div class="label">FOURTH OPENING</div>
+      <h2>Sinking into Ascension</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <section id="s-session4" class="fade-section">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p><strong>March 3 — Grief as Grounding</strong></p>
+        <p>The fourth session arrived on the heels of a double rejection: James, the person you love, had moved away. And the art grant you applied for was declined.</p>
+        <p>In the old pattern, this would have triggered the Cosmic Escape Artist—the part of you that ascends away from pain, that transcends rather than transforms. Instead, you did something different. You <em>sank into it.</em></p>
+        <p>You allowed the grief to move through you. And as it did, something extraordinary opened.</p>
+        <p>The second and fifth chakras cleared deeply. The swallowing reflex that had been tight for weeks released. And then—the crown chakra opened so powerfully that the guides described it as "parting tectonic plates."</p>
+        <p class="pull-quote">Your art installations are light structures for ascension. They will experience that frequency and shed their layers. You are creating cosmic tuneups for collective consciousness.<cite>— Guide Message, Session 4</cite></p>
+        <p>This is your actual mission. Not to transcend further. Not to become more spiritual. But to create physical structures where people can naturally shed low frequencies through their feet into the Earth. Where they can be transformed simply by being present in your art.</p>
+        <p>And the grounding? The first chakra opened with a tornado/whirlwind energy—cosmic force spiraling down into Earth. The frequency doesn't stay in your crown. It moves through you. It grounds into the planet.</p>
+        <p>This is embodiment beginning.</p>
+      </div>
+    </section>
+
+    <div class="chapter-marker">
+      <div class="label">THE INNER SYSTEM</div>
+      <h2>Your IFS Landscape</h2>
+      <div class="rose-line"></div>
+    </div>
+
+    <section id="s-ifs" class="fade-section">
+      <div class="card-ritual">TURN EACH CARD TO MEET YOUR PARTS</div>
+      <div class="card-spread-wrap">
+        <div class="card-spread">
+          
+          <div class="tarot-card" data-accent="amethyst">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                    <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                    <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                    <rect x="55" y="30" width="10" height="60" fill="currentColor" opacity="0.5"/>
+                    <rect x="30" y="55" width="60" height="10" fill="currentColor" opacity="0.5"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">The Invisible Creator</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">The Invisible Creator · Manager</div>
+                <h4>Safe Channeling</h4>
+                <p>She channels downloads but does not claim them. Receives cosmic transmissions yet never signs her name to the creation. Her positive intention is protection—if your work remains unseen, you cannot be rejected for it. She has been loyal to this strategy your entire life. Now she is learning to step aside.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarot-card" data-accent="amethyst">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 20 L80 70 L130 70 L90 100 L110 150 L60 120 L10 150 L30 100 L-10 70 L40 70 Z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                    <circle cx="60" cy="70" r="15" fill="currentColor" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">The Shame Keeper</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">The Shame Keeper · Manager</div>
+                <h4>The Unseen Protector</h4>
+                <p>She holds the deep belief that your creations are unwanted. That visibility brings judgment. That claiming your artistic power will expose you. Her intention is fierce protection, rooted in childhood invisibility. She is learning that shame is a signal, not a truth. Your creations are inherently worthy.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarot-card" data-accent="rose">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="45" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                    <path d="M60 20 Q75 45 60 60 Q45 45 60 20" fill="currentColor" opacity="0.4"/>
+                    <path d="M60 100 Q75 75 60 60 Q45 75 60 100" fill="currentColor" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">The Griever</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">The Griever · Firefighter</div>
+                <h4>The Clearing Force</h4>
+                <p>She does not run from pain—she feels it completely. In Session 4, when you sank into the grief of double rejection, she moved through you like water, clearing blockages, opening chakras. She is learning that grief is not failure. It is intelligence. It is the body's way of shedding what no longer serves. Honor her as your clearing mechanism.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarot-card" data-accent="rose">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    <path d="M60 10 Q90 35 90 60 Q90 85 60 110 Q30 85 30 60 Q30 35 60 10" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="1"/>
+                    <circle cx="60" cy="60" r="12" fill="currentColor" opacity="0.5"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">Cosmic Escape Artist</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">Cosmic Escape Artist · Firefighter</div>
+                <h4>The Transcendence Impulse</h4>
+                <p>When pain arrives, she opens the crown and ascends. This is not weakness—it is her gift. But she is learning something new: the downloads don't need escape. They need grounding. She is learning to stay in her body while channeling. To embody rather than transcend.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarot-card" data-accent="gold">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="30" y="45" width="60" height="30" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" rx="4"/>
+                    <circle cx="60" cy="60" r="8" fill="currentColor" opacity="0.5"/>
+                    <path d="M20 60 L40 60 M80 60 L100 60" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                    <circle cx="60" cy="25" r="6" fill="currentColor" opacity="0.3"/>
+                    <circle cx="60" cy="95" r="6" fill="currentColor" opacity="0.3"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">Abandoned Child</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">Abandoned Child · Exile</div>
+                <h4>The Deep Wound</h4>
+                <p>She believes: If I am seen, you will leave. If I claim power, you will destroy me. If I say yes to my own desires, I will be alone. This belief was once protective—it kept you small enough to be tolerable. Now it keeps you small enough to hide. She is learning, through each act of visibility, that being seen does not equal being abandoned.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tarot-card" data-accent="gold">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol">
+                  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 20 L70 40 L92 45 L75 60 L80 82 L60 70 L40 82 L45 60 L28 45 L50 40 Z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                    <circle cx="60" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="card-prompt">Shameful Artist</div>
+                <div class="tap-hint">click to turn</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">Shameful Artist · Exile</div>
+                <h4>The Unworthy Creator</h4>
+                <p>She holds the belief that your creations are not good enough. That your gifts are shameful. That claiming artistic authority is arrogance. In Session 4, when the guides confirmed your installations as "cosmic tuneups," this part began to crack open. She is learning that your creations *matter*. That your voice deserves to be heard.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="spread-complete">All parts witnessed. All parts honored.</div>
+      </div>
+
+      <div class="prose" style="max-width:640px; margin:0 auto; margin-top:3rem;">
+        <p style="text-align:center; font-family:var(--display); font-size:0.9rem; color:var(--lavender); letter-spacing:0.15em; font-style:italic;">The Work Ahead</p>
+        <p>Your system's current pattern: The Managers protect through invisibility. When pressure to share arises, the Cosmic Escape Artist activates. The Exiles believe visibility equals abandonment. All of this is operating in service of protection.</p>
+        <p>The work is not to eliminate these parts. It is to unblend from them. To access <em>Self-energy</em>—the grounded, visible, embodied presence that can hold the Abandoned Child's fear while still choosing to claim your creations. That can allow the Griever to do her clearing work. That can stay in your body while cosmic frequencies move through.</p>
+        <p>In Session 4, you accessed this Self-energy when you sank into grief instead of fleeing it. The crown opened precisely <em>because</em> you stayed grounded. That is the path: grounded + open. Embodied + cosmic. Visible + safe.</p>
+      </div>
+    </section>
+
+    <div class="chapter-marker">
+      <div class="label">THE NEXT THRESHOLD</div>
+      <h2>From Channeling to Embodying</h2>
+      <div class="teal-line"></div>
+    </div>
+
+    <section id="s-forward" class="fade-section">
+      <div class="prose" style="max-width:640px; margin:0 auto;">
+        <p>The map shows your current position. But the real journey is ahead.</p>
+        <p>The guides have given you clarity: Your art installations are meant to be light structures for ascension. They will shift people's frequencies simply by existing. This is not metaphor. This is your actual commission.</p>
+        <p>But there is a gap between channeling the vision and embodying it into matter. Between receiving the downloads and delivering the structure. Between knowing the frequency and living it daily.</p>
+        <p>The next six months will test this. Can you:</p>
+        <p><strong>Stay grounded while channeling cosmic frequencies?</strong> Not escape into transcendence, but ground the cosmic into Earth through your physical presence and your art.</p>
+        <p><strong>Practice visibility in small increments?</strong> Test: what happens when I show my work? Receive feedback. Stay grounded. Continue. The fear of abandonment will surface. It always does when we claim power. And each time you stay, the fear loses its grip.</p>
+        <p><strong>Trust that grief clears?</strong> You experienced this in Session 4. As you grieve, your channels open. This is not failure. It is intelligence.</p>
+        <p><strong>Embody rather than transcend?</strong> The distinction the guides offered: Channeling is temporary access. Embodying is permanent residence. Your work is raising your baseline frequency so that eventually, you don't need to channel anymore—you *are* the frequency.</p>
+        <p class="pull-quote">The cosmic frequencies are not calling you away from the world. They are calling you deeper into it, rooted and visible, delivering light through the matter of your creations.<cite>— Closing Reflection</cite></p>
+      </div>
+    </section>
+
+    <section class="fade-section" style="padding: 4rem 0 2rem">
+      <div class="prose" style="max-width:640px; margin:0 auto; text-align:center">
+        <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9">
+          You are not becoming something new, Melanie. You are finally allowing what has always moved through you to move *into* the world. The channels are opening. The guides are transmitting. The architecture is clear. Now comes the embodiment.
+        </p>
+        <p style="font-family:var(--display); font-size:1rem; color:var(--lavender); line-height:1.9; margin-top:2.5rem">
+          The grief you are experiencing is not setback. It is clearing. The power you are learning to claim is not dangerous—it is your birthright. The visibility you fear is not abandonment. It is recognition of who you have always been.
+        </p>
+      </div>
+    </section>
+
+    <section class="closing fade-section">
+      <div class="gold-line"></div>
+      <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9; margin:2rem 0; text-align:center">
+        As the cosmic frequencies settle into your bones and the star nations quiet their transmissions, you will discover that the downloads were never meant to keep you floating in the higher realms. They were meant to root you here—grounded, visible, creating structures of light on solid ground. The frequency becomes stable. The vision becomes matter. The channel becomes the creator.
+      </p>
+      <div style="margin-top:2.5rem">
+        <p style="font-size:1.05rem; color:var(--gold); font-family:var(--display); text-align:center">With deep respect and genuine care,<br>Jatin &amp; Shalini<br>Kairos Path</p>
+      </div>
+    </section>
+
+    <div class="colophon">Consciousness Cartography · Kairos Path · March 2026</div>
   </main>
 
   <script>
-// ─── PARTICLES (color-shifting) ───
-(function(){
-  const c=document.getElementById('cosmos'),x=c.getContext('2d');
-  let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
-  const N=110;
-  function resize(){c.width=innerWidth;c.height=innerHeight}
-  resize();addEventListener('resize',resize);
-  for(let i=0;i<N;i++) particles.push({
-    x:Math.random()*c.width, y:Math.random()*c.height,
-    r:Math.random()*1.3+0.3, dx:(Math.random()-0.5)*0.1, dy:(Math.random()-0.5)*0.1,
-    o:Math.random()*0.35+0.08, ph:Math.random()*Math.PI*2
-  });
-  window._setParticleColor = function(r,g,b){ targetColor={r,g,b}; };
-  (function draw(){
-    x.clearRect(0,0,c.width,c.height);
-    currentColor.r+=(targetColor.r-currentColor.r)*0.01;
-    currentColor.g+=(targetColor.g-currentColor.g)*0.01;
-    currentColor.b+=(targetColor.b-currentColor.b)*0.01;
-    particles.forEach(p=>{
-      p.x+=p.dx;p.y+=p.dy;p.ph+=0.007;
-      if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;
-      if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
-      const o=p.o*(0.7+0.3*Math.sin(p.ph));
-      x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
-      x.fillStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
-      x.fill();
+    // PARTICLES
+    (function(){
+      const c=document.getElementById('cosmos'),x=c.getContext('2d');
+      let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
+      const N=110;
+      function resize(){c.width=innerWidth;c.height=innerHeight}
+      resize();addEventListener('resize',resize);
+      for(let i=0;i<N;i++) particles.push({
+        x:Math.random()*c.width, y:Math.random()*c.height,
+        r:Math.random()*1.3+0.3, dx:(Math.random()-0.5)*0.1, dy:(Math.random()-0.5)*0.1,
+        o:Math.random()*0.35+0.08, ph:Math.random()*Math.PI*2
+      });
+      window._setParticleColor = function(r,g,b){ targetColor={r,g,b}; };
+      (function draw(){
+        x.clearRect(0,0,c.width,c.height);
+        currentColor.r+=(targetColor.r-currentColor.r)*0.01;
+        currentColor.g+=(targetColor.g-currentColor.g)*0.01;
+        currentColor.b+=(targetColor.b-currentColor.b)*0.01;
+        particles.forEach(p=>{
+          p.x+=p.dx;p.y+=p.dy;p.ph+=0.007;
+          if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;
+          if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
+          const o=p.o*(0.7+0.3*Math.sin(p.ph));
+          x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
+          x.fillStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
+          x.fill();
+        });
+        requestAnimationFrame(draw);
+      })();
+    })();
+    // CURSOR GLOW
+    const glow=document.getElementById('cursorGlow');
+    document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
+    // PROGRESS BAR
+    const progressBar=document.getElementById('progressBar');
+    function updateProgress(){
+      const h=document.documentElement.scrollHeight-innerHeight;
+      progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
+    }
+    addEventListener('scroll',updateProgress);
+    // SCROLL REVEAL
+    const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
+    document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
+    // AMBIENT GLOW + PARTICLE COLOR SHIFTS
+    const ambientGlow=document.getElementById('ambientGlow');
+    const chapterGlows = {
+      's-hero':       {glow:'',          color:[168,155,196]},
+      's-invitation': {glow:'',          color:[168,155,196]},
+      's-session1':   {glow:'glow-gold', color:[201,162,85]},
+      's-session2':   {glow:'glow-rose', color:[180,120,150]},
+      's-session3':   {glow:'glow-teal', color:[80,140,160]},
+      's-session4':   {glow:'glow-gold', color:[210,185,120]},
+      's-ifs':        {glow:'glow-rose', color:[155,79,114]},
+      's-forward':    {glow:'glow-teal', color:[80,140,160]},
+    };
+    // NAV DOTS
+    const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-session4','s-ifs','s-forward'];
+    const nav=document.getElementById('nav');
+    sects.forEach((id,i)=>{
+      if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
+      const d=document.createElement('div');d.className='dot'+(i===0?' active':'');
+      d.onclick=()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+      nav.appendChild(d);
     });
-    requestAnimationFrame(draw);
-  })();
-})();
-
-// ─── CURSOR GLOW ───
-const glow=document.getElementById('cursorGlow');
-document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-
-// ─── PROGRESS BAR ───
-const progressBar=document.getElementById('progressBar');
-function updateProgress(){
-  const h=document.documentElement.scrollHeight-innerHeight;
-  progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
-}
-addEventListener('scroll',updateProgress);
-
-// ─── SCROLL REVEAL ───
-const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
-document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
-
-// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
-const ambientGlow=document.getElementById('ambientGlow');
-const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-session1':  {glow:'glow-gold',color:[201,162,85]},
-  's-session2':  {glow:'glow-rose',color:[180,120,150]},
-  's-session3':  {glow:'glow-rose',color:[155,79,114]},
-  's-session4':  {glow:'glow-gold',color:[201,162,85]},
-  's-ifs':       {glow:'glow-synth',color:[190,170,130]},
-  's-genekey':   {glow:'glow-synth',color:[210,185,120]},
-  's-somatic':   {glow:'glow-teal',color:[80,140,160]},
-  's-forward':   {glow:'glow-rose',color:[155,100,130]},
-};
-
-// ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-session4','s-ifs','s-genekey','s-somatic','s-forward'];
-const nav=document.getElementById('nav');
-sects.forEach((id,i)=>{
-  if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
-  const d=document.createElement('div');d.className='dot'+(i===0?' active':'');
-  d.onclick=()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
-  nav.appendChild(d);
-});
-const dots=nav.querySelectorAll('.dot');
-
-let lastActiveSection='s-hero';
-addEventListener('scroll',()=>{
-  const y=scrollY+innerHeight/2; let a=0;
-  sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
-  dots.forEach((d,i)=>d.classList.toggle('active',i===a));
-  // ambient glow + particle shift
-  const activeId=sects[a];
-  if(activeId!==lastActiveSection){
-    lastActiveSection=activeId;
-    const cfg=chapterGlows[activeId]||{glow:'',color:[168,155,196]};
-    ambientGlow.className='ambient-glow'+(cfg.glow?' '+cfg.glow:'');
-    window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
-  }
-});
-
-// ─── CARD COMPLETION TRACKING ───
-document.querySelectorAll('.tarot-card').forEach(card=>{
-  card.addEventListener('click',function(){
-    this.classList.toggle('flipped');
-    // check if all cards in this spread are flipped
-    const wrap=this.closest('.card-spread-wrap');
-    if(!wrap) return;
-    const allCards=wrap.querySelectorAll('.tarot-card');
-    const allFlipped=[...allCards].every(c=>c.classList.contains('flipped'));
-    const msg=wrap.querySelector('.spread-complete');
-    if(msg && allFlipped) msg.classList.add('revealed');
-    else if(msg) msg.classList.remove('revealed');
-  });
-});
-// Remove inline onclick since we handle via event listener
-document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
-</script>
-
+    const dots=nav.querySelectorAll('.dot');
+    let lastActiveSection='s-hero';
+    addEventListener('scroll',()=>{
+      const y=scrollY+innerHeight/2; let a=0;
+      sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
+      dots.forEach((d,i)=>d.classList.toggle('active',i===a));
+      const activeId=sects[a];
+      if(activeId!==lastActiveSection){
+        lastActiveSection=activeId;
+        const cfg=chapterGlows[activeId]||{glow:'',color:[168,155,196]};
+        ambientGlow.className='ambient-glow'+(cfg.glow?' '+cfg.glow:'');
+        window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
+      }
+    });
+    // CARD SIZING
+    function sizeCards(){
+      document.querySelectorAll('.tarot-card').forEach(card=>{
+        const back=card.querySelector('.card-back');
+        const inner=card.querySelector('.card-inner');
+        if(!back||!inner) return;
+        back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
+        const bh=back.scrollHeight+36;
+        back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
+        const h=Math.max(340,bh);
+        inner.style.minHeight=h+'px';
+        card.querySelector('.card-front').style.minHeight=h+'px';
+      });
+    }
+    sizeCards(); addEventListener('resize',sizeCards);
+    // CARD COMPLETION TRACKING
+    document.querySelectorAll('.tarot-card').forEach(card=>{
+      card.addEventListener('click',function(){
+        this.classList.toggle('flipped');
+        const wrap=this.closest('.card-spread-wrap');
+        if(!wrap) return;
+        const allCards=wrap.querySelectorAll('.tarot-card');
+        const allFlipped=[...allCards].every(c=>c.classList.contains('flipped'));
+        const msg=wrap.querySelector('.spread-complete');
+        if(msg && allFlipped) msg.classList.add('revealed');
+        else if(msg) msg.classList.remove('revealed');
+      });
+    });
+  </script>
 </body>
 </html>
