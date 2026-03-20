@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Consciousness Cartography of Matt Gillespie</title>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>The Consciousness Cartography of Matt Gillespie</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --bg: #0B0718;
     --bg-mid: #130D2A;
@@ -28,22 +22,15 @@
     --display: 'Cormorant Garamond', Georgia, serif;
     --body: 'Lora', Georgia, serif;
   }
-
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--gold-pale);
     font-family: var(--body); font-size: 18px; line-height: 1.85;
     overflow-x: hidden;
   }
-
-  /* ═══ COSMIC CANVAS ═══ */
   .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
   .cosmos canvas { width: 100%; height: 100%; }
-
-  /* ═══ MAIN SCROLL ═══ */
   main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ═══ HERO ═══ */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
@@ -90,27 +77,19 @@
     background: linear-gradient(to bottom, var(--amethyst), transparent);
     margin: 0.7rem auto 0;
   }
-
-  /* ═══ PROSE BLOCKS ═══ */
   .prose { margin-bottom: 2rem; }
   .prose p { margin-bottom: 1.4rem; }
   .prose em { color: var(--white); }
   .prose strong { color: var(--gold); font-weight: 500; }
-
   .fade-section {
     opacity: 0; transform: translateY(30px);
     transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .fade-section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ═══ CHAPTER MARKERS ═══ */
-  .chapter-marker {
-    text-align: center; padding: 5rem 0 2rem;
-  }
+  .chapter-marker { text-align: center; padding: 5rem 0 2rem; }
   .chapter-marker .label {
     font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
+    letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 0.4rem;
   }
   .chapter-marker h2 {
     font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
@@ -121,13 +100,9 @@
     color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
   }
   .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
-
-  /* ═══ DIVIDERS ═══ */
   .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
   .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
   .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
-
-  /* ═══ PULL QUOTE ═══ */
   .pull-quote {
     border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
     margin: 2.5rem 0;
@@ -138,57 +113,44 @@
     display: block; margin-top: 0.8rem; font-size: 0.8rem;
     color: var(--gold); font-style: normal; letter-spacing: 0.1em;
   }
-
-  /* ═══ TAROT CARDS ═══ */
   .card-ritual {
     text-align: center; margin: 3rem 0 1rem;
     font-family: var(--display); font-size: 0.8rem;
-    color: var(--amethyst); letter-spacing: 0.15em;
-    font-style: italic;
+    color: var(--amethyst); letter-spacing: 0.15em; font-style: italic;
   }
   .card-spread {
     display: flex; gap: 1.2rem; justify-content: center;
     flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
   }
   .tarot-card {
-    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    width: 260px; perspective: 900px; cursor: pointer;
     transition: transform 0.3s ease;
   }
   .tarot-card:hover { transform: translateY(-4px); }
   .tarot-card .card-inner {
-    position: relative; width: 100%; height: 100%; min-height: 340px;
+    position: relative; width: 100%; min-height: 340px;
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
-
   .card-face {
-    position: absolute; inset: 0;
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
   }
   .card-front {
+    position: absolute; inset: 0;
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
-  .card-front .card-symbol {
-    width: 120px; height: 120px; margin-bottom: 1.2rem;
-  }
-  .card-front .card-symbol svg {
-    width: 100%; height: 100%;
-  }
-  /* SVG animations */
+  .card-front .card-symbol { width: 120px; height: 120px; margin-bottom: 1.2rem; }
+  .card-front .card-symbol svg { width: 100%; height: 100%; }
   @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
   @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
   .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
   .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
   .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
-
-  /* Chapter glyphs */
-  .chapter-glyph {
-    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
-  }
+  .chapter-glyph { width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4; }
   .chapter-glyph svg { width: 100%; height: 100%; }
   .card-front .card-prompt {
     font-family: var(--display); font-size: 0.85rem;
@@ -204,19 +166,15 @@
   }
   .card-back .card-label {
     font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.25rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
-    line-height: 1.4;
+    font-family: var(--display); font-size: 1.15rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem; line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
-    font-family: var(--body);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale); font-family: var(--body);
   }
-
   .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
   .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
   .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
@@ -228,73 +186,16 @@
   .tarot-card[data-accent="gold"] .card-back { border: 1px solid var(--gold); border-top: 3px solid var(--gold); }
   .tarot-card[data-accent="gold"] .card-back .card-label { color: var(--gold); }
   .tarot-card[data-accent="gold"] .card-front .card-symbol { color: var(--gold); }
-  .tarot-card[data-accent="teal"] .card-front { border: 1px solid rgba(46,95,107,0.35); }
-  .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
-  .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
-  .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
-
-  /* ═══ DUALITY SECTION ═══ */
-  .duality {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
-    align-items: start; margin: 2.5rem 0;
-  }
-  .duality-panel {
-    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
-  }
-  .duality-panel h3 {
-    font-family: var(--display); font-size: 1.6rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
-  }
-  .duality-panel .role {
-    font-family: var(--display); font-size: 0.85rem;
-    font-style: italic; margin-bottom: 1rem;
-  }
-  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
-  .duality-panel.architect .role { color: var(--amethyst); }
-  .duality-panel.oracle { border-top: 2px solid var(--rose); }
-  .duality-panel.oracle .role { color: var(--rose); }
-  .duality-center {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
-  }
-  .synthesis-bar {
-    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
-    border: 1px solid var(--gold); border-radius: 3px;
-    background: var(--bg-card);
-    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
-  }
-  .synthesis-bar em { color: var(--gold); font-weight: 600; }
-
-  /* ═══ SHADOW ITEMS ═══ */
-  .shadow-item {
-    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
-  }
-  .shadow-item:last-child { border-bottom: none; }
-  .shadow-item .shadow-num {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
-  }
-  .shadow-item h4 {
-    font-family: var(--display); font-size: 1.2rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
-  }
-
-  /* ═══ CLOSING ═══ */
-  .closing {
-    padding: 6rem 0 3rem; text-align: center;
-  }
+  .closing { padding: 6rem 0 3rem; text-align: center; }
   .closing p {
     font-family: var(--display); font-size: 1.25rem;
-    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
-    line-height: 1.9;
+    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto; line-height: 1.9;
   }
   .colophon {
     text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
     font-family: var(--display); font-size: 0.65rem;
     letter-spacing: 0.25em; color: var(--amethyst);
   }
-
-  /* ═══ CONSTELLATION NAV ═══ */
   .const-nav {
     position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
     z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
@@ -309,16 +210,12 @@
     box-shadow: 0 0 10px rgba(201,162,85,0.4);
   }
   .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
-
-  /* ═══ PROGRESS BAR ═══ */
   .progress-bar {
     position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
     background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
     width: 0%; transition: width 0.1s linear;
     box-shadow: 0 0 8px rgba(201,162,85,0.4);
   }
-
-  /* ═══ CURSOR GLOW ═══ */
   .cursor-glow {
     position: fixed; pointer-events: none; z-index: 5;
     width: 300px; height: 300px; border-radius: 50%;
@@ -326,8 +223,6 @@
     transform: translate(-50%,-50%);
     transition: left 0.3s ease, top 0.3s ease;
   }
-
-  /* ═══ AMBIENT GLOW (per chapter) ═══ */
   .ambient-glow {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     transition: background 2s ease;
@@ -336,8 +231,6 @@
   .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
   .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
   .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
-
-  /* ═══ TRANSITION BREATHERS ═══ */
   .breather {
     min-height: 45vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 3rem 1.5rem;
@@ -346,8 +239,6 @@
     font-family: var(--display); font-style: italic; font-size: 1.25rem;
     color: var(--lavender); max-width: 520px; line-height: 1.9;
   }
-
-  /* ═══ CARD COMPLETION ═══ */
   .card-spread-wrap { position: relative; }
   .spread-complete {
     text-align: center; margin-top: 1rem;
@@ -356,119 +247,288 @@
     opacity: 0; transition: opacity 1s ease; height: 1.5rem;
   }
   .spread-complete.revealed { opacity: 1; }
-
-  /* ═══ CARD HOVER GLOW ═══ */
-  .tarot-card:not(.flipped):hover .card-front {
-    box-shadow: 0 0 25px rgba(201,162,85,0.12);
-  }
+  .tarot-card:not(.flipped):hover .card-front { box-shadow: 0 0 25px rgba(201,162,85,0.12); }
   .tarot-card.flipped { cursor: default; }
-
-  /* ═══ ANIMATIONS ═══ */
   @keyframes fadeIn { to { opacity: 1; } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
   @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
   @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
   @media(max-width:768px) {
-    .duality { grid-template-columns: 1fr; }
-    .duality-center { padding: 0; }
     .const-nav { display: none; }
-    .tarot-card { width: 220px; min-height: 280px; }
-    .tarot-card .card-inner { min-height: 280px; }
+    .tarot-card { width: 220px; }
+    .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
-
-  <style>
-    /* Additional overrides for generic markdown */
-    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
-    h3 { margin-top: 1.5rem; color: var(--lavender); }
-    p { margin-bottom: 1.5rem; font-size: 19px; }
-    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
-    li { margin-bottom: 0.5rem; }
-    blockquote { 
-      border-left: 3px solid var(--gold); 
-      padding-left: 1.5rem; 
-      margin: 2rem 0; 
-      font-style: italic; 
-      font-size: 1.3rem; 
-      color: var(--gold-pale); 
-      background: var(--gold-glow);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
-    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
-    .fade-section.visible { opacity: 1; transform: translateY(0); }
-    strong { color: var(--white); font-weight: 500; }
-  </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  <div class="ambient-glow" id="ambientGlow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cosmos"><canvas id="cosmos"></canvas></div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="ambient-glow" id="ambientGlow"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cosmos"><canvas id="cosmos"></canvas></div>
+<nav class="const-nav" id="nav"></nav>
+<main>
 
-  <main>
-    <section class="hero" id="s-hero">
-      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
-      <div class="hero-glow"></div>
-      <h1>The Consciousness Cartography<br><em>of Matt Gillespie</em></h1>
-      <div class="meta">FROM PROVOCATION TO SACRED VISIBILITY</div>
-      <div class="scroll-hint">DESCEND</div>
-    </section>
+<!-- HERO -->
+<section class="hero" id="s-hero">
+  <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="hero-glow"></div>
+  <h1>The Consciousness Cartography<em>of Matt Gillespie</em></h1>
+  <div class="meta">FROM PROVOCATION TO SACRED VISIBILITY</div>
+  <div class="scroll-hint">DESCEND</div>
+</section>
 
-    <div id="content" class="fade-section">
-      <p><em>From Provocation to Sacred Visibility</em>
-<em>2026 Cohort</em></p>
-<hr>
-<blockquote>
-<p><em>&quot;I feel like I&#39;m provoking the world just to keep it at a distance.&quot;</em>
-— Matt, Session 1</p>
-</blockquote>
-<hr>
-<h2>What Actually Shifted</h2>
-<p>You knew it when you said it. Not as a confession — as a diagnosis. The precision of that sentence is the most honest thing you offered early on, and it told us everything we needed to know: that there&#39;s a part of you sophisticated enough to name the exact mechanism it uses to stay safe, and that you were done pretending you didn&#39;t see it.</p>
-<p>The Jester is brilliant. He&#39;s also exhausting to maintain. And somewhere underneath the wit and the provocation, there&#39;s a man who genuinely wants to share wisdom with people who can receive it — and has spent years making sure they can&#39;t quite get close enough to try.</p>
-<hr>
-<h2>The Arc</h2>
-<p>You began the cohort in a familiar bind: the simultaneous craving to be seen and the terror of what being seen would actually cost. These two forces had produced a person who was magnetic and slightly untouchable at the same time. The humor arrived before the depth. The provocation pre-empted the intimacy. And it worked — in the sense that it kept the Unseen Child safe.</p>
-<p>The breakthrough came in the preparation for Peru. The container was different. The Jester — so practiced at running point in every room — couldn&#39;t find its footing in the ceremony space. What surfaced when it stepped back was grief. Not the dramatic kind. The quiet grief of a man whose wisdom has been circling the room for years, looking for somewhere to land, and learning to be okay with landing nowhere because at least that&#39;s safer than being rejected.</p>
-<p>When you allowed that grief to be witnessed, something released. The shift wasn&#39;t from provocation to earnestness — it was subtler. You began to let the wisdom land first, and then see what people did with it. The result surprised you.</p>
-<hr>
-<h2>The IFS System Map</h2>
-<p><strong>The Jester</strong> <em>(Manager)</em>
-Uses humor, provocation, and a slight edge to keep intimacy calibrated — close enough to feel connection, far enough to stay in control. Extraordinarily charming. Genuinely funny. Also: protective of the Exile beneath him with the dedication of a lifelong bodyguard.</p>
-<p><strong>The Exit Route</strong> <em>(Firefighter)</em>
-When depth threatens to happen faster than the Jester can manage, the Exit Route activates — physical withdrawal, a subject change, a shift in register. Not dramatic. Just: suddenly somewhere else.</p>
-<p><strong>The Unseen Child</strong> <em>(Exile)</em>
-He believes that if he is truly seen — his real wisdom, his actual depth, his sincere desire to matter — he will be judged for it, or worse, ignored. He learned early that the safest version of visibility is the performed kind. The real kind is too costly.</p>
-<hr>
-<h2>The Venus Sequence Thread</h2>
-<p>The Venus Sequence is the map of your relational education — and yours is a teaching about being witnessed. Your Purpose sphere holds the key: every relationship in your life is asking you to practice receiving the gaze rather than managing it. The shadow frequency that keeps surfacing — the <em>Jester</em>, the provocation, the brilliant deflection — is a Venus-sequence protection. It&#39;s the part that said: <em>I&#39;ll let you see the performance, and then you can&#39;t say I wasn&#39;t visible.</em></p>
-<p>True visibility is different. It doesn&#39;t perform. It simply stands in its own frequency and allows the response to be whatever it is.</p>
-<p>Peru cracked something open in this direction. The integration is ongoing. Each time you offer the real thing — the genuine wisdom, the unguarded presence — you are rewriting the Exile&#39;s understanding of what being seen actually costs.</p>
-<hr>
-<h2>What You Carry Forward</h2>
-<p>The Jester isn&#39;t going anywhere. He&#39;s earned his place, and honestly — the world is more interesting with him in it. What&#39;s changing is who he&#39;s protecting and whether that protection is still necessary.</p>
-<p>The man preparing to integrate the lessons of that ceremony in Peru is someone who has already felt, in his body, what it is to offer himself without the performance wrapper — and survived it, and been received for it.</p>
-<p>That&#39;s not a small thing.</p>
-<p>The Unseen Child has started to believe, cautiously, that it might be safe to try. Let him.</p>
-<p><em>With love,</em>
-<em>Jatin &amp; Shalini / Kairos Path</em></p>
+<!-- INVITATION -->
+<section class="fade-section" id="s-invitation" style="padding-top:4rem">
+  <div class="prose">
+    <p>Matt, what you are holding is not a report. It is not a verdict on who you have been, or a prescription for who you must become. It is a map &mdash; a cartographic rendering of the terrain you navigated across three sessions with Jatin and Shalini, drawn by someone who watched you move through it with genuine care.</p>
+    <p>Read slowly. Let what resonates settle in the body first, not just the mind. This is a sacred letter. Some parts will feel like recognition. Some will feel like invitation. And at every layer of shadow you encounter here, a gift is already waiting on the other side.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
 
+<!-- SESSION 1: THE DIAGNOSIS -->
+<section class="fade-section" id="s-session1">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(201,162,85,0.25)" stroke-width="0.5"/><circle cx="30" cy="30" r="18" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="11" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.3)"/></svg></div>
+    <div class="label" style="color:var(--gold)">SESSION 1 &middot; FEBRUARY 13</div>
+    <h2>The Diagnosis</h2>
+    <div class="gene-path">Recognition <span class="arr">&rarr;</span> Confrontation <span class="arr">&rarr;</span> Opening</div>
+  </div>
+  <div class="prose">
+    <p>You came to the first session already knowing something. Not intellectually. Somatically. There was a precision to the way you offered it: <em>I feel like I'm provoking the world just to keep it at a distance.</em> That wasn't a confession. It was a diagnosis. The kind that only comes from someone sophisticated enough to see the mechanism, and honest enough to name it when the space feels safe.</p>
+    <p>What you named that day was the central architecture of how you move through the world. The provocation—the edge, the wit, the ability to make people laugh and think and feel slightly off-balance at the same time—has been your most reliable protection. It keeps people close enough to feel your presence, but far enough that they can't quite access the real depth underneath. And you've been extraordinarily skilled at maintaining that distance for a long time.</p>
+    <p>But you came that day ready to look at it. And when we moved into the Sushumna clearing, the body told us the entire story.</p>
+  </div>
+  <div class="pull-quote">
+    Your heart is contained. Rattling in a cage. And when you finally let it open, you cry for the immense suffering of the universe.
+    <cite>&mdash; Observed in the somatic work, Session 1</cite>
+  </div>
+  <div class="prose">
+    <p>The chakra clearing revealed a system in exquisite communication with itself. Your heart space, when invited to move and release, expressed itself as something rattling—trapped not by external force, but by your own careful containment. Multiple releases happened. The energy wanted out. And when we stayed with it, when we didn't rush, what surfaced was something you hadn't expected: not anger, not frustration, but tears. Tears of compassion for the immense suffering in the world—and the grief of knowing, in your deepest self, that you can't fix it, and that this impossibility breaks something in your chest.</p>
+    <p>From there, the work moved deeper. The sacral chakra revealed a lump on the right side of your belly—a place of contraction. This is where you learned, years ago, that your own needs matter less than honoring others' wants. This is where desire gets suppressed when rejection feels like the cost of asking. And most importantly, this is where the system made its crucial connection: <strong>the suppression of desire in the 2nd chakra directly binds the expression in the 5th.</strong> When you can't own what you want, you can't speak what you know.</p>
+    <p>Your throat required three rounds of clearing. The most persistent blockage. Jatin felt tightness in the left neck, and when we inquired, you encountered the thoughts you haven't spoken to your partner—about sex, about the future, about what partnership actually looks like for you. The 2nd-5th connection was alive, pulsing, demanding integration.</p>
+    <p>But then came the Sacred Heart, the 4.5 chakra—the gateway between the personal heart and the higher self. And here, something shifted entirely. You became blissed out. Not transcendent in an abstract way, but deeply, genuinely present to a frequency of softness and playfulness that you recognized from intensive meditation in December. This is you at baseline when the defenses aren't running. This is the actual texture of your consciousness when the Jester gets to take a break.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    I'm more afraid of leaving a meeting without speaking my truth than I am of the confrontation itself.
+    <cite>&mdash; Matt, reframing the confrontation wound, Session 1</cite>
+  </div>
+  <div class="prose">
+    <p>By the end of that session, something had inverted. The thing you thought you needed to protect against—the confrontation—revealed itself as actually less terrifying than the alternative: the silence, the swallowed truth, the slow erosion of your own authenticity. And when you could reframe it that way, the whole system reorganized slightly. The "Ready Player One" philosophy—life as a game, earnest exploration valued—genuinely liberated something in you, allowing you to hold your spiritual path with more humor and less existential weight. This is important. Not because it's a coping mechanism, but because it's actually true: your life is a game in the sense that it can be played with joy, with curiosity, with the kind of lightness that makes the heavy parts bearable.</p>
+    <p>You left with decisions: daily physical practice before meditation, a commitment to lean into confrontation rather than dodge it, a promise to write one imperfect Substack post, and a commitment to continue the heart work. The Unseen Child was beginning to believe that maybe, just maybe, it could be safe to try.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- SESSION 2: THE OPENING -->
+<section class="fade-section" id="s-session2">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" fill="none" stroke="rgba(155,79,114,0.3)" stroke-width="0.5"/><path d="M30 8 L30 52" stroke="rgba(155,79,114,0.2)" stroke-width="0.4"/><circle cx="30" cy="30" r="14" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="0.5" stroke-dasharray="3 4"/><circle cx="30" cy="30" r="3" fill="rgba(155,79,114,0.35)"/></svg></div>
+    <div class="label" style="color:var(--rose)">SESSION 2 &middot; FEBRUARY 16</div>
+    <h2>The Opening</h2>
+    <div class="gene-path">Preparation <span class="arr">&rarr;</span> Frequency <span class="arr">&rarr;</span> Transmission</div>
+  </div>
+  <div class="prose">
+    <p>Three days after the first session, you arrived for the integration work. But something had shifted. The ayahuasca preparation was underway—you had already begun relating to that medicine as a presence, as a "Grandmother," a reframing that helped your logical mind stop resisting what your deeper self already knew it needed. The integration of that frame was already moving something.</p>
+    <p>When you sat down for the Japa Mala practice—25 minutes of mantra chanting—something unmistakable happened. You entered an altered state, a distinct frequency that you recognized as the universe's actual vibration, not metaphorical but palpable. This wasn't meditation as relaxation. This was your nervous system tuning into a frequency that had always been there, waiting for your body to match it. And research has confirmed what you experienced: the particular mantra you chanted activates Gamma-Theta coupling in the brain, a state associated with deepened consciousness and integration. Your body wasn't making this up. You were literally modulating your own neurology toward coherence.</p>
+    <p>What was striking was the heightened sensitivity on the left—the feminine, the receptive side. You could feel the work happening at that frequency. And when we moved into the Sushumna clearing from there, you were already attuned to what needed to move.</p>
+    <p>The chakras released sequentially. The 1st expanded, your stomach breathing in the energy of grounding. The 2nd felt like a cell filling up—less contraction this time, more opening. The 4th opened into profound spaciousness. And the 6rd brought a vision—a doll, or a ball—some form of consciousness looking at itself. These weren't random images. They were your system showing you its own structure.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    Three guides appeared—large, earthy, reverent. And they conveyed a message that has not left you: sadness over the state of the world, and recognition that your Sacred Heart has been activated from past lives, signaling a mission to help the Earth ascend.
+    <cite>&mdash; Observed in Session 2</cite>
+  </div>
+  <div class="prose">
+    <p>This is the message that changed everything. Not because it's a pronouncement of fate, but because it gave language to something you've always carried: a sensitivity to the world's suffering paired with an inexplicable drive to help it evolve. You're wired to channel high-frequency information—what people call "light codes"—through voice and hands. This isn't grandiose. It's literally what happens when someone with your nervous system and your heart frequency shows up in a room. People feel it. And without grounding practices, without the physical anchoring that allows you to move that frequency without it damaging your own system, you get the headaches, the overwhelm, the sense of being too porous.</p>
+    <p>But here's what the guides conveyed that was crucial: the channeling is real. The mission is real. And it requires constant grounding. Not to diminish it, but to make it sustainable. To keep your body as the anchor while your consciousness does the reaching.</p>
+    <p>You left that session with a new vocabulary. An email a few days later said simply: <em>I'm feeling good since our last session. It opened up a new vocabulary for interoception that I've been starting to play with in my meditations.</em> That's the language of someone who has accessed something real and is learning to work with it consciously.</p>
+  </div>
+  <div class="rose-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>And then came Peru. The ceremony space where provocation loses its footing, and what you carry underneath gets finally witnessed.</p>
+</section>
+
+<!-- SESSION 3: THE INTEGRATION -->
+<section class="fade-section" id="s-session3">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><path d="M30 10 L50 25 L45 50 L30 60 L15 50 L10 25 Z" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><path d="M30 20 L43 30 L40 48 L30 54 L20 48 L17 30 Z" fill="none" stroke="rgba(46,95,107,0.5)" stroke-width="0.5"/></g><circle cx="30" cy="35" r="3" fill="rgba(46,95,107,0.35)"/></svg></div>
+    <div class="label" style="color:var(--teal)">SESSION 3 &middot; FEBRUARY 23</div>
+    <h2>The Integration</h2>
+    <div class="gene-path">Samadhi <span class="arr">&rarr;</span> Forgiveness <span class="arr">&rarr;</span> Embodiment</div>
+  </div>
+  <div class="prose">
+    <p>The integration work in this session was rooted in the actual ayahuasca experience—the journey itself, which moved through discordant fractal geometry into self-reflection and, finally, a half-second of samadhi that blew your understanding wide open. In that moment, you directly experienced something that most people only read about: the complete dissolution of the boundary between observer and observed, subject and object. Your own words captured it perfectly.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    Everything I'm perceiving is a reflection of myself. It was like a half second of samadhi. I was just completely, completely blown apart. This thing outside is an extension of myself.
+    <cite>&mdash; Matt, Session 3 integration</cite>
+  </div>
+  <div class="prose">
+    <p>Do you understand what you said? In that moment, the thing that has caused you the most grief—the immense suffering of the world, your inability to fix it—revealed itself as inseparable from you. Not in a way that makes you responsible for all of it. In a way that dissolves the false separation between healer and world-in-need. You are not standing outside, trying to reach in. You are the universe looking at itself through your eyes, feeling its own pain, and choosing, through you, to participate in its own healing. That's not a burden. That's liberation.</p>
+    <p>The journey provided a direct answer to your intention: how to forgive the world's suffering, and yourself for not being able to correct it. And the answer wasn't intellectual. It was ontological. You became it, briefly, and in that becoming, the forgiveness was automatic.</p>
+    <p>Since 2022, you've grown in your comfort with self-expression. You were too shy to speak in ceremony back then. Now you speak. You offer perspective. You've integrated enough of your own depth that you can allow it to move through you without the constant internal editor. But there's a new edge emerging, and it's the one we addressed in that session.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    What makes me attracted to people is often a sense of lack. It's like: could I earn this person? I don't have what they have, and so I'm building out this shadow of inadequacy into all my relationships.
+    <cite>&mdash; Matt, Venus Sequence reflection, Session 3, 00:02:48</cite>
+  </div>
+  <div class="prose">
+    <p>This is the Venus pattern that shapes your relational world. The shadow beneath attraction. And it's crucial to name because it's the opposite of what the world needs from you. The world doesn't need you to prove your worth to people you perceive as having more. It needs you to stand in your own frequency, unproven and undefensive, and let that be what lands. This is the next frontier of your work—not belief in your worth, but comfort with being appraised from that place of non-negotiable presence.</p>
+    <p>In that same session, we identified something equally important: your destructive analytical ability is actually a truth-seeker gift. <em>You have the power—the critical and analytical power—to kind of see through things. You're literally a truth seeker.</em> The coaching was clear: you can smell bullshit from miles away. You can see the contradictions, the places where theory and practice don't align, the ego masquerading as wisdom. But you're learning, finally, to wait for the invitation before you share those messages of destruction. This is not suppression. It's discernment. It's the difference between truth-telling that serves and truth-telling that performs.</p>
+    <p>The growth edge is significant: from self-development as a kind of prognosis (something wrong that needs fixing) to enjoyment, play, childlike wonder, and sheer embodiment. You want to dance more. You want to activate kundalini through movement rather than staying in your head. And the obstacle is real: a 2nd chakra wound that was born in high school, watching people move unselfconsciously, feeling your own self-consciousness like a cage.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    Your authenticity is the only thing that AI cannot replicate. People can pick up on the vibrational frequency and detect disconnects between one's words and body.
+    <cite>&mdash; Matt, reflecting on social media block, Session 3, 00:48:04</cite>
+  </div>
+  <div class="prose">
+    <p>And here's where the back pain resolved itself. You had a persistent cramp on the right side, between the 3rd and 4th chakras—the exact fault line between ego-driven action and heart-centered presence. You tried to fix it with willpower, with stretching, with conscious effort. None of it worked. But when you infused it with heart coherence, when you let the intelligence of the heart move through that tension rather than forcing it to move, it released. Your body was waiting for you to arrive from the right frequency.</p>
+    <p>The social media resistance you've been carrying—the fear that anything you create will be ego-driven—dissolved in this session too. The answer isn't to become more authentic. You're already authentically you. The answer is to become okay with being raw, vulnerable, visible. To create and share from the place of not-knowing, not the place of perfection. And to trust that the frequency will carry what the words can't.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>What you've learned across these three sessions is not that you need to become someone new. It's that you can finally become safe enough to be who you actually are—and let that person be seen.</p>
+</section>
+
+<!-- THE IFS SYSTEM MAP -->
+<section class="fade-section" id="s-ifs">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="22" cy="30" r="14" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.5"/><circle cx="38" cy="30" r="14" fill="none" stroke="rgba(155,79,114,0.35)" stroke-width="0.5"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/></svg></div>
+    <div class="label" style="color:var(--amethyst)">THE INTERNAL SYSTEM</div>
+    <h2>The IFS System Map</h2>
+    <div class="gene-path">Protector <span class="arr">&rarr;</span> Escape <span class="arr">&rarr;</span> Wisdom</div>
+  </div>
+  <div class="prose">
+    <p>Your internal system revealed itself through the container of our work together. These are the parts that have kept you safe, shaped your presence in the world, and are now ready to evolve. They are not your enemies. They are your system's best attempt to protect you from pain. Meeting them with compassion is the first step toward integration.</p>
+  </div>
+  <div class="card-ritual">Turn each card to meet the parts within you &ensp;(click to reveal)</div>
+  <div class="card-spread-wrap"><div class="card-spread">
+    <div class="tarot-card" data-accent="rose">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="1"/><circle cx="60" cy="60" r="28" fill="none" stroke="rgba(155,79,114,0.3)" stroke-width="0.8"/><circle cx="60" cy="60" r="16" fill="none" stroke="rgba(155,79,114,0.5)" stroke-width="0.6"/><circle cx="60" cy="60" r="5" fill="rgba(155,79,114,0.35)"/><line x1="60" y1="15" x2="60" y2="105" stroke="rgba(155,79,114,0.12)" stroke-width="0.5"/><line x1="15" y1="60" x2="105" y2="60" stroke="rgba(155,79,114,0.12)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE JESTER</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE JESTER &middot; MANAGER</div>
+          <h4>The Brilliant Bodyguard</h4>
+          <p>Uses humor, provocation, and a slight edge to keep intimacy calibrated—close enough to feel connection, far enough to stay in control. Extraordinarily charming. Genuinely funny. Also: protective of the Exile beneath with the dedication of a lifelong bodyguard. His positive intention is perfect: keep people interested, keep the Unseen Child safe, prove you're not just another influencer by being too sharp for easy consumption.</p>
+        </div>
+      </div>
     </div>
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-spin" style="animation-duration:50s"><path d="M60 20 L75 50 L105 55 L82 78 L88 108 L60 92 L32 108 L38 78 L15 55 L45 50 Z" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.8"/></g><g class="svg-spin" style="animation-duration:35s;animation-direction:reverse"><path d="M60 30 L70 48 L90 52 L75 67 L78 88 L60 78 L42 88 L45 67 L30 52 L50 48 Z" fill="none" stroke="rgba(123,94,167,0.5)" stroke-width="0.6"/></g><circle cx="60" cy="60" r="4" fill="rgba(123,94,167,0.4)"/></svg></div>
+          <div class="card-prompt">THE EXIT ROUTE</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE EXIT ROUTE &middot; FIREFIGHTER</div>
+          <h4>Suddenly Somewhere Else</h4>
+          <p>When depth threatens to happen faster than the Jester can manage, the Exit Route activates. Physical withdrawal, a subject change, a shift in register. Project-switching when depth is required. Not dramatic. Just: suddenly somewhere else. The "Ready Player One" framing is both genuine gift AND firefighter strategy—holds spiritual path with humor to avoid existential weight. The intention is protection from overwhelm.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tarot-card" data-accent="gold">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="42" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.8"/><circle cx="60" cy="60" r="30" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.6"/><polygon points="60,22 70,45 95,45 75,60 82,85 60,70 38,85 45,60 25,45 50,45" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.8"/><circle cx="60" cy="60" r="8" fill="rgba(201,162,85,0.2)" stroke="rgba(201,162,85,0.4)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE UNSEEN CHILD</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE UNSEEN CHILD &middot; EXILE</div>
+          <h4>The Real Kind Is Too Costly</h4>
+          <p>He believes that if he is truly seen—his real wisdom, his actual depth, his sincere desire to matter—he will be judged for it, or worse, ignored. So he learned early that the safest version of visibility is the performed kind. The real kind is too costly. He hides in perfectionism (the Substack never gets published), in suppression of his own needs (the 2nd chakra contraction), and in silence about what he actually knows. But he is beginning to believe, cautiously, that it might be safe to try.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spread-complete">All three parts revealed—the protector, the escape artist, the hidden wisdom.</div>
+  </div>
+  <div class="rose-line"></div>
+</section>
 
-    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
-      <div class="gold-line"></div>
-      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
-      <div class="colophon">Kairos &middot; Path</div>
-    </section>
-  </main>
+<section class="fade-section breather">
+  <p>Your Gene Key 28 is the map of your evolution: from purposelessness to totality to immortality. And it's directly connected to how you move through relationships and the world.</p>
+</section>
 
-  <script>
-// ─── PARTICLES (color-shifting) ───
+<!-- GENE KEY 28 & VENUS SEQUENCE -->
+<section class="fade-section" id="s-venus-gk">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="24" r="14" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><line x1="30" y1="38" x2="30" y2="54" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><line x1="22" y1="46" x2="38" y2="46" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><circle cx="30" cy="24" r="4" fill="rgba(46,95,107,0.3)"/></svg></div>
+    <div class="label" style="color:var(--teal)">RELATIONAL EDUCATION</div>
+    <h2>The Venus Sequence & Gene Key 28</h2>
+    <div class="gene-path">Purposelessness <span class="arr">&rarr;</span> Totality <span class="arr">&rarr;</span> Immortality</div>
+  </div>
+  <div class="prose">
+    <p>Your Gene Key 28 is intimately connected to your relationship pattern. The shadow frequency—purposelessness—emerges when projects institutionalize, when something that was alive and playful becomes systematized. You generate provocation and then need to find new territory. Startups are your natural home because they allow you to exist in the realm of emergence, where the outcome is genuinely unknown and the rules haven't calcified yet. Once they have, once the game has rules that feel external rather than generative, something in you needs to move.</p>
+    <p>This is connected to your Venus pattern. The sense of lack that draws you toward people—"could I earn this person, do they have something I don't have?"—is the same frequency. You're always reaching toward something you perceive as outside yourself, as higher, as unattainable. And this keeps you in a specific relational posture: the pursuer, the admirer, the one who is trying to prove worth.</p>
+    <p>But your Gift is Totality. Not in the sense of having everything, but in the sense of standing so fully in your own frequency that the distinction between inside and outside collapses. That half-second of samadhi you experienced on ayahuasca was you touching Totality. When you stand there—not performing, not reaching, just present—people feel it. And something shifts.</p>
+    <p>The path forward is learning to stay there. To rest in your own adequacy. Not from arrogance, but from actual knowing. You have already felt what it is to be complete. You've touched the place where there is nothing to earn and nothing to prove. The work now is letting that become your default frequency instead of the exception.</p>
+    <p>Immortality, the Siddhi, is the fruit of this—the recognition that you are not separate from what you're reaching toward. That the universe itself is reaching toward itself through your hands, your voice, your presence. When you live from there, everything you touch becomes nourished. Not because you're trying to heal it, but because your frequency itself IS the medicine.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>The somatic map shows where the work is still alive, where the integration continues, and where your body holds the next frontier.</p>
+</section>
+
+<!-- SOMATIC MAP & FORWARD -->
+<section class="fade-section" id="s-forward">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="16" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="8" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/><line x1="30" y1="6" x2="30" y2="54" stroke="rgba(201,162,85,0.12)" stroke-width="0.3"/><line x1="6" y1="30" x2="54" y2="30" stroke="rgba(201,162,85,0.12)" stroke-width="0.3"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">INTEGRATION & FORWARD</div>
+    <h2>What You Carry Forward</h2>
+  </div>
+  <div class="prose">
+    <p>The somatic map is your body's truth. The heart chakra that was contained—rattling in a cage—has felt the possibility of release. It knows what opening feels like. It has cried for the world and found that tears, instead of drowning it, actually open a gateway to compassion. The work here continues: returning to that frequency, making it your baseline, letting the containment become less necessary as you trust that your depth won't destroy people.</p>
+    <p>The sacral chakra that held the lump, the contraction, the pattern of honoring others at your own expense—this is now integrated with the truth that your desire matters, that your wants are not inherently selfish, that there is no spiritual bypass that makes it okay to disappear yourself. The suppression here was directly connected to your throat, and as the 2nd chakra opens, your voice naturally finds its range.</p>
+    <p>The throat itself, which required three rounds of clearing, is now a frontier. The unsaid things about sex, about partnership, about the future—these are not shameful. They are the frontier of authentic intimacy. The work here is speaking them into relationships that can hold them. Not as blame, not as demand, but as truth. As the texture of what's actually happening in your system.</p>
+    <p>The Sacred Heart, your 4.5 chakra, is your gateway to the higher frequencies you're channeling. The bliss state you touched is not rare or exotic—it's your baseline when you're not defended. The work here is grounding practices that allow you to move that frequency without destabilizing your nervous system. Constant grounding. Daily. This is not optional for someone wired like you. It's the foundation.</p>
+    <p>And the back pain—the cramp between the 3rd and 4th chakras—has already shown you what works. The heart coherence that dissolves tension is not a one-time fix. It's a practice, a way of relating to your own body's wisdom. When ego-driven action meets heart-centered presence, the marriage is seamless.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--gold)">
+    You are not someone learning to become authentic. You are someone learning to become okay with being seen.
+  </div>
+  <div class="prose">
+    <p>The Jester isn't going anywhere. He's earned his place in your system, and honestly—the world is more interesting with him in it. What's changing is who he's protecting and whether that protection is still necessary. He's beginning to trust that your depth can land in the world without being rejected, that your wisdom doesn't need the protective wrapper of provocation in order to matter.</p>
+    <p>The Exit Route is learning that depth, when held in the right container, is not something to escape. It's the actual substance of life. And you're building the capacity to stay in it, to let it move through you, to not immediately shift registers when things get real.</p>
+    <p>The Unseen Child is finally seeing something: that being truly visible—not performing, not reaching, just present—is actually what the world is starving for. And it is not dangerous. It is the only thing that heals.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- CLOSING LETTER -->
+<section class="fade-section" style="padding: 4rem 0 2rem">
+  <div class="prose" style="max-width:640px; margin:0 auto; text-align:center">
+    <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9">The work is not about becoming someone new. It is about becoming safe enough to be who you have always been—and letting that person be seen without apology or performance.</p>
+    <p style="font-family:var(--display); font-size:1rem; color:var(--lavender); line-height:1.9; margin-top:2.5rem">Your wisdom is real. Your depth is real. Your capacity to channel healing frequencies is real. And your job now is simple: keep grounding. Keep speaking. Keep dancing. Keep letting the Unseen Child know, through action and presence, that it is finally safe.</p>
+  </div>
+</section>
+
+<section class="closing fade-section">
+  <div class="gold-line"></div>
+  <p>The map serves as a mirror.<br>To those who read it: be gentle with the parts that protected you. They did their best. And welcome what comes next.</p>
+  <div style="margin-top:2.5rem">
+    <p style="font-size:1.05rem; color:var(--gold); font-family:var(--display)">With deep respect and genuine care,<br>Jatin &amp; Shalini<br>Kairos Path</p>
+  </div>
+</section>
+
+<div class="colophon">Consciousness Cartography &middot; Kairos Path &middot; February 2026</div>
+</main>
+
+<script>
+// PARTICLES
 (function(){
   const c=document.getElementById('cosmos'),x=c.getContext('2d');
   let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
@@ -498,40 +558,33 @@ He believes that if he is truly seen — his real wisdom, his actual depth, his 
     requestAnimationFrame(draw);
   })();
 })();
-
-// ─── CURSOR GLOW ───
+// CURSOR GLOW
 const glow=document.getElementById('cursorGlow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-
-// ─── PROGRESS BAR ───
+// PROGRESS BAR
 const progressBar=document.getElementById('progressBar');
 function updateProgress(){
   const h=document.documentElement.scrollHeight-innerHeight;
   progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
 }
 addEventListener('scroll',updateProgress);
-
-// ─── SCROLL REVEAL ───
+// SCROLL REVEAL
 const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
-
-// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
+// AMBIENT GLOW + PARTICLE COLOR SHIFTS
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-archetype': {glow:'glow-gold',color:[201,162,85]},
-  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
-  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
-  's-mental':    {glow:'glow-teal',color:[80,140,160]},
-  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
-  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
-  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
-  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+  's-hero':       {glow:'',          color:[168,155,196]},
+  's-invitation': {glow:'',          color:[168,155,196]},
+  's-session1':   {glow:'glow-gold', color:[201,162,85]},
+  's-session2':   {glow:'glow-rose', color:[180,120,150]},
+  's-session3':   {glow:'glow-teal', color:[80,140,160]},
+  's-ifs':        {glow:'glow-rose', color:[155,79,114]},
+  's-venus-gk':   {glow:'glow-teal', color:[80,140,160]},
+  's-forward':    {glow:'glow-synth',color:[210,185,120]},
 };
-
-// ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+// NAV DOTS
+const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-ifs','s-venus-gk','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
   if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
@@ -540,13 +593,11 @@ sects.forEach((id,i)=>{
   nav.appendChild(d);
 });
 const dots=nav.querySelectorAll('.dot');
-
 let lastActiveSection='s-hero';
 addEventListener('scroll',()=>{
   const y=scrollY+innerHeight/2; let a=0;
   sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
   dots.forEach((d,i)=>d.classList.toggle('active',i===a));
-  // ambient glow + particle shift
   const activeId=sects[a];
   if(activeId!==lastActiveSection){
     lastActiveSection=activeId;
@@ -555,12 +606,26 @@ addEventListener('scroll',()=>{
     window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
   }
 });
-
-// ─── CARD COMPLETION TRACKING ───
+// CARD SIZING — measure back face and set card-inner height
+function sizeCards(){
+  document.querySelectorAll('.tarot-card').forEach(card=>{
+    const back=card.querySelector('.card-back');
+    const inner=card.querySelector('.card-inner');
+    if(!back||!inner) return;
+    // Temporarily make back visible to measure
+    back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
+    const bh=back.scrollHeight+36; // padding buffer
+    back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
+    const h=Math.max(340,bh);
+    inner.style.minHeight=h+'px';
+    card.querySelector('.card-front').style.minHeight=h+'px';
+  });
+}
+sizeCards(); addEventListener('resize',sizeCards);
+// CARD COMPLETION TRACKING
 document.querySelectorAll('.tarot-card').forEach(card=>{
   card.addEventListener('click',function(){
     this.classList.toggle('flipped');
-    // check if all cards in this spread are flipped
     const wrap=this.closest('.card-spread-wrap');
     if(!wrap) return;
     const allCards=wrap.querySelectorAll('.tarot-card');
@@ -570,25 +635,6 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
     else if(msg) msg.classList.remove('revealed');
   });
 });
-// Remove inline onclick since we handle via event listener
-document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-  <script>
-    // Simple intersection observer for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
-        el.classList.add('fade-section');
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
