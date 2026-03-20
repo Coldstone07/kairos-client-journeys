@@ -617,6 +617,24 @@ addEventListener('scroll',()=>{
 });
 
 // ─── CARD COMPLETION TRACKING ───
+
+// CARD SIZING — measure back face and set card-inner height
+function sizeCards(){
+  document.querySelectorAll('.tarot-card').forEach(card=>{
+    const back=card.querySelector('.card-back');
+    const inner=card.querySelector('.card-inner');
+    if(!back||!inner) return;
+    // Temporarily make back visible to measure
+    back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
+    const bh=back.scrollHeight+36; // padding buffer
+    back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
+    const h=Math.max(340,bh);
+    inner.style.minHeight=h+'px';
+    card.querySelector('.card-front').style.minHeight=h+'px';
+  });
+}
+sizeCards(); addEventListener('resize',sizeCards);
+// CARD COMPLETION TRACKING
 document.querySelectorAll('.tarot-card').forEach(card=>{
   card.addEventListener('click',function(){
     this.classList.toggle('flipped');
