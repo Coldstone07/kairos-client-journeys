@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Consciousness Cartography of Teo Avram</title>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>The Consciousness Cartography of Teo Avram</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --bg: #0B0718;
     --bg-mid: #130D2A;
@@ -28,22 +22,15 @@
     --display: 'Cormorant Garamond', Georgia, serif;
     --body: 'Lora', Georgia, serif;
   }
-
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--gold-pale);
     font-family: var(--body); font-size: 18px; line-height: 1.85;
     overflow-x: hidden;
   }
-
-  /* ═══ COSMIC CANVAS ═══ */
   .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
   .cosmos canvas { width: 100%; height: 100%; }
-
-  /* ═══ MAIN SCROLL ═══ */
   main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ═══ HERO ═══ */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
@@ -90,27 +77,19 @@
     background: linear-gradient(to bottom, var(--amethyst), transparent);
     margin: 0.7rem auto 0;
   }
-
-  /* ═══ PROSE BLOCKS ═══ */
   .prose { margin-bottom: 2rem; }
   .prose p { margin-bottom: 1.4rem; }
   .prose em { color: var(--white); }
   .prose strong { color: var(--gold); font-weight: 500; }
-
   .fade-section {
     opacity: 0; transform: translateY(30px);
     transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .fade-section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ═══ CHAPTER MARKERS ═══ */
-  .chapter-marker {
-    text-align: center; padding: 5rem 0 2rem;
-  }
+  .chapter-marker { text-align: center; padding: 5rem 0 2rem; }
   .chapter-marker .label {
     font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
+    letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 0.4rem;
   }
   .chapter-marker h2 {
     font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
@@ -121,13 +100,9 @@
     color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
   }
   .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
-
-  /* ═══ DIVIDERS ═══ */
   .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
   .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
   .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
-
-  /* ═══ PULL QUOTE ═══ */
   .pull-quote {
     border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
     margin: 2.5rem 0;
@@ -138,13 +113,10 @@
     display: block; margin-top: 0.8rem; font-size: 0.8rem;
     color: var(--gold); font-style: normal; letter-spacing: 0.1em;
   }
-
-  /* ═══ TAROT CARDS ═══ */
   .card-ritual {
     text-align: center; margin: 3rem 0 1rem;
     font-family: var(--display); font-size: 0.8rem;
-    color: var(--amethyst); letter-spacing: 0.15em;
-    font-style: italic;
+    color: var(--amethyst); letter-spacing: 0.15em; font-style: italic;
   }
   .card-spread {
     display: flex; gap: 1.2rem; justify-content: center;
@@ -161,7 +133,6 @@
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
-
   .card-face {
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
@@ -171,24 +142,15 @@
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
-  .card-front .card-symbol {
-    width: 120px; height: 120px; margin-bottom: 1.2rem;
-  }
-  .card-front .card-symbol svg {
-    width: 100%; height: 100%;
-  }
-  /* SVG animations */
+  .card-front .card-symbol { width: 120px; height: 120px; margin-bottom: 1.2rem; }
+  .card-front .card-symbol svg { width: 100%; height: 100%; }
   @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
   @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
   .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
   .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
   .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
-
-  /* Chapter glyphs */
-  .chapter-glyph {
-    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
-  }
+  .chapter-glyph { width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4; }
   .chapter-glyph svg { width: 100%; height: 100%; }
   .card-front .card-prompt {
     font-family: var(--display); font-size: 0.85rem;
@@ -204,19 +166,15 @@
   }
   .card-back .card-label {
     font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem;
   }
   .card-back h4 {
     font-family: var(--display); font-size: 1.15rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
-    line-height: 1.4;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem; line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
-    font-family: var(--body);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale); font-family: var(--body);
   }
-
   .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
   .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
   .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
@@ -232,69 +190,16 @@
   .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
   .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
   .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
-
-  /* ═══ DUALITY SECTION ═══ */
-  .duality {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
-    align-items: start; margin: 2.5rem 0;
-  }
-  .duality-panel {
-    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
-  }
-  .duality-panel h3 {
-    font-family: var(--display); font-size: 1.6rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
-  }
-  .duality-panel .role {
-    font-family: var(--display); font-size: 0.85rem;
-    font-style: italic; margin-bottom: 1rem;
-  }
-  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
-  .duality-panel.architect .role { color: var(--amethyst); }
-  .duality-panel.oracle { border-top: 2px solid var(--rose); }
-  .duality-panel.oracle .role { color: var(--rose); }
-  .duality-center {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
-  }
-  .synthesis-bar {
-    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
-    border: 1px solid var(--gold); border-radius: 3px;
-    background: var(--bg-card);
-    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
-  }
-  .synthesis-bar em { color: var(--gold); font-weight: 600; }
-
-  /* ═══ SHADOW ITEMS ═══ */
-  .shadow-item {
-    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
-  }
-  .shadow-item:last-child { border-bottom: none; }
-  .shadow-item .shadow-num {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
-  }
-  .shadow-item h4 {
-    font-family: var(--display); font-size: 1.2rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
-  }
-
-  /* ═══ CLOSING ═══ */
-  .closing {
-    padding: 6rem 0 3rem; text-align: center;
-  }
+  .closing { padding: 6rem 0 3rem; text-align: center; }
   .closing p {
     font-family: var(--display); font-size: 1.25rem;
-    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
-    line-height: 1.9;
+    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto; line-height: 1.9;
   }
   .colophon {
     text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
     font-family: var(--display); font-size: 0.65rem;
     letter-spacing: 0.25em; color: var(--amethyst);
   }
-
-  /* ═══ CONSTELLATION NAV ═══ */
   .const-nav {
     position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
     z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
@@ -309,16 +214,12 @@
     box-shadow: 0 0 10px rgba(201,162,85,0.4);
   }
   .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
-
-  /* ═══ PROGRESS BAR ═══ */
   .progress-bar {
     position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
     background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
     width: 0%; transition: width 0.1s linear;
     box-shadow: 0 0 8px rgba(201,162,85,0.4);
   }
-
-  /* ═══ CURSOR GLOW ═══ */
   .cursor-glow {
     position: fixed; pointer-events: none; z-index: 5;
     width: 300px; height: 300px; border-radius: 50%;
@@ -326,8 +227,6 @@
     transform: translate(-50%,-50%);
     transition: left 0.3s ease, top 0.3s ease;
   }
-
-  /* ═══ AMBIENT GLOW (per chapter) ═══ */
   .ambient-glow {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     transition: background 2s ease;
@@ -336,8 +235,6 @@
   .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
   .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
   .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
-
-  /* ═══ TRANSITION BREATHERS ═══ */
   .breather {
     min-height: 45vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 3rem 1.5rem;
@@ -346,8 +243,6 @@
     font-family: var(--display); font-style: italic; font-size: 1.25rem;
     color: var(--lavender); max-width: 520px; line-height: 1.9;
   }
-
-  /* ═══ CARD COMPLETION ═══ */
   .card-spread-wrap { position: relative; }
   .spread-complete {
     text-align: center; margin-top: 1rem;
@@ -356,182 +251,328 @@
     opacity: 0; transition: opacity 1s ease; height: 1.5rem;
   }
   .spread-complete.revealed { opacity: 1; }
-
-  /* ═══ CARD HOVER GLOW ═══ */
-  .tarot-card:not(.flipped):hover .card-front {
-    box-shadow: 0 0 25px rgba(201,162,85,0.12);
-  }
+  .tarot-card:not(.flipped):hover .card-front { box-shadow: 0 0 25px rgba(201,162,85,0.12); }
   .tarot-card.flipped { cursor: default; }
-
-  /* ═══ ANIMATIONS ═══ */
   @keyframes fadeIn { to { opacity: 1; } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
   @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
   @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
   @media(max-width:768px) {
-    .duality { grid-template-columns: 1fr; }
-    .duality-center { padding: 0; }
     .const-nav { display: none; }
     .tarot-card { width: 220px; }
     .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
-
-  <style>
-    /* Additional overrides for generic markdown */
-    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
-    h3 { margin-top: 1.5rem; color: var(--lavender); }
-    p { margin-bottom: 1.5rem; font-size: 19px; }
-    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
-    li { margin-bottom: 0.5rem; }
-    blockquote { 
-      border-left: 3px solid var(--gold); 
-      padding-left: 1.5rem; 
-      margin: 2rem 0; 
-      font-style: italic; 
-      font-size: 1.3rem; 
-      color: var(--gold-pale); 
-      background: var(--gold-glow);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
-    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
-    .fade-section.visible { opacity: 1; transform: translateY(0); }
-    strong { color: var(--white); font-weight: 500; }
-  </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  <div class="ambient-glow" id="ambientGlow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cosmos"><canvas id="cosmos"></canvas></div>
-
-  <nav class="const-nav" id="nav"></nav>
+<div class="progress-bar" id="progressBar"></div>
+<div class="ambient-glow" id="ambientGlow"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cosmos"><canvas id="cosmos"></canvas></div>
+<nav class="const-nav" id="nav"></nav>
 <main>
-    <section class="hero" id="s-hero">
-      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
-      <div class="hero-glow"></div>
-      <h1>The Consciousness Cartography<br><em>of Teo Avram</em></h1>
-      <div class="meta">THE BODY KEEPS THE INVOICE</div>
-      <div class="scroll-hint">DESCEND</div>
-    </section>
 
-    <section id="s-invitation" class="fade-section">
-      <p><em>The Body Keeps the Invoice</em></p>
-      <p><em>Sessions 1–3 | 2026 Cohort</em></p>
-      <hr>
-      <div class="pull-quote">
-        <p><em>"For me, when I work, I work. It's work. It's no passion."</em><br>— Teo, Session 1</p>
+<!-- HERO -->
+<section class="hero" id="s-hero">
+  <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="hero-glow"></div>
+  <h1>The Consciousness Cartography<em>of Teo Avram</em></h1>
+  <div class="meta">THE BODY KEEPS THE INVOICE</div>
+  <div class="scroll-hint">DESCEND</div>
+</section>
+
+<!-- INVITATION -->
+<section class="fade-section" id="s-invitation" style="padding-top:4rem">
+  <div class="prose">
+    <p>Teo, what you hold is not a diagnosis. It is a cartography of the terrain you traversed across three sessions with Jatin and Shalini&mdash;drawn by someone who watched the most airtight logical system they'd encountered in this cohort begin, with extraordinary courage, to let something else in.</p>
+    <p>You came running a forty-year architecture built on a single premise: that logic alone could hold everything together. And for decades, it did. It got you into the top college. It carried you through immigration. It made you the sole breadwinner, the caretaker, the one who never falters. But the body was keeping a different set of books. And in Session 3, when the heart finally opened, you discovered that the invoices had been accumulating all along.</p>
+    <p>Read this slowly. Not with the analytical mind that wants to categorize and optimize. With the part of you that cried when the earth registered under your feet for the first time as something you belonged to.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- SESSION 1 -->
+<section class="fade-section" id="s-session1">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(201,162,85,0.25)" stroke-width="0.5"/><circle cx="30" cy="30" r="18" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="11" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.3)"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">SESSION 1 &middot; FEBRUARY 11</div>
+    <h2>The Hunger Games</h2>
+    <div class="gene-path">Survival <span class="arr">&rarr;</span> Recognition <span class="arr">&rarr;</span> Naming</div>
+  </div>
+  <div class="prose">
+    <p>You named your workplace "The Hunger Games"&mdash;and you meant it without hyperbole. A corporate environment running on emotional detachment, political maneuvering, and survival-mode compliance. You didn't say this with drama. You said it with the matter-of-fact precision of someone who has been navigating a minefield for so long that the minefield has become background noise.</p>
+    <p>In the same breath, you drew the line that defined everything: <em>For you, it's a passion. For me, when I work, it's work. It's no passion.</em> That sentence was not a complaint. It was a diagnosis. The entire architecture of your adult life was laid bare in two sentences: work is obligation, passion is a luxury you cannot afford, and the distance between those two things is the distance between survival and living.</p>
+    <p>What surfaced in this first session was the central wound: <strong>a suppressed voice</strong>. Not suppressed by external force&mdash;though the workplace certainly contributes&mdash;but suppressed by a system that decided, somewhere around age seventeen, that emotional expression was inefficient, and that logic was the only tool worth carrying.</p>
+  </div>
+  <div class="pull-quote">
+    The binary thinking&mdash;work or health, self or family&mdash;is the product of survival mode. Logic can't solve this because it's a relational problem.
+    <cite>&mdash; The coaching diagnosis, Session 1</cite>
+  </div>
+  <div class="prose">
+    <p>That decision wasn't wrong. Logic got you into the top college. It got you through immigration. It got you through decades of providing for everyone around you. The Logical Strategist <em>earned</em> its place. But somewhere along the way, it stopped being a tool and became the entire identity. Everything that wasn't analytical got classified as waste. And the system's most persistent blind spot&mdash;that the problems it faces now are relational, not logical&mdash;is precisely the insight that this session began to illuminate.</p>
+    <p>You left not with a solution, but with a named pattern. And naming it was enough. Because a system that has been running unconsciously for forty years cannot begin to change until it sees itself clearly.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- BREATHER 1 -->
+<section class="fade-section breather">
+  <p>The fortress built at seventeen was an act of genius. It carried you across oceans and decades. The question now is not whether it was right. It's whether the architect is ready to add a window.</p>
+</section>
+
+<!-- SESSION 2 -->
+<section class="fade-section" id="s-session2">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" fill="none" stroke="rgba(155,79,114,0.3)" stroke-width="0.5"/><path d="M30 8 L30 52" stroke="rgba(155,79,114,0.2)" stroke-width="0.4"/><circle cx="30" cy="30" r="14" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="0.5" stroke-dasharray="3 4"/><circle cx="30" cy="30" r="3" fill="rgba(155,79,114,0.35)"/></svg></div>
+    <div class="label" style="color:var(--rose)">SESSION 2 &middot; FEBRUARY 24</div>
+    <h2>The Body's Counter-Argument</h2>
+    <div class="gene-path">Suppression <span class="arr">&rarr;</span> Signal <span class="arr">&rarr;</span> Reckoning</div>
+  </div>
+  <div class="prose">
+    <p>You came back from vacation&mdash;the one thing that was supposed to help&mdash;and the return to work triggered everything. Pain. Breathing difficulty. The lip, specifically. The voice trying to move through a channel that had been locked for years. Your body was not being dramatic. It was being precise.</p>
+    <p>This is what your system had been refusing to compute: the body keeps a different ledger. While the Logical Strategist filed emotions under "not useful," the body was documenting every suppression, every swallowed truth, every moment the voice tried to move and was told to stand down. The lip pain was not random. It was the mouth in distress&mdash;the literal exit point of speech, aching from decades of words that were never allowed out.</p>
+    <p>The breathing difficulty was the same signal on a different frequency: the throat closing around truths that the Suppressor had classified as dangerous. Every inhale that felt constricted was your system's way of saying: <em>something needs to move through here, and you won't let it.</em></p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    The body is keeping score. The lip pain, the breathing difficulty&mdash;these are the voice trying to move through a suppressed channel.
+    <cite>&mdash; The somatic truth named, Session 2</cite>
+  </div>
+  <div class="prose">
+    <p>The logical solution presented itself immediately&mdash;your mind is nothing if not efficient: quit, reduce expenses, restructure the entire financial architecture of your family. But this solution requires a family transformation that feels impossible to achieve alone. And the emotional solution&mdash;opening communication, asking for collaborative support&mdash;requires exactly the thing the Suppressor has spent forty years preventing: vulnerability.</p>
+    <p>You sat with that impossibility. You didn't try to logic your way out of it. And in that sitting, something shifted. Not a solution. A recognition: the binary choices your system keeps generating&mdash;work <em>or</em> health, self <em>or</em> family, logic <em>or</em> feeling&mdash;are not real choices. They are the signature of a mind that can only see two options because it has never been shown a third.</p>
+  </div>
+  <div class="rose-line"></div>
+</section>
+
+<!-- BREATHER 2 -->
+<section class="fade-section breather">
+  <p>The dam held everything back for forty years. And then it didn't. Not because it failed. Because the water finally had somewhere to go.</p>
+</section>
+
+<!-- SESSION 3 -->
+<section class="fade-section" id="s-session3">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><path d="M30 10 L50 25 L45 50 L30 60 L15 50 L10 25 Z" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><path d="M30 20 L43 30 L40 48 L30 54 L20 48 L17 30 Z" fill="none" stroke="rgba(46,95,107,0.5)" stroke-width="0.5"/></g><circle cx="30" cy="35" r="3" fill="rgba(46,95,107,0.35)"/></svg></div>
+    <div class="label" style="color:var(--teal)">SESSION 3 &middot; MARCH 9</div>
+    <h2>The Extended Reckoning</h2>
+    <div class="gene-path">Origins <span class="arr">&rarr;</span> Opening <span class="arr">&rarr;</span> Integration</div>
+  </div>
+  <div class="prose">
+    <p>Two hours. That wasn't an accident. The length of this session was proportional to what needed to move. And what needed to move had been waiting for four decades.</p>
+    <p>The childhood origins came up first. The high school decision to avoid dating entirely&mdash;to strip everything down to the single variable of college admission. A seventeen-year-old building a fortress and calling it a strategy. That decision was adaptive, brilliant, and it shaped everything that followed. Every variable accounted for, every risk pre-calculated, every emotion filed under "not useful." By the time you were an adult, the fortress wasn't a tool anymore. It was you.</p>
+    <p>Jatin drew the parallel to his own experience: leaving Google&mdash;high prestige, low meaning&mdash;for uncertain autonomy. Two people who had constructed perfect logical systems and then had to reckon with what those systems cost. The parallel landed not because your circumstances are the same, but because the architecture is: a life organized around a single metric (security for you, prestige for him), and the moment when that metric stops being enough.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    Needs can't be put aside, only wants and desires. Your needs are biology, not luxury.
+    <cite>&mdash; The teaching that cracked something open, Session 3</cite>
+  </div>
+  <div class="prose">
+    <p>That sentence changed something. Not because it was new information&mdash;you're too smart for that. Because it named the exact lie your system had been running on: that your needs are optional, that self-care is a luxury you earn after everyone else is taken care of, that the body's signals can be overridden if the mind is strong enough. Biology doesn't negotiate. It just sends the invoice. And the invoice always comes.</p>
+    <p>Then came the chakra work. And this is where the two hours earned their weight. The heart opened. Not metaphorically. You felt it&mdash;sadness, pain, loneliness, depletion. Decades of unseen emotional weight, suddenly visible. And then, on the other side: gentleness. Connection. The earth under your feet registering as something you belonged to, not just something you stood on while carrying the world.</p>
+    <p>The root and sacral chakras grounded you into earth, engaging the needs and desires centers that had been on lockdown. The heart work sent energy to connect with what Jatin called "primitive love"&mdash;the fundamental frequency of belonging. And then the full system clearing: earth's magma tonifying all chakras, universal energy from the crown, balancing the feminine (intuition, receptivity) with the masculine (direction, structure) that had been running the show unchecked.</p>
+    <p>By the end, your disposition had shifted. Gentler. More connected to the ground. And the most important integration of all: <strong>turning on the emotional channel doesn't erase the logical one.</strong> That was the binary you'd been trapped in. As if feeling would make you less effective. As if vulnerability would collapse the structure. The truth is exactly the opposite: both channels running simultaneously produce something neither could produce alone.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<!-- BREATHER 3 -->
+<section class="fade-section breather">
+  <p>The parts that built your fortress did so with extraordinary devotion. Forty years of uninterrupted service. They deserve to be met with honor before they're asked to share the watch.</p>
+</section>
+
+<!-- IFS SYSTEM MAP -->
+<section class="fade-section" id="s-ifs">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="22" cy="30" r="14" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.5"/><circle cx="38" cy="30" r="14" fill="none" stroke="rgba(155,79,114,0.35)" stroke-width="0.5"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/></svg></div>
+    <div class="label" style="color:var(--amethyst)">THE INTERNAL SYSTEM</div>
+    <h2>The IFS System Map</h2>
+    <div class="gene-path">Control <span class="arr">&rarr;</span> Containment <span class="arr">&rarr;</span> Release</div>
+  </div>
+  <div class="prose">
+    <p>Your internal system is a masterwork of engineering. Every part has a role, every role serves a function, and the whole thing runs with the kind of precision that only someone with your mind could have constructed. These parts didn't fail you. They carried you. And what they're being asked to do now&mdash;make room for something they've been programmed to suppress&mdash;is the hardest thing they've ever faced.</p>
+  </div>
+  <div class="card-ritual">Turn each card to meet the parts within you &ensp;(click to reveal)</div>
+  <div class="card-spread-wrap"><div class="card-spread">
+
+    <!-- Card 1: The Logical Strategist -->
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><rect x="30" y="30" width="60" height="60" rx="4" fill="none" stroke="rgba(123,94,167,0.4)" stroke-width="0.8"/><rect x="40" y="40" width="40" height="40" rx="2" fill="none" stroke="rgba(123,94,167,0.5)" stroke-width="0.6"/><rect x="50" y="50" width="20" height="20" rx="1" fill="none" stroke="rgba(123,94,167,0.6)" stroke-width="0.5"/><circle cx="60" cy="60" r="3" fill="rgba(123,94,167,0.4)"/></g></svg></div>
+          <div class="card-prompt">THE LOGICAL STRATEGIST</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE LOGICAL STRATEGIST &middot; MANAGER</div>
+          <h4>The Architect of Everything</h4>
+          <p>The architect of your entire adult life. She analyzes risks, creates contingency plans, runs cost-benefit on every human interaction. She has been the primary identity since age seventeen&mdash;over forty years of uninterrupted service. She is genuinely brilliant. She is also genuinely terrified of what happens if she ever lets go of the controls. Her positive intention is survival through certainty. What she's learning: that the problems she faces now&mdash;relational ones, emotional ones&mdash;cannot be solved with the tools she carries. Not because she's inadequate. Because the variables she needs are in a language she was never taught.</p>
+        </div>
       </div>
-      <hr>
-      <h2>What Actually Shifted</h2>
-      <p>You came in running the most airtight logical system we've seen in this cohort. Forty years of it. Every variable accounted for, every risk pre-calculated, every emotion filed under "not useful." And it worked — in the way that a dam works. It holds everything back. Until it doesn't.</p>
-      <p>What shifted wasn't that you suddenly became emotional. It's that you stopped treating emotion as the opposite of logic and started seeing it as data your system had been refusing to process. The lip pain. The breathing difficulty. The heart that physically hurt. These weren't malfunctions. They were the invoices for decades of suppressed signal, and Session 3 was when you finally opened the mail.</p>
-      <p>The teaching that landed hardest: your needs are biology, not luxury. That sentence cracked something. Not because it was new information — you're too smart for that. Because it named the exact lie your system had been running on.</p>
-    </section>
+    </div>
 
-    <section id="s-session1" class="fade-section">
-      <h2 class="chapter-marker">Session 1 — February 11</h2>
-      <h3>The Hunger Games</h3>
-      <p><strong>Core Theme:</strong> <em>Suppressed voice in toxic system; survival mode</em></p>
-      <p>You named your workplace "The Hunger Games" — and you meant it literally. A corporate environment running on emotional detachment, political maneuvering, and survival-mode compliance. You were the sole breadwinner. Aging parent to care for. Daughter navigating college decisions. And in the middle of all of it, a woman who had decided, somewhere around age seventeen, that logic was the only tool worth carrying.</p>
-      <p>That decision wasn't wrong. It got you into the top college. It got you through immigration. It got you through decades of providing for everyone around you. The Logical Strategist earned its place. But somewhere along the way, it stopped being a tool and became the entire identity. Everything that wasn't analytical got classified as waste.</p>
-      <div class="pull-quote">
-        <p>The binary thinking (work or health, self or family) is the product of survival mode. Logic can't solve this because it's a relational problem.</p>
+    <!-- Card 2: The Duty Keeper -->
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(123,94,167,0.3)" stroke-width="0.8"/><line x1="60" y1="20" x2="60" y2="100" stroke="rgba(123,94,167,0.35)" stroke-width="0.5"/><line x1="20" y1="60" x2="100" y2="60" stroke="rgba(123,94,167,0.35)" stroke-width="0.5"/><circle cx="60" cy="60" r="20" fill="none" stroke="rgba(123,94,167,0.5)" stroke-width="0.6"/><circle cx="60" cy="60" r="4" fill="rgba(123,94,167,0.4)"/></g></svg></div>
+          <div class="card-prompt">THE DUTY KEEPER</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE DUTY KEEPER &middot; MANAGER</div>
+          <h4>Income Is Survival</h4>
+          <p>Family stability is non-negotiable. This part vetoes any action&mdash;any feeling, any desire, any need&mdash;that might jeopardize the financial structure holding everyone up. She doesn't care if you're depleted. Depletion isn't in her risk model. Sole breadwinner. Aging parent. Daughter's college. The weight is real, and this part carries it without complaint because she believes she has to. What she hasn't computed: that shared burden is lighter, and that asking for help is not the same as failing.</p>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <section id="s-session2" class="fade-section">
-      <h2 class="chapter-marker">Session 2 — February 24</h2>
-      <h3>Stress Becoming Physical</h3>
-      <p><strong>Core Theme:</strong> <em>Body keeping score; emotional toll visible</em></p>
-      <p>You came back from vacation — the one thing that was supposed to help — and the return to work triggered everything. Pain. Breathing difficulty. The lip, specifically. The voice trying to move through a channel that had been locked for years. Your body was not being dramatic. It was being precise.</p>
-      <p>The logical solution (quit, reduce expenses, move) requires family transformation you felt impossible alone. The emotional solution requires opening communication and collaborative support. That's the choice your system has been refusing to compute.</p>
-      <div class="pull-quote">
-        <p>The body is keeping score. The lip pain, the breathing difficulty — these are the voice trying to move through a suppressed channel.</p>
+    <!-- Card 3: The Suppressor -->
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-spin" style="animation-duration:60s"><polygon points="60,18 90,42 82,78 38,78 30,42" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.8"/></g><g class="svg-spin" style="animation-duration:40s;animation-direction:reverse"><polygon points="60,28 80,45 75,70 45,70 40,45" fill="none" stroke="rgba(123,94,167,0.5)" stroke-width="0.6"/></g><circle cx="60" cy="52" r="4" fill="rgba(123,94,167,0.4)"/></svg></div>
+          <div class="card-prompt">THE SUPPRESSOR</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE SUPPRESSOR &middot; MANAGER</div>
+          <h4>Feelings Are Noise, Not Signal</h4>
+          <p>She locks down emotional expression as fundamentally unsafe. She learned early that feelings are noise, not signal&mdash;that vulnerability is waste, that tears are inefficiency. She works in close coordination with the Logical Strategist: together they've built a system where vulnerability literally cannot reach the surface. Until the body finds another route. The lip pain, the breathing difficulty&mdash;these are what happens when the Suppressor blocks the front door and the body starts sending signals through the walls.</p>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <section id="s-session3" class="fade-section">
-      <h2 class="chapter-marker">Session 3 — March 9</h2>
-      <h3>The Extended Reckoning & Emotional Integration</h3>
-      <p><strong>Core Theme:</strong> <em>Roots of hyperlogic explored; emotional solution emerging</em></p>
-      <p>Two hours. That wasn't an accident. The childhood origins came up — the high school decision to avoid dating entirely, to strip everything down to the single variable of college admission. A seventeen-year-old building a fortress and calling it a strategy.</p>
-      <p>We drew the parallel to Jatin leaving Google: two people who had constructed perfect logical systems and then had to reckon with what those systems cost. Your heart chakra opened. Not metaphorically. You felt it — sadness, pain, loneliness, depletion. And then, on the other side: gentleness. Connection. The earth under your feet actually registering as something you belonged to.</p>
-      <p>Turning on the emotional channel doesn't erase the logical one. That was the binary you'd been trapped in. As if feeling would make you stupid. As if vulnerability would make you weak. The integration is what your system had been refusing to compute: both channels, running simultaneously, producing something neither could produce alone.</p>
-      <div class="pull-quote">
-        <p>Needs can't be put aside, only wants and desires. Your needs are biology, not luxury. The solution is not to abandon family — it's to open emotional communication and collaborative problem-solving.</p>
+    <!-- Card 4: The Escape Artist -->
+    <div class="tarot-card" data-accent="rose">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="38" fill="none" stroke="rgba(155,79,114,0.3)" stroke-width="0.7"/><path d="M35 60 Q60 30 85 60 Q60 90 35 60" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="0.6"/><circle cx="60" cy="60" r="8" fill="none" stroke="rgba(155,79,114,0.5)" stroke-width="0.5"/><circle cx="60" cy="60" r="3" fill="rgba(155,79,114,0.35)"/></g></svg></div>
+          <div class="card-prompt">THE ESCAPE ARTIST</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE ESCAPE ARTIST &middot; FIREFIGHTER</div>
+          <h4>Work as Anesthetic</h4>
+          <p>When the emotional pressure builds past what the Suppressor can contain, this part activates. Work becomes the numbing agent. Distraction becomes the protocol. You mentioned giving up on physical appearance&mdash;that's not laziness. That's a system so overtaxed by managing everything else that self-care got triaged out entirely. The Escape Artist doesn't indulge. She redirects. Every hour spent overworking is an hour the Vulnerable Child doesn't get to speak. It's not escape from life. It's escape from feeling.</p>
+        </div>
       </div>
-      <p><strong>Chakra Work Summary:</strong></p>
-      <ul>
-        <li><strong>Root & Sacral:</strong> Grounding into earth; engaging needs/desires chakras. Tension release.</li>
-        <li><strong>Heart:</strong> Sadness, pain, loneliness, depletion; sending energy to connect with primitive love. Heart opening.</li>
-        <li><strong>Full System:</strong> Earth's magma clearing/tonifying all chakras; universal energy from head; balancing feminine (intuition, receptivity) and masculine (direction, structure). Gentler disposition; greater earth connection.</li>
-      </ul>
-    </section>
+    </div>
 
-    <section id="s-ifs" class="fade-section">
-      <h2>The IFS System Map</h2>
-      <p><strong>The Logical Strategist</strong> <em>(Manager)</em></p>
-      <p>The architect of your entire adult life. Analyzes risks, creates contingency plans, runs cost-benefit on every human interaction. Has been the primary identity since age seventeen — over forty years of uninterrupted service. Genuinely brilliant. Also genuinely terrified of what happens if it ever lets go of the controls.</p>
-      
-      <p><strong>The Duty Keeper</strong> <em>(Manager)</em></p>
-      <p>Income is survival. Family stability is non-negotiable. This part vetoes any action — any feeling, any desire, any need — that might jeopardize the financial structure holding everyone up. It doesn't care if you're depleted. Depletion isn't in its risk model.</p>
-      
-      <p><strong>The Suppressor</strong> <em>(Manager)</em></p>
-      <p>Locks down emotional expression as fundamentally unsafe. Learned early that feelings are noise, not signal. Works in close coordination with the Logical Strategist — together they've built a system where vulnerability literally cannot reach the surface. Until the body finds another route.</p>
-      
-      <p><strong>The Escape Artist</strong> <em>(Firefighter)</em></p>
-      <p>When the emotional pressure builds past what the Suppressor can contain, this part activates. Work becomes the anesthetic. Distraction becomes the protocol. You mentioned giving up on physical appearance — that's not laziness. That's a system so overtaxed by managing everything else that self-care got triaged out entirely.</p>
-      
-      <p><strong>The Rage Container</strong> <em>(Firefighter)</em></p>
-      <p>Holds the anger at the unfairness — the workplace politics, the weight of being the one who carries everything, the injustice of a system that demands you erase yourself to function within it. Keeps it sealed. Airtight. The containment itself is exhausting.</p>
-      
-      <p><strong>The Suppressed Voice</strong> <em>(Exile)</em></p>
-      <p>The one who has something to say and learned it was dangerous to say it. Shows up as lip pain — literally the mouth in distress. Shows up as breathing difficulty — the voice trying to move through a channel the Suppressor locked years ago. This part doesn't need permission to speak. It needs the system to stop treating speech as threat.</p>
-      
-      <p><strong>The Vulnerable Child</strong> <em>(Exile)</em></p>
-      <p>Needs support. Cannot ask. Has been carrying everything alone for so long that the asking mechanism atrophied. The loneliness you felt when the heart opened in Session 3 — that was her. Not broken. Just unseen for a very long time.</p>
-    </section>
-
-    <section id="s-somatic" class="fade-section">
-      <h2>The Somatic Record</h2>
-      <p>Your body has been the most honest part of your system. The lip pain is the suppressed voice trying to exit through the one place it can. The breathing difficulty is the throat closing around words that were never allowed out. The heart chakra pain — sadness, loneliness, depletion — is the emotional backlog of a system that classified feeling as waste for four decades.</p>
-      <p>After the meditation in Session 3, the body shifted: heart more open, tension decreasing, a gentler disposition, greater connection to the ground beneath you. That wasn't relaxation. That was integration. The body saying: <em>this is what it feels like when both channels are running.</em></p>
-      <p>The fear you named — "the fear of uncertainty of the future because of the way our brain is programmed is just constantly trying to avoid...what if this happens what if that happens I have to be prepared" — that's the Logical Strategist's operating system laid bare. It doesn't rest because resting means unmonitored variables. But the variables it refuses to monitor — the emotional ones, the somatic ones — are the ones currently running the show.</p>
-      <h3>Between-Session Evidence</h3>
-      <ul>
-        <li>Named the workplace dynamic accurately and without minimization — "Hunger Games" is not hyperbole when the system literally runs on emotional detachment and political survival</li>
-        <li>Body began producing undeniable somatic evidence: lip pain, breathing difficulty, heart pain</li>
-        <li>Allowed the Session 3 meditation to land — heart opened, tension released, connection to earth registered</li>
-        <li>Received the teaching that needs are biology without intellectualizing it away</li>
-        <li>Drew the line between the seventeen-year-old's survival strategy and the present-day system — and held both with something approaching compassion</li>
-      </ul>
-    </section>
-
-    <section id="s-forward" class="fade-section closing">
-      <h2>What You Carry Forward</h2>
-      <p>The Logical Strategist isn't retiring. It shouldn't. It's genuinely good at what it does, and your life has real structural demands that require strategic thinking. What's changing is its monopoly. It ran the entire operation for forty years and classified every other signal as noise. The body has now made its counter-argument in terms even a data-oriented mind can't dismiss: pain is data. Constriction is data. A heart that hurts is data.</p>
-      <p>You are not learning to be emotional instead of logical. You are learning to be both. The binary was the prison — work or health, self or family, logic or feeling. Every either/or in your system is a door that only opens when you stop choosing sides.</p>
-      <div class="pull-quote">
-        <p>Your needs are biology, not luxury. That sentence is yours now. Use it. When the Duty Keeper says you can't afford to rest, when the Suppressor says feelings are inefficient, when the Logical Strategist says self-care doesn't compute — remind the whole system: biology doesn't negotiate. It just sends the invoice. And the invoice always comes.</p>
+    <!-- Card 5: The Rage Container -->
+    <div class="tarot-card" data-accent="rose">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-pulse"><circle cx="60" cy="60" r="35" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="1"/><circle cx="60" cy="60" r="22" fill="none" stroke="rgba(155,79,114,0.5)" stroke-width="0.8"/><circle cx="60" cy="60" r="10" fill="none" stroke="rgba(155,79,114,0.6)" stroke-width="0.6"/><line x1="35" y1="35" x2="85" y2="85" stroke="rgba(155,79,114,0.25)" stroke-width="0.5"/><line x1="85" y1="35" x2="35" y2="85" stroke="rgba(155,79,114,0.25)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE RAGE CONTAINER</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE RAGE CONTAINER &middot; FIREFIGHTER</div>
+          <h4>Airtight and Exhausting</h4>
+          <p>She holds the anger at the unfairness&mdash;the workplace politics, the weight of being the one who carries everything, the injustice of a system that demands you erase yourself to function within it. Keeps it sealed. Airtight. The containment itself is exhausting. Not because the anger is wrong&mdash;it's entirely justified&mdash;but because holding it without expression requires energy your system can no longer spare. The rage isn't the problem. The seal is.</p>
+        </div>
       </div>
-      <p style="margin-top: 2rem;"><em>With love,</em><br><em>Jatin &amp; Shalini / Kairos Path</em></p>
-    </section>
+    </div>
 
-    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
-      <div class="gold-line"></div>
-      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
-      <div class="colophon">Kairos &middot; Path</div>
-    </section>
-  </main>
+    <!-- Card 6: The Suppressed Voice -->
+    <div class="tarot-card" data-accent="gold">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><ellipse cx="60" cy="55" rx="30" ry="40" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.8"/><line x1="60" y1="15" x2="60" y2="95" stroke="rgba(201,162,85,0.2)" stroke-width="0.5"/><circle cx="60" cy="40" r="8" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.6"/><path d="M48 65 Q60 80 72 65" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE SUPPRESSED VOICE</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE SUPPRESSED VOICE &middot; EXILE</div>
+          <h4>The Mouth in Distress</h4>
+          <p>She has something to say and learned it was dangerous to say it. She shows up as lip pain&mdash;literally the mouth in distress. Shows up as breathing difficulty&mdash;the voice trying to move through a channel the Suppressor locked years ago. She doesn't need permission to speak. She needs the system to stop treating speech as threat. Every word she carries is a truth your family needs to hear, your body needs to release, and your system needs to stop classifying as dangerous. She is the exile closest to the surface. She is the one the body is fighting hardest to free.</p>
+        </div>
+      </div>
+    </div>
 
-  <script>
-// ─── PARTICLES (color-shifting) ───
+    <!-- Card 7: The Vulnerable Child -->
+    <div class="tarot-card" data-accent="teal">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="42" fill="none" stroke="rgba(46,95,107,0.3)" stroke-width="0.8"/><circle cx="60" cy="60" r="28" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><circle cx="60" cy="60" r="14" fill="none" stroke="rgba(46,95,107,0.5)" stroke-width="0.5"/><circle cx="60" cy="60" r="5" fill="rgba(46,95,107,0.35)"/></g></svg></div>
+          <div class="card-prompt">THE VULNERABLE CHILD</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE VULNERABLE CHILD &middot; EXILE</div>
+          <h4>Unseen for a Very Long Time</h4>
+          <p>She needs support. Cannot ask. Has been carrying everything alone for so long that the asking mechanism atrophied. The loneliness you felt when the heart opened in Session 3&mdash;that was her. Not broken. Just unseen for a very long time. The seventeen-year-old who decided feelings were a liability is still running the show from underneath, and what she needs is not a strategy or a plan. She needs someone to say: you don't have to do this alone. And she needs you to believe it enough to let that be true.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="spread-complete">All seven parts revealed&mdash;the architects, the containers, and the voices waiting to be heard.</div>
+  </div>
+  <div class="rose-line"></div>
+</section>
+
+<!-- SOMATIC MAP -->
+<section class="fade-section" id="s-somatic">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><ellipse cx="30" cy="30" rx="12" ry="24" fill="none" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><ellipse cx="30" cy="30" rx="24" ry="12" fill="none" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><circle cx="30" cy="30" r="3" fill="rgba(46,95,107,0.4)"/><circle cx="30" cy="14" r="2" fill="rgba(46,95,107,0.25)"/><circle cx="30" cy="46" r="2" fill="rgba(46,95,107,0.25)"/></g></svg></div>
+    <div class="label" style="color:var(--teal)">THE SOMATIC MAP</div>
+    <h2>What the Body Told Us</h2>
+  </div>
+  <div class="prose">
+    <p>Your body has been the most honest part of your system. While the Logical Strategist ran the spreadsheets and the Suppressor filed emotions under "waste," the body was keeping its own meticulous records. And in Session 3, it presented the full accounting.</p>
+    <p>The <strong>lip pain</strong> is the suppressed voice trying to exit through the one place it can. The literal exit point of speech, aching from decades of words that were never allowed out. The <strong>breathing difficulty</strong> is the throat closing around truths that were classified as dangerous. And the <strong>heart pain</strong>&mdash;the sadness, the loneliness, the depletion&mdash;is the emotional backlog of a system that classified feeling as waste for four decades.</p>
+    <p>During the Session 3 meditation, everything shifted. The <strong>root and sacral</strong> chakras engaged&mdash;grounding into earth, activating the needs and desires centers that had been on permanent lockdown. The <strong>heart</strong> opened into sadness, then pain, then loneliness, then depletion&mdash;and then, on the other side, something unexpected: gentleness. Connection. The earth under your feet registering as something you belonged to.</p>
+    <p>The <strong>full system clearing</strong> balanced what had been running unchecked: earth's magma tonifying all chakras, universal energy from the crown, the feminine (intuition, receptivity) finally given space alongside the masculine (direction, structure) that had been the only operating system.</p>
+    <p>After the meditation, your disposition had shifted: gentler, more grounded, the tension decreasing. That wasn't relaxation. That was integration. The body saying: <em>this is what it feels like when both channels are running.</em></p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<!-- FORWARD -->
+<section class="fade-section" id="s-forward">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="16" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="8" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/><line x1="30" y1="6" x2="30" y2="54" stroke="rgba(201,162,85,0.12)" stroke-width="0.3"/><line x1="6" y1="30" x2="54" y2="30" stroke="rgba(201,162,85,0.12)" stroke-width="0.3"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">INTEGRATION &amp; FORWARD</div>
+    <h2>What You Carry Forward</h2>
+  </div>
+  <div class="prose">
+    <p>The Logical Strategist isn't retiring, Teo. She shouldn't. She's genuinely good at what she does, and your life has real structural demands that require strategic thinking. What's changing is her monopoly. She ran the entire operation for forty years and classified every other signal as noise. The body has now made its counter-argument in terms even a data-oriented mind can't dismiss: pain is data. Constriction is data. A heart that hurts is data.</p>
+    <p>You are not learning to be emotional instead of logical. You are learning to be both. The binary was the prison&mdash;work or health, self or family, logic or feeling. Every either/or in your system is a door that only opens when you stop choosing sides.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--gold)">
+    Your needs are biology, not luxury. When the Duty Keeper says you can't afford to rest, when the Suppressor says feelings are inefficient, when the Logical Strategist says self-care doesn't compute&mdash;remind the whole system: biology doesn't negotiate. It just sends the invoice.
+  </div>
+  <div class="prose">
+    <p>The work ahead is specific and clear. Deep breathing before conversations&mdash;ten minutes, letting the nervous system settle before the words try to move. Journaling or voice recording to practice expressing locked-down thoughts privately, in a space where the Suppressor doesn't need to stand guard. And the hardest practice of all: conversations <em>with</em> your family about needs, not just decisions <em>about</em> them. Not expecting specific outcomes. Just speaking. Just letting the voice exist in the room.</p>
+    <p>Your family may surprise you with their capacity to share the load. Your daughter may understand your sacrifice in ways you haven't given her credit for. Your husband may have more awareness than the Logical Strategist computes. And you&mdash;the woman who carried an ocean's worth of responsibility on a seventeen-year-old's fortress&mdash;may discover that the structure holds even better when there's more than one set of hands.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- CLOSING LETTER -->
+<section class="fade-section" style="padding: 4rem 0 2rem">
+  <div class="prose" style="max-width:640px; margin:0 auto; text-align:center">
+    <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9">The fortress built at seventeen was never the problem. It was an act of genius&mdash;a survival strategy so effective it carried you across continents and decades. What changes now is not the fortress. It's the addition of a door that opens from the inside.</p>
+    <p style="font-family:var(--display); font-size:1rem; color:var(--lavender); line-height:1.9; margin-top:2.5rem">Your heart is opening. Your voice is finding a body. The logical mind that has served you so faithfully is learning that it was never meant to work alone. And the invoice the body has been holding&mdash;it doesn't demand payment. It demands attention. You've begun to give it.</p>
+  </div>
+</section>
+
+<section class="closing fade-section">
+  <div class="gold-line"></div>
+  <p>The dam opens. Not in collapse, but in release. And what flows through is not the flood she feared&mdash;but the voice she's carried in silence for forty years, finally finding the air.</p>
+  <div style="margin-top:2.5rem">
+    <p style="font-size:1.05rem; color:var(--gold); font-family:var(--display)">With deep respect and genuine care,<br>Jatin &amp; Shalini<br>Kairos Path</p>
+  </div>
+</section>
+
+<div class="colophon">Consciousness Cartography &middot; Kairos Path &middot; March 2026</div>
+</main>
+
+<script>
+// PARTICLES
 (function(){
   const c=document.getElementById('cosmos'),x=c.getContext('2d');
   let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
@@ -544,7 +585,7 @@
     o:Math.random()*0.35+0.08, ph:Math.random()*Math.PI*2
   });
   window._setParticleColor = function(r,g,b){ targetColor={r,g,b}; };
-  (function draw(){
+  function draw(){
     x.clearRect(0,0,c.width,c.height);
     currentColor.r+=(targetColor.r-currentColor.r)*0.01;
     currentColor.g+=(targetColor.g-currentColor.g)*0.01;
@@ -558,40 +599,46 @@
       x.fillStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
       x.fill();
     });
+    for(let i=0;i<Math.min(particles.length,5);i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.hypot(dx,dy);
+        if(d<100){
+          const o=Math.max(0.05,(1-d/100)*0.1)*particles[i].o;
+          x.strokeStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
+          x.lineWidth=0.5;x.beginPath();x.moveTo(particles[i].x,particles[i].y);x.lineTo(particles[j].x,particles[j].y);x.stroke();
+        }
+      }
+    }
     requestAnimationFrame(draw);
-  })();
+  }
+  draw();
 })();
-
-// ─── CURSOR GLOW ───
+// CURSOR GLOW
 const glow=document.getElementById('cursorGlow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-
-// ─── PROGRESS BAR ───
+// PROGRESS BAR
 const progressBar=document.getElementById('progressBar');
 function updateProgress(){
   const h=document.documentElement.scrollHeight-innerHeight;
   progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
 }
 addEventListener('scroll',updateProgress);
-
-// ─── SCROLL REVEAL ───
+// SCROLL REVEAL
 const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
-
-// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
+// AMBIENT GLOW + PARTICLE COLOR SHIFTS
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
   's-hero':       {glow:'',          color:[168,155,196]},
   's-invitation': {glow:'',          color:[168,155,196]},
   's-session1':   {glow:'glow-gold', color:[201,162,85]},
   's-session2':   {glow:'glow-rose', color:[155,79,114]},
-  's-session3':   {glow:'glow-gold', color:[201,162,85]},
+  's-session3':   {glow:'glow-teal', color:[80,140,160]},
   's-ifs':        {glow:'glow-rose', color:[155,100,130]},
   's-somatic':    {glow:'glow-teal', color:[80,140,160]},
   's-forward':    {glow:'glow-gold', color:[210,185,120]},
 };
-
-// ─── NAV DOTS ───
+// NAV DOTS
 const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-ifs','s-somatic','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
@@ -601,13 +648,11 @@ sects.forEach((id,i)=>{
   nav.appendChild(d);
 });
 const dots=nav.querySelectorAll('.dot');
-
 let lastActiveSection='s-hero';
 addEventListener('scroll',()=>{
   const y=scrollY+innerHeight/2; let a=0;
   sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
   dots.forEach((d,i)=>d.classList.toggle('active',i===a));
-  // ambient glow + particle shift
   const activeId=sects[a];
   if(activeId!==lastActiveSection){
     lastActiveSection=activeId;
@@ -616,18 +661,14 @@ addEventListener('scroll',()=>{
     window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
   }
 });
-
-// ─── CARD COMPLETION TRACKING ───
-
-// CARD SIZING — measure back face and set card-inner height
+// CARD SIZING
 function sizeCards(){
   document.querySelectorAll('.tarot-card').forEach(card=>{
     const back=card.querySelector('.card-back');
     const inner=card.querySelector('.card-inner');
     if(!back||!inner) return;
-    // Temporarily make back visible to measure
     back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
-    const bh=back.scrollHeight+36; // padding buffer
+    const bh=back.scrollHeight+36;
     back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
     const h=Math.max(340,bh);
     inner.style.minHeight=h+'px';
@@ -639,7 +680,6 @@ sizeCards(); addEventListener('resize',sizeCards);
 document.querySelectorAll('.tarot-card').forEach(card=>{
   card.addEventListener('click',function(){
     this.classList.toggle('flipped');
-    // check if all cards in this spread are flipped
     const wrap=this.closest('.card-spread-wrap');
     if(!wrap) return;
     const allCards=wrap.querySelectorAll('.tarot-card');
@@ -649,9 +689,6 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
     else if(msg) msg.classList.remove('revealed');
   });
 });
-// Remove inline onclick since we handle via event listener
-document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-
 </body>
 </html>
