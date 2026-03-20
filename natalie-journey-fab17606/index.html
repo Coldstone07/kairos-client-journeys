@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Consciousness Cartography of Natalie</title>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>The Consciousness Cartography of Natalie Stark</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --bg: #0B0718;
     --bg-mid: #130D2A;
@@ -28,22 +22,15 @@
     --display: 'Cormorant Garamond', Georgia, serif;
     --body: 'Lora', Georgia, serif;
   }
-
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--gold-pale);
     font-family: var(--body); font-size: 18px; line-height: 1.85;
     overflow-x: hidden;
   }
-
-  /* ═══ COSMIC CANVAS ═══ */
   .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
   .cosmos canvas { width: 100%; height: 100%; }
-
-  /* ═══ MAIN SCROLL ═══ */
   main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ═══ HERO ═══ */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
@@ -90,610 +77,477 @@
     background: linear-gradient(to bottom, var(--amethyst), transparent);
     margin: 0.7rem auto 0;
   }
-
-  /* ═══ PROSE BLOCKS ═══ */
   .prose { margin-bottom: 2rem; }
   .prose p { margin-bottom: 1.4rem; }
   .prose em { color: var(--white); }
   .prose strong { color: var(--gold); font-weight: 500; }
-
   .fade-section {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 1.4s ease, transform 1.4s ease;
+    opacity: 0; animation: fadeIn 1.2s forwards; animation-delay: var(--delay, 0s);
+    padding: 3rem 0;
   }
-  .fade-section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ═══ CHAPTER MARKERS ═══ */
+  .fade-section.breather { padding: 1.5rem 0; }
+  .fade-section.breather p {
+    font-family: var(--display); font-size: 1.3rem;
+    font-style: italic; color: var(--lavender); text-align: center;
+  }
   .chapter-marker {
-    text-align: center; padding: 5rem 0 2rem;
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 2.5rem; position: relative;
   }
-  .chapter-marker .label {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
+  .chapter-glyph {
+    width: 80px; height: 80px; margin-bottom: 1.5rem;
+    opacity: 0.7; transition: opacity 0.6s;
+  }
+  .chapter-glyph svg { width: 100%; height: 100%; }
+  .chapter-marker:hover .chapter-glyph { opacity: 1; }
+  .label {
+    font-family: var(--display); font-size: 0.85rem;
+    letter-spacing: 0.2em; margin-bottom: 0.8rem;
+    opacity: 0.85;
   }
   .chapter-marker h2 {
-    font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
-    font-weight: 300; color: var(--white); font-style: italic;
+    font-family: var(--display); font-size: 2.2rem;
+    font-weight: 300; color: var(--white);
+    margin-bottom: 0.8rem;
   }
-  .chapter-marker .gene-path {
-    font-family: var(--display); font-size: 1rem;
-    color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
+  .gene-path {
+    font-family: var(--display); font-size: 0.9rem;
+    color: var(--lavender); letter-spacing: 0.08em;
   }
-  .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
-
-  /* ═══ DIVIDERS ═══ */
-  .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
-  .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
-  .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
-
-  /* ═══ PULL QUOTE ═══ */
+  .gene-path .arr { margin: 0 0.5rem; opacity: 0.6; }
   .pull-quote {
-    border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
-    margin: 2.5rem 0;
-    font-family: var(--display); font-size: 1.35rem; font-style: italic;
-    color: var(--white); line-height: 1.75;
+    border-left: 3px solid var(--gold); padding: 1.8rem 0 1.8rem 2.2rem;
+    margin: 2rem 0; font-family: var(--display);
+    font-size: 1.15rem; font-style: italic; color: var(--white);
+    line-height: 1.8;
   }
   .pull-quote cite {
-    display: block; margin-top: 0.8rem; font-size: 0.8rem;
-    color: var(--gold); font-style: normal; letter-spacing: 0.1em;
+    display: block; font-size: 0.85rem; font-style: normal;
+    margin-top: 0.8rem; color: var(--gold-pale); opacity: 0.8;
   }
-
-  /* ═══ TAROT CARDS ═══ */
+  .gold-line, .rose-line, .teal-line {
+    height: 1px; margin: 2.5rem 0; opacity: 0.4;
+  }
+  .gold-line { background: linear-gradient(to right, transparent, var(--gold), transparent); }
+  .rose-line { background: linear-gradient(to right, transparent, var(--rose), transparent); }
+  .teal-line { background: linear-gradient(to right, transparent, var(--teal), transparent); }
   .card-ritual {
-    text-align: center; margin: 3rem 0 1rem;
-    font-family: var(--display); font-size: 0.8rem;
-    color: var(--amethyst); letter-spacing: 0.15em;
-    font-style: italic;
+    text-align: center; font-family: var(--display);
+    font-size: 0.95rem; color: var(--lavender);
+    margin: 2rem 0 2.5rem; letter-spacing: 0.1em;
+  }
+  .card-spread-wrap {
+    margin: 2.5rem 0;
+    perspective: 1200px;
   }
   .card-spread {
-    display: flex; gap: 1.2rem; justify-content: center;
-    flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; margin-bottom: 2rem;
   }
   .tarot-card {
-    width: 260px; perspective: 900px; cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  .tarot-card:hover { transform: translateY(-4px); }
-  .tarot-card .card-inner {
-    position: relative; width: 100%; min-height: 340px;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; cursor: pointer;
     transform-style: preserve-3d;
   }
-  .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
-
+  .card-inner {
+    position: relative; width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .tarot-card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
   .card-face {
-    backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
-    display: flex; flex-direction: column;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    padding: 2rem 1.5rem; text-align: center;
+    border: 1px solid rgba(201,162,85,0.25);
+    border-radius: 4px;
+    background: var(--bg-card);
   }
   .card-front {
     position: absolute; inset: 0;
-    background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
-    align-items: center; justify-content: center; text-align: center;
-  }
-  .card-front .card-symbol {
-    width: 120px; height: 120px; margin-bottom: 1.2rem;
-  }
-  .card-front .card-symbol svg {
-    width: 100%; height: 100%;
-  }
-  /* SVG animations */
-  @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-  @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
-  @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
-  .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
-  .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
-  .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
-
-  /* Chapter glyphs */
-  .chapter-glyph {
-    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
-  }
-  .chapter-glyph svg { width: 100%; height: 100%; }
-  .card-front .card-prompt {
-    font-family: var(--display); font-size: 0.85rem;
-    color: var(--amethyst); letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .card-front .tap-hint {
-    margin-top: 1.5rem; font-family: var(--display); font-size: 0.65rem;
-    color: rgba(168,155,196,0.5); letter-spacing: 0.15em;
   }
   .card-back {
-    background: linear-gradient(145deg, var(--bg-card), var(--bg));
+    position: relative;
     transform: rotateY(180deg);
   }
-  .card-back .card-label {
-    font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    margin-bottom: 0.6rem;
+  .card-symbol {
+    width: 100%; height: 120px; margin-bottom: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-symbol svg { width: 100%; height: 100%; }
+  .card-prompt {
+    font-family: var(--display); font-size: 1.1rem;
+    color: var(--gold-pale); margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .tap-hint {
+    font-size: 0.75rem; color: var(--lavender);
+    opacity: 0.6; margin-top: 1rem;
+  }
+  .card-label {
+    font-family: var(--display); font-size: 0.75rem;
+    color: var(--lavender); letter-spacing: 0.15em;
+    opacity: 0.8; margin-bottom: 0.5rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.15rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
-    line-height: 1.4;
+    font-family: var(--display); font-size: 1.2rem;
+    color: var(--white); margin-bottom: 0.8rem;
+    font-weight: 500;
   }
   .card-back p {
-    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
-    font-family: var(--body);
+    font-size: 0.95rem; line-height: 1.7;
+    color: var(--gold-pale);
   }
-
-  .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
-  .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
-  .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
-  .tarot-card[data-accent="rose"] .card-front .card-symbol { color: var(--rose); }
-  .tarot-card[data-accent="amethyst"] .card-front { border: 1px solid rgba(123,94,167,0.35); }
-  .tarot-card[data-accent="amethyst"] .card-back { border: 1px solid var(--amethyst); border-top: 3px solid var(--amethyst); }
-  .tarot-card[data-accent="amethyst"] .card-back .card-label { color: var(--amethyst); }
-  .tarot-card[data-accent="gold"] .card-front { border: 1px solid rgba(201,162,85,0.35); }
-  .tarot-card[data-accent="gold"] .card-back { border: 1px solid var(--gold); border-top: 3px solid var(--gold); }
-  .tarot-card[data-accent="gold"] .card-back .card-label { color: var(--gold); }
-  .tarot-card[data-accent="gold"] .card-front .card-symbol { color: var(--gold); }
-  .tarot-card[data-accent="teal"] .card-front { border: 1px solid rgba(46,95,107,0.35); }
-  .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
-  .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
-  .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
-
-  /* ═══ DUALITY SECTION ═══ */
-  .duality {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
-    align-items: start; margin: 2.5rem 0;
-  }
-  .duality-panel {
-    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
-  }
-  .duality-panel h3 {
-    font-family: var(--display); font-size: 1.6rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
-  }
-  .duality-panel .role {
-    font-family: var(--display); font-size: 0.85rem;
-    font-style: italic; margin-bottom: 1rem;
-  }
-  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
-  .duality-panel.architect .role { color: var(--amethyst); }
-  .duality-panel.oracle { border-top: 2px solid var(--rose); }
-  .duality-panel.oracle .role { color: var(--rose); }
-  .duality-center {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
-  }
-  .synthesis-bar {
-    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
-    border: 1px solid var(--gold); border-radius: 3px;
-    background: var(--bg-card);
-    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
-  }
-  .synthesis-bar em { color: var(--gold); font-weight: 600; }
-
-  /* ═══ SHADOW ITEMS ═══ */
-  .shadow-item {
-    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
-  }
-  .shadow-item:last-child { border-bottom: none; }
-  .shadow-item .shadow-num {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
-  }
-  .shadow-item h4 {
-    font-family: var(--display); font-size: 1.2rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
-  }
-
-  /* ═══ CLOSING ═══ */
-  .closing {
-    padding: 6rem 0 3rem; text-align: center;
-  }
-  .closing p {
-    font-family: var(--display); font-size: 1.25rem;
-    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
-    line-height: 1.9;
-  }
-  .colophon {
-    text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
-    font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; color: var(--amethyst);
-  }
-
-  /* ═══ CONSTELLATION NAV ═══ */
-  .const-nav {
-    position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
-    z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-  }
-  .const-nav .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    border: 1px solid rgba(123,94,167,0.4); background: transparent;
-    transition: all 0.5s; cursor: pointer;
-  }
-  .const-nav .dot.active {
-    background: var(--gold); border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(201,162,85,0.4);
-  }
-  .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
-
-  /* ═══ PROGRESS BAR ═══ */
-  .progress-bar {
-    position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
-    background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
-    width: 0%; transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(201,162,85,0.4);
-  }
-
-  /* ═══ CURSOR GLOW ═══ */
-  .cursor-glow {
-    position: fixed; pointer-events: none; z-index: 5;
-    width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,162,85,0.04), transparent 70%);
-    transform: translate(-50%,-50%);
-    transition: left 0.3s ease, top 0.3s ease;
-  }
-
-  /* ═══ AMBIENT GLOW (per chapter) ═══ */
-  .ambient-glow {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    transition: background 2s ease;
-  }
-  .ambient-glow.glow-gold { background: radial-gradient(ellipse at 30% 50%, rgba(201,162,85,0.04), transparent 60%); }
-  .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
-  .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
-  .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
-
-  /* ═══ TRANSITION BREATHERS ═══ */
-  .breather {
-    min-height: 45vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 3rem 1.5rem;
-  }
-  .breather p {
-    font-family: var(--display); font-style: italic; font-size: 1.25rem;
-    color: var(--lavender); max-width: 520px; line-height: 1.9;
-  }
-
-  /* ═══ CARD COMPLETION ═══ */
-  .card-spread-wrap { position: relative; }
   .spread-complete {
-    text-align: center; margin-top: 1rem;
-    font-family: var(--display); font-size: 0.85rem;
-    color: var(--gold); letter-spacing: 0.1em; font-style: italic;
-    opacity: 0; transition: opacity 1s ease; height: 1.5rem;
+    text-align: center; font-family: var(--display);
+    color: var(--gold); font-size: 0.9rem;
+    letter-spacing: 0.1em; opacity: 0;
+    transition: opacity 0.4s; padding: 1.5rem 0 0;
   }
   .spread-complete.revealed { opacity: 1; }
-
-  /* ═══ CARD HOVER GLOW ═══ */
-  .tarot-card:not(.flipped):hover .card-front {
-    box-shadow: 0 0 25px rgba(201,162,85,0.12);
+  .closing {
+    text-align: center; padding: 3rem 0 2rem;
+    border-top: 1px solid rgba(201,162,85,0.15);
   }
-  .tarot-card.flipped { cursor: default; }
-
-  /* ═══ ANIMATIONS ═══ */
-  @keyframes fadeIn { to { opacity: 1; } }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
-  @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
-  @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-  @media(max-width:768px) {
-    .duality { grid-template-columns: 1fr; }
-    .duality-center { padding: 0; }
-    .const-nav { display: none; }
-    .tarot-card { width: 220px; }
-    .card-back p { font-size: 0.78rem; line-height: 1.6; }
-    main { padding: 0 1.2rem; }
+  .closing p {
+    font-family: var(--display); font-size: 1rem;
+    color: var(--lavender); line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  .closing p:first-child { font-size: 1.15rem; color: var(--gold-pale); }
+  .colophon {
+    text-align: center; padding: 2rem 0;
+    font-family: var(--display); font-size: 0.8rem;
+    color: var(--lavender); opacity: 0.6; letter-spacing: 0.1em;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%,-50%) scale(1.2); opacity: 0.2; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .svg-spin { animation: spin 60s linear infinite; }
+  .svg-breathe {
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @media (max-width: 640px) {
+    main { padding: 0 1rem; }
+    .chapter-marker h2 { font-size: 1.8rem; }
+    .card-spread { grid-template-columns: 1fr; }
+    .pull-quote { padding: 1.5rem 0 1.5rem 1.5rem; font-size: 1rem; }
   }
 </style>
-
-  <style>
-    /* Additional overrides for generic markdown */
-    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
-    h3 { margin-top: 1.5rem; color: var(--lavender); }
-    p { margin-bottom: 1.5rem; font-size: 19px; }
-    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
-    li { margin-bottom: 0.5rem; }
-    blockquote { 
-      border-left: 3px solid var(--gold); 
-      padding-left: 1.5rem; 
-      margin: 2rem 0; 
-      font-style: italic; 
-      font-size: 1.3rem; 
-      color: var(--gold-pale); 
-      background: var(--gold-glow);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
-    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
-    .fade-section.visible { opacity: 1; transform: translateY(0); }
-    strong { color: var(--white); font-weight: 500; }
-  </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  <div class="ambient-glow" id="ambientGlow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cosmos"><canvas id="cosmos"></canvas></div>
+<div class="cosmos"><canvas id="cosmos"></canvas></div>
+<main>
 
-  <main>
-    <section class="hero" id="s-hero">
-      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
-      <div class="hero-glow"></div>
-      <h1>The Consciousness Cartography<br><em>of Natalie</em></h1>
-      <div class="meta">THE WISDOM OF THE AGENDALESS</div>
-      <div class="scroll-hint">DESCEND</div>
-    </section>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-glow"></div>
+  <h1>The Consciousness Cartography <em>of Natalie Stark</em></h1>
+  <div class="meta">From Target-Seeking to Sacred Untethering</div>
+  <div class="scroll-hint">SCROLL TO EXPLORE</div>
+</section>
 
-    <!-- ═══ INVITATION ═══ -->
-    <section id="s-invitation" class="fade-section" style="padding-top:4rem;">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--lavender)">A SACRED LETTER</div>
-        <h2>Dear Natalie</h2>
-      </div>
-      <div class="prose">
-        <p>You arrived with a paradox: untethered and directionless, yet this wasn't dysregulating — it was <em>confusing</em>. Your whole life, your feet have been grounding; your target-seeking has been your identity. Now all targets have dissolved. The airy sensation in your body is new.</p>
-        <p>What these sessions gave you wasn't a new system. They gave you permission to trust the one you already have — the internal radar that doesn't always have language but rarely leads you wrong. The warrior is learning to rest. Not through surrender, but through a deeper kind of strength.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
+<!-- OPENING NARRATIVE -->
+<section class="fade-section" style="--delay: 0.8s">
+  <div class="prose">
+    <p><em>Natalie is a grounded, highly intentional person learning to navigate the exquisite discomfort of untethering. She's a purpose-driven warrior whose lifetime strategy of target-setting and directedness is dissolving—replaced by an airy potentiality that both liberates and confuses her. Her work is discovering what becomes possible when the bow is lowered and the feet truly touch the ground.</em></p>
+  </div>
+</section>
 
-    <!-- ═══ SESSION 1 ═══ -->
-    <section id="s-session1" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">SESSION 1 · FEBRUARY 23</div>
-        <h2>The Container & The Wound</h2>
-        <div class="gene-path">Target-Seeking <span class="arr">→</span> Untethering <span class="arr">→</span> Sacred Struggle</div>
-      </div>
+<!-- SESSION 1: THE CONTAINER & THE WOUND -->
+<section class="fade-section" id="s-session1" style="--delay: 1.2s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><circle cx="30" cy="30" r="22" fill="none" stroke="rgba(156,79,114,0.4)" stroke-width="0.6"/><circle cx="30" cy="30" r="14" fill="none" stroke="rgba(156,79,114,0.3)" stroke-width="0.5"/><path d="M30 8 L38 18 L50 20 L42 28 L44 40 L30 35 L16 40 L18 28 L10 20 L22 18 Z" fill="none" stroke="rgba(156,79,114,0.4)" stroke-width="0.5"/></g></svg></div>
+    <div class="label" style="color:var(--rose)">SESSION 1 &middot; FEBRUARY 23</div>
+    <h2>The Container & The Wound</h2>
+    <div class="gene-path">Untethering <span class="arr">&rarr;</span> Confusion <span class="arr">&rarr;</span> Sacred Obstacle</div>
+  </div>
+  <div class="prose">
+    <p>Natalie arrived with a paradox: she's untethered and directionless, yet this isn't dysregulating—it's <em>confusing</em>. Her whole life, her feet have been grounding; her target-seeking has been her identity. Now she's floating. All targets have dissolved. The airy sensation in her body is new.</p>
+    <p>What opened in this first session was the introduction of an agendaless, co-created container. Natalie's first discovery: she's not dysregulated by the untethering—she's <em>confused</em>. Deep dive into core wound: "the struggle" / "always at war"—the battle between ego and heart. Gene Keys framework clarified: Purpose (compass), Wound (sacred obstacle), Vocation (the path once the wound has done its work).</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    Agendaless presence itself becomes the teaching. This container shows her what non-outcome-based presence feels like.
+    <cite>— Coaching insight</cite>
+  </div>
+  <div class="prose">
+    <p>The struggle is not identity to be defended. It's sacred obstacle—the very thing that creates internal war also gives capacity to help others navigate their own conflicts. What shifted fundamentally: from target-seeking as identity to potentiality as confusion; from structure as safety to openness as both freedom and disorientation; from struggle as identity to struggle as sacred teacher.</p>
+  </div>
+  <div class="rose-line"></div>
+</section>
 
-      <div class="pull-quote">
-        "A feeling of untetheredness that is not dysregulating, but rather directionless... used to finding a specific target and aligning energy towards it. This sensation in the body feels airy and a little spacey, like feet are not touching the ground."
-        <cite>— NATALIE, SESSION 1</cite>
-      </div>
+<section class="fade-section breather">
+  <p>The warrior is learning what happens when the bow is finally lowered.</p>
+</section>
 
-      <div class="prose">
-        <p>The session began with agendaless presence as its own teaching. This container showed you what non-outcome-based presence feels like. For someone whose Type 8 has organized life around targets, plans, and directional force, the open space was both liberation and disorientation.</p>
-        <p>Then the deep dive: "always at war" — the battle between ego and heart named as your core organizing principle. Gene Keys teaching clarified: Purpose as compass, Wound as sacred obstacle, Vocation as the path once the wound has done its work.</p>
-      </div>
+<!-- SESSION 2: SPIRITUALITY IN THE MUNDANE -->
+<section class="fade-section" id="s-session2" style="--delay: 1.6s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><circle cx="30" cy="30" r="20" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><path d="M30 10 L50 30 L30 50 L10 30 Z" fill="none" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><circle cx="30" cy="30" r="4" fill="rgba(46,95,107,0.3)"/></g></svg></div>
+    <div class="label" style="color:var(--teal)">SESSION 2 &middot; MARCH 4</div>
+    <h2>Spirituality in the Mundane</h2>
+    <div class="gene-path">Transcendence <span class="arr">&rarr;</span> Embodiment <span class="arr">&rarr;</span> Grounded Power</div>
+  </div>
+  <div class="prose">
+    <p>By the second session, Natalie was ready to explore deeper integration. The conversation opened with her desire to journey with Ayahuasca and search for trusted teachers. More significantly, it centered on a fundamental truth: spirituality doesn't live in transcendence. It lives in the mundane.</p>
+    <p>The coaching challenge became clear: translating subtle spiritual experiences into authentic public offering. Imperfection, not mastery, is what heals. The warrior can rest not through spiritual bypass but through grounded presence in daily life. Authentic leadership means letting others see the human behind the power.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    Your job: finding the integrity to let others see your process, not just your polished mastery.
+    <cite>— Integration insight</cite>
+  </div>
+  <div class="prose">
+    <p>What shifted: from spiritual experience as private/transcendent to spiritual experience as grounded in daily presence; from need for perfection before "offering" to imperfection as authenticity; from impatience driving action to discernment of genuine calling. The untethering she feared is revealing itself as freedom—the freedom to show up as a real human being, not a polished oracle.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
 
-      <div class="pull-quote">
-        "The struggle is the sacred obstacle. The very thing that creates internal war also gives you the capacity to help others navigate their own conflicts."
-        <cite>— THE TEACHING</cite>
-      </div>
+<section class="fade-section breather">
+  <p>The deepest teaching comes wrapped in the ordinary.</p>
+</section>
 
-      <div class="prose">
-        <p>The chakra work was extensive. Root: restriction like "straw" — an over-emphasis on grounding that was actually constraining. Sacral: melting, softening, lower back releasing. Solar plexus: strong magnetic energy indicating your gifts — the struggle itself as a gift-marker. Heart: debris light, easily released. Sacred heart: connection to source intelligence activating.</p>
-        <p>The untethering isn't dysregulation. It's an invitation to discover who you are without a target to chase.</p>
-      </div>
-      <div class="gold-line"></div>
-    </section>
+<!-- GENE KEYS: GK 38 STRUGGLE/HONOR -->
+<section class="fade-section" id="s-genekey" style="--delay: 2s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><polygon points="30,10 45,25 45,45 30,55 15,45 15,25" fill="none" stroke="rgba(201,162,85,0.35)" stroke-width="0.6"/><polygon points="30,18 40,28 40,42 30,49 20,42 20,28" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.5"/><circle cx="30" cy="33" r="2.5" fill="rgba(201,162,85,0.3)"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">GENE KEY EVOLUTION</div>
+    <h2>GK 38: Struggle to Honor</h2>
+    <div class="gene-path">Shadow <span class="arr">&rarr;</span> Gift <span class="arr">&rarr;</span> Siddhi</div>
+  </div>
+  <div class="prose">
+    <p>Gene Key 38 is the architecture of Natalie's entire evolution. In the shadow, struggle is identity. "Always at war." The battle between ego and heart masquerading as necessary. This organizing principle has protected her, structured her, given her purpose—but also fragmented her.</p>
+    <p>The Gift is emerging: struggle becomes a gift <em>for others</em>. Natalie's capacity to hold internal complexity makes her a natural guide. Her perseverance is not grim—it's the warrior's walk through fire with grace. She knows what it costs to choose integrity. She knows what it feels like to have two warring parts.</p>
+    <p>The Siddhi—the highest frequency—is <strong>Honor</strong>. Not "Honored Warrior" (achievement-based) but the state of <em>honoring</em> struggle as sacred. The capacity to witness difficulty in oneself and others with respect and dignity. To see the sacred obstacle not as enemy but as teacher. This is what Natalie is becoming: someone who can honor the struggle—her own and others'—without needing to defend it.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
 
-    <!-- ═══ SESSION 2 ═══ -->
-    <section id="s-session2" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--rose)">SESSION 2 · MARCH 4</div>
-        <h2>Spirituality in the Mundane</h2>
-        <div class="gene-path">Transcendence <span class="arr">→</span> Imperfection <span class="arr">→</span> Grounded Presence</div>
-      </div>
-      <div class="prose">
-        <p>The conversation deepened into translating subtle spiritual experiences into authentic public offering. Ayahuasca journeys and shamanic exploration as part of your deepening practice — and the challenge of letting others see your process, not just your polished mastery.</p>
-      </div>
+<section class="fade-section breather">
+  <p>The Enneagram holds the relational pattern within which this sacred work unfolds.</p>
+</section>
 
-      <div class="pull-quote">
-        "Your job: finding the integrity to let others see your process, not just your polished mastery."
-        <cite>— THE INTEGRATION INSIGHT</cite>
-      </div>
+<!-- ENNEAGRAM 8W9 & INTEGRATION TOWARD 2 -->
+<section class="fade-section" id="s-enneagram" style="--delay: 2.4s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><circle cx="30" cy="30" r="22" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.6"/><g style="opacity:0.7"><path d="M30 8 Q45 22 42 40 Q30 50 18 40 Q15 22 30 8" fill="none" stroke="rgba(123,94,167,0.4)" stroke-width="0.5"/></g><circle cx="30" cy="30" r="3" fill="rgba(123,94,167,0.35)"/></g></svg></div>
+    <div class="label" style="color:var(--amethyst)">RELATIONAL PATTERN</div>
+    <h2>Enneagram 8w9: The Challenger-Peacemaker</h2>
+    <div class="gene-path">Type 8 Assertion <span class="arr">&rarr;</span> Internal Conflict <span class="arr">&rarr;</span> Type 2 Integration</div>
+  </div>
+  <div class="prose">
+    <p>Natalie is Type 8 with a 9 wing—the Challenger with the Peacemaker's instinct. Type 8 carries direct power, strong boundaries, and an inability to show vulnerability. But the 9 wing creates internal complexity: conflict avoidance paired with the need to assert. The wound is the struggle itself—better to fight than surrender.</p>
+    <p>This is the architecture of her internal war. Eight wants to push; Nine wants to accommodate. The tension between these two impulses is exactly what creates the "always at war" pattern. But here's the revolutionary insight: <strong>this very tension is her gift</strong>.</p>
+    <p>Type 8 integrates toward Type 2—warmth, receptivity, vulnerability as strength. For Natalie, this means: the strong warrior learning that admitting need isn't weakness; allowing others to support; leading through heart-centered presence. The integration work isn't about becoming less powerful. It's about power married to care, assertion grounded in warmth.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--amethyst)">
+    The warrior learning that vulnerability, allowing support, and admitting need are not weaknesses but the ground of genuine power.
+    <cite>— Type 8 → 2 Integration</cite>
+  </div>
+  <div class="amethyst-line" style="height:1px; background:linear-gradient(to right, transparent, var(--amethyst), transparent); margin: 2.5rem 0; opacity: 0.4;"></div>
+</section>
 
-      <div class="prose">
-        <p>Your impatience pattern surfaced — the Type 8 drive that wants results <em>now</em>, that measures progress by targets hit. The second chakra work invited something different: playing with the impulse to run, identifying what the body actually needs beneath the urgency.</p>
-        <p>The warrior can rest not through spiritual transcendence but through grounded presence in daily life. Authentic leadership means letting others see the human behind the power. This is your Type 8 integrating toward Type 2: warmth, receptivity, vulnerability as a different kind of strength.</p>
-      </div>
-      <div class="rose-line"></div>
-    </section>
+<section class="fade-section breather">
+  <p>The Internal Family Systems reveals the parts that have carried her through—and what they're ready to release.</p>
+</section>
 
-    <!-- ═══ IFS SYSTEM MAP ═══ -->
-    <section id="s-ifs" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--rose)">YOUR INNER SYSTEM</div>
-        <h2>The Warrior's Architecture</h2>
-      </div>
-      <div class="prose">
-        <p>Three voices shape your navigation — a warrior's system built for directional force, now learning the strength of open space. Tap each card to meet them.</p>
-      </div>
-
-      <p class="card-ritual">~ tap each card to reveal ~</p>
-      <div class="card-spread-wrap">
-        <div class="card-spread">
-
-          <div class="tarot-card" data-accent="amethyst">
-            <div class="card-inner">
-              <div class="card-face card-front">
-                <div class="card-symbol"><svg viewBox="0 0 120 120"><line x1="60" y1="20" x2="60" y2="100" stroke="currentColor" stroke-width="0.8" class="svg-breathe"/><polygon points="60,20 50,40 70,40" fill="none" stroke="currentColor" stroke-width="0.6"/><line x1="40" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="0.4" opacity="0.4"/></svg></div>
-                <div class="card-prompt">MANAGER</div>
-                <div class="tap-hint">tap to reveal</div>
-              </div>
-              <div class="card-face card-back">
-                <div class="card-label">MANAGER</div>
-                <h4>The Target-Seeker</h4>
-                <p>Makes sure there's a frame, a purpose, a direction. Not controlling — caring. She wants the experience to be productive, to not waste the time, to be prepared. She gets nervous in open space. Her gift: she's gotten you here. Her limit: she can't take you where there are no targets to aim at.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tarot-card" data-accent="rose">
-            <div class="card-inner">
-              <div class="card-face card-front">
-                <div class="card-symbol"><svg viewBox="0 0 120 120"><path d="M30 60 L90 60" stroke="currentColor" stroke-width="0.6" class="svg-pulse"/><path d="M60 30 L60 90" stroke="currentColor" stroke-width="0.6" class="svg-pulse"/><circle cx="60" cy="60" r="8" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/></svg></div>
-                <div class="card-prompt">FIREFIGHTER</div>
-                <div class="tap-hint">tap to reveal</div>
-              </div>
-              <div class="card-face card-back">
-                <div class="card-label">FIREFIGHTER</div>
-                <h4>The Reactor</h4>
-                <p>When the open space becomes too open — when there's genuine uncertainty about what's emerging — this part moves toward premature closure. Reaches for a conclusion, a plan, a sense of knowing where this is going. The impatience you feel is her voice.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tarot-card" data-accent="teal">
-            <div class="card-inner">
-              <div class="card-face card-front">
-                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3" class="svg-breathe"/><circle cx="60" cy="60" r="5" fill="currentColor" opacity="0.2" class="svg-pulse"/><path d="M40 50 Q60 30 80 50" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.4"/><path d="M40 70 Q60 90 80 70" fill="none" stroke="currentColor" stroke-width="0.4" opacity="0.4"/></svg></div>
-                <div class="card-prompt">NEAR-SELF</div>
-                <div class="tap-hint">tap to reveal</div>
-              </div>
-              <div class="card-face card-back">
-                <div class="card-label">NEAR-SELF QUALITY</div>
-                <h4>The Intuitive</h4>
-                <p>The part that navigates by feel. That knows before she knows. That arrived without an agenda because something in her understood the agenda would have gotten in the way. She's not an exile in the wounded sense — she's a Self-quality that has been undervalued by the Target-Seeker. The work is giving her more authority.</p>
-              </div>
-            </div>
-          </div>
-
+<!-- IFS SYSTEM MAP & CARDS -->
+<section class="fade-section" id="s-ifs" style="--delay: 2.8s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="20" cy="30" r="12" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="40" cy="30" r="12" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="2" fill="rgba(201,162,85,0.35)"/></svg></div>
+    <div class="label" style="color:var(--gold)">THE INTERNAL SYSTEM</div>
+    <h2>Parts in Conversation</h2>
+    <div class="gene-path">Managers <span class="arr">&rarr;</span> Managers Softening <span class="arr">&rarr;</span> Self-Energy</div>
+  </div>
+  <div class="prose">
+    <p>Natalie's internal system is organized around survival strategies that are now being recalibrated. The Managers—target-seeking, intellectual, conflict-managing—have kept her functional and protected. But they've also kept her defended, separated from the exiled parts that carry vulnerability and permission to rest.</p>
+  </div>
+  <div class="card-ritual">Meet the parts that have protected her &ensp;(click to reveal)</div>
+  <div class="card-spread-wrap"><div class="card-spread">
+    <div class="tarot-card" data-accent="rose">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(156,79,114,0.4)" stroke-width="1"/><path d="M60 20 L75 45 L100 45 L80 65 L90 90 L60 70 L30 90 L40 65 L20 45 L45 45 Z" fill="none" stroke="rgba(156,79,114,0.3)" stroke-width="0.8"/></g></svg></div>
+          <div class="card-prompt">THE TARGET SEEKER</div>
+          <div class="tap-hint">click to turn</div>
         </div>
-        <div class="spread-complete" style="text-align:center;font-family:var(--display);font-size:0.8rem;color:var(--gold);letter-spacing:0.15em;opacity:0;transition:opacity 0.8s;">All parts witnessed</div>
-      </div>
-      <div class="rose-line"></div>
-    </section>
-
-    <!-- ═══ GENE KEY 38 ═══ -->
-    <section id="s-genekey" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--amethyst)">GENE KEY 38</div>
-        <h2>Struggle → Perseverance → Honor</h2>
-      </div>
-
-      <div class="duality">
-        <div class="duality-panel architect" style="border-top-color:var(--rose);">
-          <h3>Shadow</h3>
-          <div class="role" style="color:var(--rose);">Struggle</div>
-          <p style="font-size:0.88rem;">The struggle as identity. "Always at war." The battle between ego and heart masquerading as necessary. Your whole life organized around internal conflict — a warrior who doesn't know what to do when the war ends.</p>
-        </div>
-        <div class="duality-center">→</div>
-        <div class="duality-panel oracle" style="border-top-color:var(--gold);">
-          <h3>Gift & Siddhi</h3>
-          <div class="role" style="color:var(--gold);">Perseverance → Honor</div>
-          <p style="font-size:0.88rem;">The struggle becomes a gift for others. Your capacity to hold internal complexity makes you a natural guide. Perseverance is not grim — it's the warrior's walk through fire with grace. The Siddhi of <strong>Honor</strong>: witnessing difficulty in oneself and others with respect and dignity.</p>
+        <div class="card-face card-back">
+          <div class="card-label">THE TARGET SEEKER &middot; MANAGER</div>
+          <h4>Direction as Safety</h4>
+          <p>The part that has always known what to do—find direction, create momentum, accomplish goals. Has structured her entire life around targets and milestones. Positive intention is flawless: "Give her something to chase so she doesn't have to feel lost." But now she's learning that presence without target is not loss—it's freedom.</p>
         </div>
       </div>
-
-      <div class="synthesis-bar">
-        Not "Honored Warrior" (achievement). The state of <em>honoring</em> struggle as sacred.
+    </div>
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-spin" style="animation-duration:50s"><path d="M60 20 L70 35 L88 40 L75 52 L78 72 L60 62 L42 72 L45 52 L32 40 L50 35 Z" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="1"/></g><circle cx="60" cy="60" r="35" fill="none" stroke="rgba(123,94,167,0.25)" stroke-width="0.5"/></svg></div>
+          <div class="card-prompt">THE INTELLECTUAL</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE INTELLECTUAL &middot; MANAGER</div>
+          <h4>Logic as Armor</h4>
+          <p>The part that keeps her in her head, maintaining logic and control, avoiding the body and its wild intelligence. Brilliant at analysis, diagnosis, understanding patterns. The positive intention: "Stay safe by staying rational." But the body holds wisdom that logic cannot access, and she's beginning to soften toward that knowing.</p>
+        </div>
       </div>
-      <div class="gold-line"></div>
-    </section>
-
-    <!-- ═══ WHAT YOU CARRY FORWARD ═══ -->
-    <section id="s-forward" class="fade-section">
-      <div class="chapter-marker">
-        <div class="label" style="color:var(--gold)">THE RESTING WARRIOR</div>
-        <h2>What You Carry Forward</h2>
+    </div>
+    <div class="tarot-card" data-accent="gold">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="42" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.8"/><path d="M60 22 L72 40 L92 42 L78 54 L84 75 L60 62 L36 75 L42 54 L28 42 L48 40 Z" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.8"/><circle cx="60" cy="60" r="5" fill="rgba(201,162,85,0.2)"/></g></svg></div>
+          <div class="card-prompt">THE VULNERABLE CHILD</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE VULNERABLE CHILD &middot; EXILE</div>
+          <h4>Permission to Rest</h4>
+          <p>The exiled part that holds permission to rest, to float, to not prove herself. She believes that if she stops striving, she'll be invisible. But she's learning, tentatively, that rest is not weakness. That stopping is not the same as being unseen. That the warrior can lower the bow and still be powerful.</p>
+        </div>
       </div>
-      <div class="prose">
-        <p>Five minutes a day. No goal, no technique, no meditation practice. Just sitting. Let the Target-Seeker know it's safe to rest. Notice what surfaces when you stop directing.</p>
-        <p>You are not a machine to be optimized. You are a vessel, and vessels work best when they're not clenched.</p>
-        <p>The agendaless space will keep arriving in your life — in conversation, in creative work, in relationship, in your guardian ad litem work, in the youth you mentor. Each time the Target-Seeker wants to fill it with a plan, that's the invitation to ask: <em>what does the Intuitive already know?</em></p>
-        <p><strong>She knows quite a lot. Trust her more.</strong></p>
-      </div>
+    </div>
+  </div>
+  <div class="spread-complete">All three parts revealed—the protector, the defender, the hidden wisdom.</div>
+  </div>
+  <div class="prose">
+    <p>The IFS work centers on accessing <em>Self</em>—the part that is curious, grounded, compassionate, both vulnerable and strong. Natalie's Self-energy is high in the volunteer work (guardian ad litem, youth mentoring) where outcome-detachment is conscious. She's beginning to access it in the coaching container. The work ahead: extend this Self-presence into daily life. Let the target-seeking Managers relax their grip. Allow the Vulnerable Child's need for rest to emerge without shame.</p>
+  </div>
+  <div class="rose-line"></div>
+</section>
 
-      <div class="gold-line"></div>
-      <div class="prose" style="text-align:center; margin-top:2rem;">
-        <p><em>With love,</em><br><em>Jatin & Shalini / Kairos Path</em></p>
-      </div>
-    </section>
+<section class="fade-section breather">
+  <p>The somatic map shows where integration is still alive, where the body holds the next frontier.</p>
+</section>
 
-    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
-      <div class="gold-line"></div>
-      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
-      <div class="colophon">Kairos &middot; Path</div>
-    </section>
-  </main>
+<!-- SOMATIC MAP & FORWARD -->
+<section class="fade-section" id="s-somatic" style="--delay: 3.2s">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="16" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="8" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">EMBODIED INTEGRATION</div>
+    <h2>What the Body Knows</h2>
+  </div>
+  <div class="prose">
+    <p>The root chakra revealed itself as paradoxically over-emphasized and restricted—like "straw," Natalie said. Grounded but constrained. The work has been to find true grounding: not gripping the earth, but breathing with it. As the root releases, something miraculous happens. The untethering she feared becomes freedom.</p>
+    <p>The sacral chakra, where impulse and desire live, had been held in contraction. The pattern: honor others, suppress yourself. Don't take space. Don't want things. But desire is sacred information—it tells you what alive means to you. Opening here means reclaiming the second chakra's truth: <em>your pleasure matters. Your want is legitimate.</em></p>
+    <p>The solar plexus—the seat of personal power—carries strong magnetic energy, and Natalie has always known this about herself. But she's learning that the struggle itself is a gift marker. The fight between ego and heart isn't a flaw. It's where she learned to lead with both power and compassion. She's learning to let that hard-won wisdom serve others.</p>
+    <p>The heart chakra is opening. Light moving through easily now. And above it, the sacred heart—that 4.5 chakra that connects to source intelligence—is activating. This is where Natalie's channeling happens, where she moves frequencies that can help others. The grounding work ensures this remains sustainable, safe, embodied.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--gold)">
+    The warrior is learning that lowering the bow is not surrender. It is a different kind of power—the power of presence itself.
+  </div>
+  <div class="prose">
+    <p>This is the essence of what's becoming possible. Not the death of her strength, but the marriage of strength to softness. Not the loss of her intensity, but its redirection—from proving to serving, from defending to offering, from striving to grounded presence. The untethering that confused her is revealing itself as the most natural thing: the bow being lowered so the hands can open to receive.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
 
-  <script>
-// ─── PARTICLES (color-shifting) ───
+<section class="fade-section breather">
+  <p>And here is the metaphor that contains everything.</p>
+</section>
+
+<!-- CLOSING METAPHOR -->
+<section class="fade-section" style="padding: 4rem 0 2rem; --delay: 3.6s">
+  <div class="prose" style="max-width:640px; margin:0 auto; text-align:center">
+    <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9">She was a warrior who had learned to fight the world and herself with equal precision. The struggle was her strategy, her armor, her proof of worthiness. But she was learning something more dangerous than any battlefield: she was learning to rest.</p>
+    <p style="font-family:var(--display); font-size:1rem; color:var(--lavender); line-height:1.9; margin-top:2.5rem">Not the rest of surrender, but the rest of grounding. Not the rest of numbness, but the rest of presence. She was learning that the untethering she feared was actually her becoming free—free to show up as a real human being, complicated and powerful and vulnerable, leading through the authenticity of her own becoming rather than the armor of her certainty.</p>
+    <p style="font-family:var(--display); font-size:0.95rem; color:var(--gold); line-height:1.9; margin-top:2.5rem">This is the consciousness she is cartographing: not a map of mastery, but a map of sacred struggle becoming sacred service. The warrior, finally, understanding that her greatest gift was never the fight. It was always the heart that kept showing up to fight it.</p>
+  </div>
+</section>
+
+<!-- CLOSING LETTER -->
+<section class="closing fade-section" style="--delay: 4s">
+  <div class="gold-line"></div>
+  <p style="margin-top:2.5rem">The map serves as a mirror.<br>To those who read it: be gentle with the parts that protected you. They did their best. And welcome what comes next.</p>
+  <div style="margin-top:2.5rem">
+    <p style="font-size:1.05rem; color:var(--gold); font-family:var(--display)">With deep respect and genuine care,<br>Jatin &amp; Shalini<br>Kairos Path</p>
+  </div>
+</section>
+
+<div class="colophon">Consciousness Cartography &middot; Kairos Path &middot; March 2026</div>
+</main>
+
+<script>
 (function(){
   const c=document.getElementById('cosmos'),x=c.getContext('2d');
-  let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
+  let particles=[], targetColor={r:201,g:162,b:85}, currentColor={r:201,g:162,b:85};
   const N=110;
   function resize(){c.width=innerWidth;c.height=innerHeight}
   resize();addEventListener('resize',resize);
   for(let i=0;i<N;i++) particles.push({
     x:Math.random()*c.width, y:Math.random()*c.height,
     r:Math.random()*1.3+0.3, dx:(Math.random()-0.5)*0.1, dy:(Math.random()-0.5)*0.1,
-    o:Math.random()*0.35+0.08, ph:Math.random()*Math.PI*2
+    vx:0, vy:0, ax:0, ay:0, life:Math.random()*0.5+0.5
   });
-  window._setParticleColor = function(r,g,b){ targetColor={r,g,b}; };
-  (function draw(){
-    x.clearRect(0,0,c.width,c.height);
-    currentColor.r+=(targetColor.r-currentColor.r)*0.01;
-    currentColor.g+=(targetColor.g-currentColor.g)*0.01;
-    currentColor.b+=(targetColor.b-currentColor.b)*0.01;
-    particles.forEach(p=>{
-      p.x+=p.dx;p.y+=p.dy;p.ph+=0.007;
-      if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;
-      if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
-      const o=p.o*(0.7+0.3*Math.sin(p.ph));
-      x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
+  function draw(){
+    x.fillStyle=`rgba(11,7,24,0.1)`;x.fillRect(0,0,c.width,c.height);
+    const t=Date.now()*0.0003;
+    targetColor={r:Math.round(201+Math.sin(t)*30),g:Math.round(162+Math.cos(t*0.7)*20),b:Math.round(85+Math.sin(t*0.5)*40)};
+    currentColor.r+=(targetColor.r-currentColor.r)*0.02;
+    currentColor.g+=(targetColor.g-currentColor.g)*0.02;
+    currentColor.b+=(targetColor.b-currentColor.b)*0.02;
+    particles.forEach((p,i)=>{
+      p.life*=0.99;if(p.life<0.1){particles[i]={x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3+0.3,dx:(Math.random()-0.5)*0.1,dy:(Math.random()-0.5)*0.1,vx:0,vy:0,ax:0,ay:0,life:1}}
+      p.vx+=p.ax;p.vy+=p.ay;p.x+=p.vx+p.dx;p.y+=p.vy+p.dy;
+      p.x=(p.x+c.width)%c.width;p.y=(p.y+c.height)%c.height;
+      const o=Math.max(0.05,p.life*0.4);
       x.fillStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
-      x.fill();
+      x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
     });
+    if(particles.length>1){
+      for(let i=0;i<Math.min(particles.length,5);i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.hypot(dx,dy);
+          if(d<100){
+            const o=Math.max(0.05,(1-d/100)*0.1)*particles[i].life;
+            x.strokeStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
+            x.lineWidth=0.5;x.beginPath();x.moveTo(particles[i].x,particles[i].y);x.lineTo(particles[j].x,particles[j].y);x.stroke();
+          }
+        }
+      }
+    }
     requestAnimationFrame(draw);
-  })();
-})();
-
-// ─── CURSOR GLOW ───
-const glow=document.getElementById('cursorGlow');
-document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-
-// ─── PROGRESS BAR ───
-const progressBar=document.getElementById('progressBar');
-function updateProgress(){
-  const h=document.documentElement.scrollHeight-innerHeight;
-  progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
-}
-addEventListener('scroll',updateProgress);
-
-// ─── SCROLL REVEAL ───
-const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
-document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
-
-// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
-const ambientGlow=document.getElementById('ambientGlow');
-const chapterGlows = {
-  's-hero':      {glow:'',          color:[168,155,196]},
-  's-invitation':{glow:'',          color:[168,155,196]},
-  's-session1':  {glow:'glow-gold', color:[201,162,85]},
-  's-session2':  {glow:'glow-rose', color:[180,120,150]},
-  's-ifs':       {glow:'glow-rose', color:[155,79,114]},
-  's-genekey':   {glow:'glow-synth',color:[190,170,130]},
-  's-forward':   {glow:'glow-gold', color:[210,185,120]},
-};
-
-// ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-session1','s-session2','s-ifs','s-genekey','s-forward'];
-const nav=document.getElementById('nav');
-sects.forEach((id,i)=>{
-  if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
-  const d=document.createElement('div');d.className='dot'+(i===0?' active':'');
-  d.onclick=()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
-  nav.appendChild(d);
-});
-const dots=nav.querySelectorAll('.dot');
-
-let lastActiveSection='s-hero';
-addEventListener('scroll',()=>{
-  const y=scrollY+innerHeight/2; let a=0;
-  sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
-  dots.forEach((d,i)=>d.classList.toggle('active',i===a));
-  // ambient glow + particle shift
-  const activeId=sects[a];
-  if(activeId!==lastActiveSection){
-    lastActiveSection=activeId;
-    const cfg=chapterGlows[activeId]||{glow:'',color:[168,155,196]};
-    ambientGlow.className='ambient-glow'+(cfg.glow?' '+cfg.glow:'');
-    window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
   }
-});
-
-// ─── CARD COMPLETION TRACKING ───
+  draw();
+})();
+function sizeCards(){
+  document.querySelectorAll('.tarot-card').forEach(card=>{
+    const back=card.querySelector('.card-back');
+    const inner=card.querySelector('.card-inner');
+    if(!back||!inner) return;
+    back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
+    const bh=back.scrollHeight+36;
+    back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
+    const h=Math.max(340,bh);
+    inner.style.minHeight=h+'px';
+    card.querySelector('.card-front').style.minHeight=h+'px';
+  });
+}
+sizeCards();addEventListener('resize',sizeCards);
 document.querySelectorAll('.tarot-card').forEach(card=>{
   card.addEventListener('click',function(){
     this.classList.toggle('flipped');
-    // check if all cards in this spread are flipped
     const wrap=this.closest('.card-spread-wrap');
     if(!wrap) return;
     const allCards=wrap.querySelectorAll('.tarot-card');
@@ -703,8 +557,6 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
     else if(msg) msg.classList.remove('revealed');
   });
 });
-// Remove inline onclick since we handle via event listener
-document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
 </body>
 </html>
