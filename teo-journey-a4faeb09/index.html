@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Consciousness Cartography of Teo Avram</title>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0B0718;
+    --bg-mid: #130D2A;
+    --bg-card: #1C1040;
+    --gold: #C9A255;
+    --gold-pale: #E8D5A0;
+    --gold-glow: rgba(201,162,85,0.08);
+    --lavender: #A89BC4;
+    --white: #F5F0FF;
+    --amethyst: #7B5EA7;
+    --rose: #9B4F72;
+    --teal: #2E5F6B;
+    --display: 'Cormorant Garamond', Georgia, serif;
+    --body: 'Lora', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--gold-pale);
+    font-family: var(--body); font-size: 18px; line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ═══ COSMIC CANVAS ═══ */
+  .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  .cosmos canvas { width: 100%; height: 100%; }
+
+  /* ═══ MAIN SCROLL ═══ */
+  main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    position: relative;
+  }
+  .hero-rings {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 440px; height: 440px; opacity: 0; animation: fadeIn 3s 0.5s forwards;
+  }
+  .hero-rings .ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(201,162,85,0.12);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    animation: pulse 8s infinite ease-in-out;
+  }
+  .hero-rings .ring:nth-child(1){width:260px;height:260px}
+  .hero-rings .ring:nth-child(2){width:340px;height:340px;animation-delay:1s}
+  .hero-rings .ring:nth-child(3){width:440px;height:440px;animation-delay:2s}
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 60px; height: 60px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,85,0.35), transparent 70%);
+    animation: glowPulse 4s infinite;
+  }
+  .hero h1 {
+    font-family: var(--display); font-size: clamp(2.8rem,6vw,4.2rem);
+    font-weight: 300; color: var(--white); letter-spacing: 0.02em;
+    opacity: 0; animation: fadeUp 2s 0.3s forwards; position: relative;
+  }
+  .hero h1 em { font-style: italic; font-weight: 600; color: var(--gold); display: block; font-size: 1.15em; }
+  .hero .meta {
+    font-family: var(--display); font-size: 0.95rem; color: var(--lavender);
+    letter-spacing: 0.12em; margin-top: 1.5rem;
+    opacity: 0; animation: fadeUp 2s 1s forwards;
+  }
+  .hero .scroll-hint {
+    position: absolute; bottom: 2.5rem; opacity: 0;
+    animation: fadeIn 2s 3s forwards, float 3s 3s infinite;
+    color: var(--amethyst); font-family: var(--display);
+    font-size: 0.8rem; letter-spacing: 0.25em;
+  }
+  .hero .scroll-hint::after {
+    content:''; display:block; width:1px; height:35px;
+    background: linear-gradient(to bottom, var(--amethyst), transparent);
+    margin: 0.7rem auto 0;
+  }
+
+  /* ═══ PROSE BLOCKS ═══ */
+  .prose { margin-bottom: 2rem; }
+  .prose p { margin-bottom: 1.4rem; }
+  .prose em { color: var(--white); }
+  .prose strong { color: var(--gold); font-weight: 500; }
+
+  .fade-section {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 1.4s ease, transform 1.4s ease;
+  }
+  .fade-section.visible { opacity: 1; transform: translateY(0); }
+
+  /* ═══ CHAPTER MARKERS ═══ */
+  .chapter-marker {
+    text-align: center; padding: 5rem 0 2rem;
+  }
+  .chapter-marker .label {
+    font-family: var(--display); font-size: 0.7rem;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .chapter-marker h2 {
+    font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
+    font-weight: 300; color: var(--white); font-style: italic;
+  }
+  .chapter-marker .gene-path {
+    font-family: var(--display); font-size: 1rem;
+    color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
+  }
+  .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
+
+  /* ═══ DIVIDERS ═══ */
+  .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
+  .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
+  .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
+
+  /* ═══ PULL QUOTE ═══ */
+  .pull-quote {
+    border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
+    margin: 2.5rem 0;
+    font-family: var(--display); font-size: 1.35rem; font-style: italic;
+    color: var(--white); line-height: 1.75;
+  }
+  .pull-quote cite {
+    display: block; margin-top: 0.8rem; font-size: 0.8rem;
+    color: var(--gold); font-style: normal; letter-spacing: 0.1em;
+  }
+
+  /* ═══ TAROT CARDS ═══ */
+  .card-ritual {
+    text-align: center; margin: 3rem 0 1rem;
+    font-family: var(--display); font-size: 0.8rem;
+    color: var(--amethyst); letter-spacing: 0.15em;
+    font-style: italic;
+  }
+  .card-spread {
+    display: flex; gap: 1.2rem; justify-content: center;
+    flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
+  }
+  .tarot-card {
+    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .tarot-card:hover { transform: translateY(-4px); }
+  .tarot-card .card-inner {
+    position: relative; width: 100%; height: 100%; min-height: 340px;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
+    display: flex; flex-direction: column;
+  }
+  .card-front {
+    background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .card-front .card-symbol {
+    width: 120px; height: 120px; margin-bottom: 1.2rem;
+  }
+  .card-front .card-symbol svg {
+    width: 100%; height: 100%;
+  }
+  /* SVG animations */
+  @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
+  @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+  .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
+  .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
+  .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
+
+  /* Chapter glyphs */
+  .chapter-glyph {
+    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
+  }
+  .chapter-glyph svg { width: 100%; height: 100%; }
+  .card-front .card-prompt {
+    font-family: var(--display); font-size: 0.85rem;
+    color: var(--amethyst); letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .card-front .tap-hint {
+    margin-top: 1.5rem; font-family: var(--display); font-size: 0.65rem;
+    color: rgba(168,155,196,0.5); letter-spacing: 0.15em;
+  }
+  .card-back {
+    background: linear-gradient(145deg, var(--bg-card), var(--bg));
+    transform: rotateY(180deg);
+  }
+  .card-back .card-label {
+    font-family: var(--display); font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .card-back h4 {
+    font-family: var(--display); font-size: 1.25rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+  .card-back p {
+    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
+    font-family: var(--body);
+  }
+
+  .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
+  .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
+  .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
+  .tarot-card[data-accent="rose"] .card-front .card-symbol { color: var(--rose); }
+  .tarot-card[data-accent="amethyst"] .card-front { border: 1px solid rgba(123,94,167,0.35); }
+  .tarot-card[data-accent="amethyst"] .card-back { border: 1px solid var(--amethyst); border-top: 3px solid var(--amethyst); }
+  .tarot-card[data-accent="amethyst"] .card-back .card-label { color: var(--amethyst); }
+  .tarot-card[data-accent="gold"] .card-front { border: 1px solid rgba(201,162,85,0.35); }
+  .tarot-card[data-accent="gold"] .card-back { border: 1px solid var(--gold); border-top: 3px solid var(--gold); }
+  .tarot-card[data-accent="gold"] .card-back .card-label { color: var(--gold); }
+  .tarot-card[data-accent="gold"] .card-front .card-symbol { color: var(--gold); }
+  .tarot-card[data-accent="teal"] .card-front { border: 1px solid rgba(46,95,107,0.35); }
+  .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
+  .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
+  .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
+
+  /* ═══ DUALITY SECTION ═══ */
+  .duality {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+    align-items: start; margin: 2.5rem 0;
+  }
+  .duality-panel {
+    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
+  }
+  .duality-panel h3 {
+    font-family: var(--display); font-size: 1.6rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
+  }
+  .duality-panel .role {
+    font-family: var(--display); font-size: 0.85rem;
+    font-style: italic; margin-bottom: 1rem;
+  }
+  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
+  .duality-panel.architect .role { color: var(--amethyst); }
+  .duality-panel.oracle { border-top: 2px solid var(--rose); }
+  .duality-panel.oracle .role { color: var(--rose); }
+  .duality-center {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
+  }
+  .synthesis-bar {
+    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
+    border: 1px solid var(--gold); border-radius: 3px;
+    background: var(--bg-card);
+    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
+  }
+  .synthesis-bar em { color: var(--gold); font-weight: 600; }
+
+  /* ═══ SHADOW ITEMS ═══ */
+  .shadow-item {
+    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
+  }
+  .shadow-item:last-child { border-bottom: none; }
+  .shadow-item .shadow-num {
+    font-family: var(--display); font-size: 0.7rem;
+    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
+  }
+  .shadow-item h4 {
+    font-family: var(--display); font-size: 1.2rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
+  }
+
+  /* ═══ CLOSING ═══ */
+  .closing {
+    padding: 6rem 0 3rem; text-align: center;
+  }
+  .closing p {
+    font-family: var(--display); font-size: 1.25rem;
+    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
+    line-height: 1.9;
+  }
+  .colophon {
+    text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
+    font-family: var(--display); font-size: 0.65rem;
+    letter-spacing: 0.25em; color: var(--amethyst);
+  }
+
+  /* ═══ CONSTELLATION NAV ═══ */
+  .const-nav {
+    position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
+    z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  }
+  .const-nav .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid rgba(123,94,167,0.4); background: transparent;
+    transition: all 0.5s; cursor: pointer;
+  }
+  .const-nav .dot.active {
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(201,162,85,0.4);
+  }
+  .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
+
+  /* ═══ PROGRESS BAR ═══ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
+    background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
+    width: 0%; transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(201,162,85,0.4);
+  }
+
+  /* ═══ CURSOR GLOW ═══ */
+  .cursor-glow {
+    position: fixed; pointer-events: none; z-index: 5;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,85,0.04), transparent 70%);
+    transform: translate(-50%,-50%);
+    transition: left 0.3s ease, top 0.3s ease;
+  }
+
+  /* ═══ AMBIENT GLOW (per chapter) ═══ */
+  .ambient-glow {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    transition: background 2s ease;
+  }
+  .ambient-glow.glow-gold { background: radial-gradient(ellipse at 30% 50%, rgba(201,162,85,0.04), transparent 60%); }
+  .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
+  .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
+  .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
+
+  /* ═══ TRANSITION BREATHERS ═══ */
+  .breather {
+    min-height: 45vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 3rem 1.5rem;
+  }
+  .breather p {
+    font-family: var(--display); font-style: italic; font-size: 1.25rem;
+    color: var(--lavender); max-width: 520px; line-height: 1.9;
+  }
+
+  /* ═══ CARD COMPLETION ═══ */
+  .card-spread-wrap { position: relative; }
+  .spread-complete {
+    text-align: center; margin-top: 1rem;
+    font-family: var(--display); font-size: 0.85rem;
+    color: var(--gold); letter-spacing: 0.1em; font-style: italic;
+    opacity: 0; transition: opacity 1s ease; height: 1.5rem;
+  }
+  .spread-complete.revealed { opacity: 1; }
+
+  /* ═══ CARD HOVER GLOW ═══ */
+  .tarot-card:not(.flipped):hover .card-front {
+    box-shadow: 0 0 25px rgba(201,162,85,0.12);
+  }
+  .tarot-card.flipped { cursor: default; }
+
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+  @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
+  @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  @media(max-width:768px) {
+    .duality { grid-template-columns: 1fr; }
+    .duality-center { padding: 0; }
+    .const-nav { display: none; }
+    .tarot-card { width: 220px; min-height: 280px; }
+    .tarot-card .card-inner { min-height: 280px; }
+    main { padding: 0 1.2rem; }
+  }
+</style>
+
+  <style>
+    /* Additional overrides for generic markdown */
+    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
+    h3 { margin-top: 1.5rem; color: var(--lavender); }
+    p { margin-bottom: 1.5rem; font-size: 19px; }
+    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
+    li { margin-bottom: 0.5rem; }
+    blockquote { 
+      border-left: 3px solid var(--gold); 
+      padding-left: 1.5rem; 
+      margin: 2rem 0; 
+      font-style: italic; 
+      font-size: 1.3rem; 
+      color: var(--gold-pale); 
+      background: var(--gold-glow);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
+    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
+    .fade-section.visible { opacity: 1; transform: translateY(0); }
+    strong { color: var(--white); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="ambient-glow" id="ambientGlow"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cosmos"><canvas id="cosmos"></canvas></div>
+
+  <main>
+    <section class="hero" id="s-hero">
+      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+      <div class="hero-glow"></div>
+      <h1>The Consciousness Cartography<br><em>of Teo Avram</em></h1>
+      <div class="meta">THE BODY KEEPS THE INVOICE</div>
+      <div class="scroll-hint">DESCEND</div>
+    </section>
+
+    <div id="content" class="fade-section">
+      <p><em>The Body Keeps the Invoice</em>
+<em>Sessions 1–3 | 2026 Cohort</em></p>
+<hr>
+<blockquote>
+<p><em>&quot;For me, when I work, I work. It&#39;s work. It&#39;s no passion.&quot;</em>
+— Teo, Session 1</p>
+</blockquote>
+<hr>
+<h2>What Actually Shifted</h2>
+<p>You came in running the most airtight logical system we&#39;ve seen in this cohort. Forty years of it. Every variable accounted for, every risk pre-calculated, every emotion filed under &quot;not useful.&quot; And it worked — in the way that a dam works. It holds everything back. Until it doesn&#39;t.</p>
+<p>What shifted wasn&#39;t that you suddenly became emotional. It&#39;s that you stopped treating emotion as the opposite of logic and started seeing it as data your system had been refusing to process. The lip pain. The breathing difficulty. The heart that physically hurt. These weren&#39;t malfunctions. They were the invoices for decades of suppressed signal, and Session 3 was when you finally opened the mail.</p>
+<p>The teaching that landed hardest: your needs are biology, not luxury. That sentence cracked something. Not because it was new information — you&#39;re too smart for that. Because it named the exact lie your system had been running on.</p>
+<hr>
+<h2>The Arc</h2>
+<p>Session 1 gave us the terrain. You named your workplace &quot;The Hunger Games&quot; — and you meant it literally. A corporate environment running on emotional detachment, political maneuvering, and survival-mode compliance. You were the sole breadwinner. Aging parent to care for. Daughter navigating college decisions. And in the middle of all of it, a woman who had decided, somewhere around age seventeen, that logic was the only tool worth carrying.</p>
+<p>That decision wasn&#39;t wrong. It got you into the top college. It got you through immigration. It got you through decades of providing for everyone around you. The Logical Strategist earned its place. But somewhere along the way, it stopped being a tool and became the entire identity. Everything that wasn&#39;t analytical got classified as waste.</p>
+<p>Session 2 was the body&#39;s rebuttal. You came back from vacation — the one thing that was supposed to help — and the return to work triggered everything. Pain. Breathing difficulty. The lip, specifically. The voice trying to move through a channel that had been locked for years. Your body was not being dramatic. It was being precise.</p>
+<p>Session 3 went two hours. That wasn&#39;t an accident. The childhood origins came up — the high school decision to avoid dating entirely, to strip everything down to the single variable of college admission. A seventeen-year-old building a fortress and calling it a strategy. We drew the parallel to Jatin leaving Google: two people who had constructed perfect logical systems and then had to reckon with what those systems cost. Your heart chakra opened. Not metaphorically. You felt it — sadness, pain, loneliness, depletion. And then, on the other side: gentleness. Connection. The earth under your feet actually registering as something you belonged to.</p>
+<p>Turning on the emotional channel doesn&#39;t erase the logical one. That was the binary you&#39;d been trapped in. As if feeling would make you stupid. As if vulnerability would make you weak. The integration is what your system had been refusing to compute: both channels, running simultaneously, producing something neither could produce alone.</p>
+<hr>
+<h2>The IFS System Map</h2>
+<p><strong>The Logical Strategist</strong> <em>(Manager)</em>
+The architect of your entire adult life. Analyzes risks, creates contingency plans, runs cost-benefit on every human interaction. Has been the primary identity since age seventeen — over forty years of uninterrupted service. Genuinely brilliant. Also genuinely terrified of what happens if it ever lets go of the controls.</p>
+<p><strong>The Duty Keeper</strong> <em>(Manager)</em>
+Income is survival. Family stability is non-negotiable. This part vetoes any action — any feeling, any desire, any need — that might jeopardize the financial structure holding everyone up. It doesn&#39;t care if you&#39;re depleted. Depletion isn&#39;t in its risk model.</p>
+<p><strong>The Suppressor</strong> <em>(Manager)</em>
+Locks down emotional expression as fundamentally unsafe. Learned early that feelings are noise, not signal. Works in close coordination with the Logical Strategist — together they&#39;ve built a system where vulnerability literally cannot reach the surface. Until the body finds another route.</p>
+<p><strong>The Escape Artist</strong> <em>(Firefighter)</em>
+When the emotional pressure builds past what the Suppressor can contain, this part activates. Work becomes the anesthetic. Distraction becomes the protocol. You mentioned giving up on physical appearance — that&#39;s not laziness. That&#39;s a system so overtaxed by managing everything else that self-care got triaged out entirely.</p>
+<p><strong>The Rage Container</strong> <em>(Firefighter)</em>
+Holds the anger at the unfairness — the workplace politics, the weight of being the one who carries everything, the injustice of a system that demands you erase yourself to function within it. Keeps it sealed. Airtight. The containment itself is exhausting.</p>
+<p><strong>The Suppressed Voice</strong> <em>(Exile)</em>
+The one who has something to say and learned it was dangerous to say it. Shows up as lip pain — literally the mouth in distress. Shows up as breathing difficulty — the voice trying to move through a channel the Suppressor locked years ago. This part doesn&#39;t need permission to speak. It needs the system to stop treating speech as threat.</p>
+<p><strong>The Vulnerable Child</strong> <em>(Exile)</em>
+Needs support. Cannot ask. Has been carrying everything alone for so long that the asking mechanism atrophied. The loneliness you felt when the heart opened in Session 3 — that was her. Not broken. Just unseen for a very long time.</p>
+<hr>
+<h2>The Somatic Record</h2>
+<p>Your body has been the most honest part of your system. The lip pain is the suppressed voice trying to exit through the one place it can. The breathing difficulty is the throat closing around words that were never allowed out. The heart chakra pain — sadness, loneliness, depletion — is the emotional backlog of a system that classified feeling as waste for four decades.</p>
+<p>After the meditation in Session 3, the body shifted: heart more open, tension decreasing, a gentler disposition, greater connection to the ground beneath you. That wasn&#39;t relaxation. That was integration. The body saying: <em>this is what it feels like when both channels are running.</em></p>
+<p>The fear you named — &quot;the fear of uncertainty of the future because of the way our brain is programmed is just constantly trying to avoid...what if this happens what if that happens I have to be prepared&quot; — that&#39;s the Logical Strategist&#39;s operating system laid bare. It doesn&#39;t rest because resting means unmonitored variables. But the variables it refuses to monitor — the emotional ones, the somatic ones — are the ones currently running the show.</p>
+<hr>
+<h2>Between-Session Evidence</h2>
+<ul>
+<li>Named the workplace dynamic accurately and without minimization — &quot;Hunger Games&quot; is not hyperbole when the system literally runs on emotional detachment and political survival</li>
+<li>Body began producing undeniable somatic evidence: lip pain, breathing difficulty, heart pain</li>
+<li>Allowed the Session 3 meditation to land — heart opened, tension released, connection to earth registered</li>
+<li>Received the teaching that needs are biology without intellectualizing it away</li>
+<li>Drew the line between the seventeen-year-old&#39;s survival strategy and the present-day system — and held both with something approaching compassion</li>
+</ul>
+<hr>
+<h2>What You Carry Forward</h2>
+<p>The Logical Strategist isn&#39;t retiring. It shouldn&#39;t. It&#39;s genuinely good at what it does, and your life has real structural demands that require strategic thinking. What&#39;s changing is its monopoly. It ran the entire operation for forty years and classified every other signal as noise. The body has now made its counter-argument in terms even a data-oriented mind can&#39;t dismiss: pain is data. Constriction is data. A heart that hurts is data.</p>
+<p>You are not learning to be emotional instead of logical. You are learning to be both. The binary was the prison — work or health, self or family, logic or feeling. Every either/or in your system is a door that only opens when you stop choosing sides.</p>
+<p>Your needs are biology, not luxury. That sentence is yours now. Use it. When the Duty Keeper says you can&#39;t afford to rest, when the Suppressor says feelings are inefficient, when the Logical Strategist says self-care doesn&#39;t compute — remind the whole system: biology doesn&#39;t negotiate. It just sends the invoice. And the invoice always comes.</p>
+<p><em>With love,</em>
+<em>Jatin &amp; Shalini / Kairos Path</em></p>
+
+    </div>
+
+    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
+      <div class="gold-line"></div>
+      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
+      <div class="colophon">Kairos &middot; Path</div>
+    </section>
+  </main>
+
+  <script>
+// ─── PARTICLES (color-shifting) ───
+(function(){
+  const c=document.getElementById('cosmos'),x=c.getContext('2d');
+  let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
+  const N=110;
+  function resize(){c.width=innerWidth;c.height=innerHeight}
+  resize();addEventListener('resize',resize);
+  for(let i=0;i<N;i++) particles.push({
+    x:Math.random()*c.width, y:Math.random()*c.height,
+    r:Math.random()*1.3+0.3, dx:(Math.random()-0.5)*0.1, dy:(Math.random()-0.5)*0.1,
+    o:Math.random()*0.35+0.08, ph:Math.random()*Math.PI*2
+  });
+  window._setParticleColor = function(r,g,b){ targetColor={r,g,b}; };
+  (function draw(){
+    x.clearRect(0,0,c.width,c.height);
+    currentColor.r+=(targetColor.r-currentColor.r)*0.01;
+    currentColor.g+=(targetColor.g-currentColor.g)*0.01;
+    currentColor.b+=(targetColor.b-currentColor.b)*0.01;
+    particles.forEach(p=>{
+      p.x+=p.dx;p.y+=p.dy;p.ph+=0.007;
+      if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;
+      if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
+      const o=p.o*(0.7+0.3*Math.sin(p.ph));
+      x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
+      x.fillStyle=`rgba(${Math.round(currentColor.r)},${Math.round(currentColor.g)},${Math.round(currentColor.b)},${o})`;
+      x.fill();
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+
+// ─── CURSOR GLOW ───
+const glow=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
+
+// ─── PROGRESS BAR ───
+const progressBar=document.getElementById('progressBar');
+function updateProgress(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
+}
+addEventListener('scroll',updateProgress);
+
+// ─── SCROLL REVEAL ───
+const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
+document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
+
+// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
+const ambientGlow=document.getElementById('ambientGlow');
+const chapterGlows = {
+  's-hero':      {glow:'',         color:[168,155,196]},
+  's-invitation':{glow:'',         color:[168,155,196]},
+  's-archetype': {glow:'glow-gold',color:[201,162,85]},
+  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
+  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
+  's-mental':    {glow:'glow-teal',color:[80,140,160]},
+  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
+  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
+  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
+  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+};
+
+// ─── NAV DOTS ───
+const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+const nav=document.getElementById('nav');
+sects.forEach((id,i)=>{
+  if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
+  const d=document.createElement('div');d.className='dot'+(i===0?' active':'');
+  d.onclick=()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  nav.appendChild(d);
+});
+const dots=nav.querySelectorAll('.dot');
+
+let lastActiveSection='s-hero';
+addEventListener('scroll',()=>{
+  const y=scrollY+innerHeight/2; let a=0;
+  sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
+  dots.forEach((d,i)=>d.classList.toggle('active',i===a));
+  // ambient glow + particle shift
+  const activeId=sects[a];
+  if(activeId!==lastActiveSection){
+    lastActiveSection=activeId;
+    const cfg=chapterGlows[activeId]||{glow:'',color:[168,155,196]};
+    ambientGlow.className='ambient-glow'+(cfg.glow?' '+cfg.glow:'');
+    window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
+  }
+});
+
+// ─── CARD COMPLETION TRACKING ───
+document.querySelectorAll('.tarot-card').forEach(card=>{
+  card.addEventListener('click',function(){
+    this.classList.toggle('flipped');
+    // check if all cards in this spread are flipped
+    const wrap=this.closest('.card-spread-wrap');
+    if(!wrap) return;
+    const allCards=wrap.querySelectorAll('.tarot-card');
+    const allFlipped=[...allCards].every(c=>c.classList.contains('flipped'));
+    const msg=wrap.querySelector('.spread-complete');
+    if(msg && allFlipped) msg.classList.add('revealed');
+    else if(msg) msg.classList.remove('revealed');
+  });
+});
+// Remove inline onclick since we handle via event listener
+document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
+</script>
+  <script>
+    // Simple intersection observer for fade-in elements
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
+        el.classList.add('fade-section');
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
