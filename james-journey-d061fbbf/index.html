@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Consciousness Cartography of James</title>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>The Consciousness Cartography of James Gwertzman</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --bg: #0B0718;
     --bg-mid: #130D2A;
@@ -28,22 +22,15 @@
     --display: 'Cormorant Garamond', Georgia, serif;
     --body: 'Lora', Georgia, serif;
   }
-
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--gold-pale);
     font-family: var(--body); font-size: 18px; line-height: 1.85;
     overflow-x: hidden;
   }
-
-  /* ═══ COSMIC CANVAS ═══ */
   .cosmos { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
   .cosmos canvas { width: 100%; height: 100%; }
-
-  /* ═══ MAIN SCROLL ═══ */
   main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ═══ HERO ═══ */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
@@ -90,27 +77,19 @@
     background: linear-gradient(to bottom, var(--amethyst), transparent);
     margin: 0.7rem auto 0;
   }
-
-  /* ═══ PROSE BLOCKS ═══ */
   .prose { margin-bottom: 2rem; }
   .prose p { margin-bottom: 1.4rem; }
   .prose em { color: var(--white); }
   .prose strong { color: var(--gold); font-weight: 500; }
-
   .fade-section {
     opacity: 0; transform: translateY(30px);
     transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .fade-section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ═══ CHAPTER MARKERS ═══ */
-  .chapter-marker {
-    text-align: center; padding: 5rem 0 2rem;
-  }
+  .chapter-marker { text-align: center; padding: 5rem 0 2rem; }
   .chapter-marker .label {
     font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.35em; text-transform: uppercase;
-    margin-bottom: 0.4rem;
+    letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 0.4rem;
   }
   .chapter-marker h2 {
     font-family: var(--display); font-size: clamp(2rem,4vw,2.8rem);
@@ -121,13 +100,9 @@
     color: var(--lavender); margin-top: 0.4rem; letter-spacing: 0.04em;
   }
   .chapter-marker .gene-path .arr { color: var(--gold); margin: 0 0.25rem; }
-
-  /* ═══ DIVIDERS ═══ */
   .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2.5rem auto; opacity: 0.5; }
   .rose-line { width: 50px; height: 1px; background: var(--rose); margin: 2.5rem auto; opacity: 0.5; }
   .teal-line { width: 50px; height: 1px; background: var(--teal); margin: 2.5rem auto; opacity: 0.5; }
-
-  /* ═══ PULL QUOTE ═══ */
   .pull-quote {
     border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1.5rem;
     margin: 2.5rem 0;
@@ -138,57 +113,44 @@
     display: block; margin-top: 0.8rem; font-size: 0.8rem;
     color: var(--gold); font-style: normal; letter-spacing: 0.1em;
   }
-
-  /* ═══ TAROT CARDS ═══ */
   .card-ritual {
     text-align: center; margin: 3rem 0 1rem;
     font-family: var(--display); font-size: 0.8rem;
-    color: var(--amethyst); letter-spacing: 0.15em;
-    font-style: italic;
+    color: var(--amethyst); letter-spacing: 0.15em; font-style: italic;
   }
   .card-spread {
     display: flex; gap: 1.2rem; justify-content: center;
     flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
   }
   .tarot-card {
-    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    width: 260px; perspective: 900px; cursor: pointer;
     transition: transform 0.3s ease;
   }
   .tarot-card:hover { transform: translateY(-4px); }
   .tarot-card .card-inner {
-    position: relative; width: 100%; height: 100%; min-height: 340px;
+    position: relative; width: 100%; min-height: 340px;
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
-
   .card-face {
-    position: absolute; inset: 0;
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
   }
   .card-front {
+    position: absolute; inset: 0;
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
-  .card-front .card-symbol {
-    width: 120px; height: 120px; margin-bottom: 1.2rem;
-  }
-  .card-front .card-symbol svg {
-    width: 100%; height: 100%;
-  }
-  /* SVG animations */
+  .card-front .card-symbol { width: 120px; height: 120px; margin-bottom: 1.2rem; }
+  .card-front .card-symbol svg { width: 100%; height: 100%; }
   @keyframes svgSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   @keyframes svgPulse { 0%,100%{opacity:.3} 50%{opacity:.6} }
   @keyframes svgBreathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
   .svg-spin { animation: svgSpin 40s linear infinite; transform-origin: center; }
   .svg-pulse { animation: svgPulse 4s ease-in-out infinite; }
   .svg-breathe { animation: svgBreathe 6s ease-in-out infinite; }
-
-  /* Chapter glyphs */
-  .chapter-glyph {
-    width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4;
-  }
+  .chapter-glyph { width: 60px; height: 60px; margin: 0 auto 1rem; opacity: 0.4; }
   .chapter-glyph svg { width: 100%; height: 100%; }
   .card-front .card-prompt {
     font-family: var(--display); font-size: 0.85rem;
@@ -204,19 +166,15 @@
   }
   .card-back .card-label {
     font-family: var(--display); font-size: 0.65rem;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.25rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
-    line-height: 1.4;
+    font-family: var(--display); font-size: 1.15rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem; line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
-    font-family: var(--body);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale); font-family: var(--body);
   }
-
   .tarot-card[data-accent="rose"] .card-front { border: 1px solid rgba(155,79,114,0.35); }
   .tarot-card[data-accent="rose"] .card-back { border: 1px solid var(--rose); border-top: 3px solid var(--rose); }
   .tarot-card[data-accent="rose"] .card-back .card-label { color: var(--rose); }
@@ -232,69 +190,16 @@
   .tarot-card[data-accent="teal"] .card-back { border: 1px solid var(--teal); border-top: 3px solid var(--teal); }
   .tarot-card[data-accent="teal"] .card-back .card-label { color: var(--teal); }
   .tarot-card[data-accent="teal"] .card-front .card-symbol { color: var(--teal); }
-
-  /* ═══ DUALITY SECTION ═══ */
-  .duality {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
-    align-items: start; margin: 2.5rem 0;
-  }
-  .duality-panel {
-    padding: 2rem; border-radius: 4px; background: var(--bg-mid);
-  }
-  .duality-panel h3 {
-    font-family: var(--display); font-size: 1.6rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.2rem;
-  }
-  .duality-panel .role {
-    font-family: var(--display); font-size: 0.85rem;
-    font-style: italic; margin-bottom: 1rem;
-  }
-  .duality-panel.architect { border-top: 2px solid var(--amethyst); }
-  .duality-panel.architect .role { color: var(--amethyst); }
-  .duality-panel.oracle { border-top: 2px solid var(--rose); }
-  .duality-panel.oracle .role { color: var(--rose); }
-  .duality-center {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-size: 2rem; color: var(--gold); padding-top: 2rem;
-  }
-  .synthesis-bar {
-    text-align: center; padding: 1.4rem 2rem; margin: 1.5rem 0;
-    border: 1px solid var(--gold); border-radius: 3px;
-    background: var(--bg-card);
-    font-family: var(--display); font-size: 1.1rem; color: var(--gold-pale);
-  }
-  .synthesis-bar em { color: var(--gold); font-weight: 600; }
-
-  /* ═══ SHADOW ITEMS ═══ */
-  .shadow-item {
-    padding: 1.5rem 0; border-bottom: 1px solid rgba(155,79,114,0.15);
-  }
-  .shadow-item:last-child { border-bottom: none; }
-  .shadow-item .shadow-num {
-    font-family: var(--display); font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--rose); margin-bottom: 0.3rem;
-  }
-  .shadow-item h4 {
-    font-family: var(--display); font-size: 1.2rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
-  }
-
-  /* ═══ CLOSING ═══ */
-  .closing {
-    padding: 6rem 0 3rem; text-align: center;
-  }
+  .closing { padding: 6rem 0 3rem; text-align: center; }
   .closing p {
     font-family: var(--display); font-size: 1.25rem;
-    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto;
-    line-height: 1.9;
+    font-style: italic; color: var(--lavender); max-width: 480px; margin: 0 auto; line-height: 1.9;
   }
   .colophon {
     text-align: center; padding: 3rem 0 4rem; opacity: 0.25;
     font-family: var(--display); font-size: 0.65rem;
     letter-spacing: 0.25em; color: var(--amethyst);
   }
-
-  /* ═══ CONSTELLATION NAV ═══ */
   .const-nav {
     position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
     z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
@@ -309,16 +214,12 @@
     box-shadow: 0 0 10px rgba(201,162,85,0.4);
   }
   .const-nav .line { width: 1px; height: 8px; background: rgba(123,94,167,0.2); }
-
-  /* ═══ PROGRESS BAR ═══ */
   .progress-bar {
     position: fixed; top: 0; left: 0; height: 2px; z-index: 20;
     background: linear-gradient(90deg, var(--gold), var(--rose), var(--amethyst));
     width: 0%; transition: width 0.1s linear;
     box-shadow: 0 0 8px rgba(201,162,85,0.4);
   }
-
-  /* ═══ CURSOR GLOW ═══ */
   .cursor-glow {
     position: fixed; pointer-events: none; z-index: 5;
     width: 300px; height: 300px; border-radius: 50%;
@@ -326,8 +227,6 @@
     transform: translate(-50%,-50%);
     transition: left 0.3s ease, top 0.3s ease;
   }
-
-  /* ═══ AMBIENT GLOW (per chapter) ═══ */
   .ambient-glow {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     transition: background 2s ease;
@@ -336,8 +235,6 @@
   .ambient-glow.glow-rose { background: radial-gradient(ellipse at 70% 40%, rgba(155,79,114,0.05), transparent 60%); }
   .ambient-glow.glow-teal { background: radial-gradient(ellipse at 40% 60%, rgba(46,95,107,0.05), transparent 60%); }
   .ambient-glow.glow-synth { background: radial-gradient(ellipse at 50% 50%, rgba(201,162,85,0.06), transparent 50%); }
-
-  /* ═══ TRANSITION BREATHERS ═══ */
   .breather {
     min-height: 45vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 3rem 1.5rem;
@@ -346,8 +243,6 @@
     font-family: var(--display); font-style: italic; font-size: 1.25rem;
     color: var(--lavender); max-width: 520px; line-height: 1.9;
   }
-
-  /* ═══ CARD COMPLETION ═══ */
   .card-spread-wrap { position: relative; }
   .spread-complete {
     text-align: center; margin-top: 1rem;
@@ -356,125 +251,323 @@
     opacity: 0; transition: opacity 1s ease; height: 1.5rem;
   }
   .spread-complete.revealed { opacity: 1; }
-
-  /* ═══ CARD HOVER GLOW ═══ */
-  .tarot-card:not(.flipped):hover .card-front {
-    box-shadow: 0 0 25px rgba(201,162,85,0.12);
-  }
+  .tarot-card:not(.flipped):hover .card-front { box-shadow: 0 0 25px rgba(201,162,85,0.12); }
   .tarot-card.flipped { cursor: default; }
-
-  /* ═══ ANIMATIONS ═══ */
   @keyframes fadeIn { to { opacity: 1; } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
   @keyframes pulse { 0%,100%{opacity:.12;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.25;transform:translate(-50%,-50%) scale(1.03)} }
   @keyframes glowPulse { 0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(1)} 50%{opacity:.6;transform:translate(-50%,-50%) scale(1.15)} }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
   @media(max-width:768px) {
-    .duality { grid-template-columns: 1fr; }
-    .duality-center { padding: 0; }
     .const-nav { display: none; }
-    .tarot-card { width: 220px; min-height: 280px; }
-    .tarot-card .card-inner { min-height: 280px; }
+    .tarot-card { width: 220px; }
+    .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
-
-  <style>
-    /* Additional overrides for generic markdown */
-    h2 { margin-top: 2rem; margin-bottom: 1rem; color: var(--gold); border-bottom: 1px solid var(--gold-glow); padding-bottom: 0.5rem; }
-    h3 { margin-top: 1.5rem; color: var(--lavender); }
-    p { margin-bottom: 1.5rem; font-size: 19px; }
-    ul { margin-bottom: 1.5rem; padding-left: 2rem; }
-    li { margin-bottom: 0.5rem; }
-    blockquote { 
-      border-left: 3px solid var(--gold); 
-      padding-left: 1.5rem; 
-      margin: 2rem 0; 
-      font-style: italic; 
-      font-size: 1.3rem; 
-      color: var(--gold-pale); 
-      background: var(--gold-glow);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-    hr { border: 0; height: 1px; background: var(--gold-glow); margin: 3rem 0; }
-    .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; margin-bottom: 4rem; }
-    .fade-section.visible { opacity: 1; transform: translateY(0); }
-    strong { color: var(--white); font-weight: 500; }
-  </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  <div class="ambient-glow" id="ambientGlow"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cosmos"><canvas id="cosmos"></canvas></div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="ambient-glow" id="ambientGlow"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cosmos"><canvas id="cosmos"></canvas></div>
+<nav class="const-nav" id="nav"></nav>
+<main>
 
-  <main>
-    <section class="hero" id="s-hero">
-      <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
-      <div class="hero-glow"></div>
-      <h1>The Consciousness Cartography<br><em>of James</em></h1>
-      <div class="meta">THE DANCE BEFORE THE WORDS</div>
-      <div class="scroll-hint">DESCEND</div>
-    </section>
+<!-- HERO -->
+<section class="hero" id="s-hero">
+  <div class="hero-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="hero-glow"></div>
+  <h1>The Consciousness Cartography<em>of James Gwertzman</em></h1>
+  <div class="meta">FROM SOVEREIGN DISTANCE TO EMBODIED PRESENCE</div>
+  <div class="scroll-hint">DESCEND</div>
+</section>
 
-    <div id="content" class="fade-section">
-      <p><em>The Dance Before the Words</em>
-<em>Sessions 1–3 | 2026 Cohort</em></p>
-<hr>
-<blockquote>
-<p><em>&quot;He led without saying a word. Just energy. And people followed.&quot;</em>
-— From session notes on the Love Burn dance</p>
-</blockquote>
-<hr>
-<h2>What Actually Shifted</h2>
-<p>There is a version of you that knows exactly what it feels like to be fully present, fully free, fully in your body — leading from pure frequency without a single word of negotiation or explanation. You found it at Love Burn. You found it in the dance.</p>
-<p>What these three sessions have been doing is bridging the distance between that James and the James who reaches for the Eject Button when intimacy starts to feel like a trap.</p>
-<p>That gap is closing.</p>
-<hr>
-<h2>The Arc</h2>
-<h3>Session 1 — <em>Understanding the Architecture</em></h3>
-<p>The Venus Sequence revealed the design: a sovereign being who learned early that closeness carries risk. Independence as survival mechanism. The longing for connection and the terror of it occupying the same nervous system. The Eject Button — refined, practiced, effective — as the solution that became the problem.</p>
-<h3>Session 2 — <em>The Love Burn Moment</em></h3>
-<p>You described the dance and something shifted in the room. Not because it was beautiful (though it was) but because you could feel, in the telling, what it cost you to not have that — and what it felt like when you briefly did. That magnetic, wordless, connected version of yourself is not a performance. He&#39;s not a character you become in altered states. He&#39;s the one the Venus Sequence has been pointing at.</p>
-<p>The Longing Heart is the exile. The dance was the moment the Exile ran the show — and the world didn&#39;t end. People followed. The connection deepened. Nothing bad happened.</p>
-<h3>Session 3 — <em>Staying</em></h3>
-<p>You stayed with Melly. That&#39;s the headline. Not in the dramatic sense — in the quiet, daily, deliberate sense of choosing presence over distance when the nervous system is pulling toward the exit. The Eject Button activated. You noticed it. You stayed anyway.</p>
-<p>This is the hero&#39;s journey for the avoidant heart. Not one dramatic choice — a thousand small ones.</p>
-<hr>
-<h2>The IFS System Map</h2>
-<p><strong>The Sovereign</strong> <em>(Manager)</em>
-Values freedom, independence, self-sufficiency above almost everything. Built an entire identity around not needing anyone in a way that could be used against him. Genuinely admirable in many contexts. In intimate relationship: the primary obstacle to receiving what is most desired.</p>
-<p><strong>The Eject Button</strong> <em>(Firefighter)</em>
-When the intimacy reaches a certain depth, the Eject Button activates — sometimes as actual distance, sometimes as emotional withdrawal, sometimes as the creation of friction that creates space. It is not mean. It is scared. It believes the only way to stay free is to never fully arrive.</p>
-<p><strong>The Longing Heart</strong> <em>(Exile)</em>
-Wants the thing the Sovereign says he doesn&#39;t need. Wants to be received in his full aliveness — not managed, not tolerated, but actually met. Knows exactly what this feels like. Led the dance at Love Burn. Has been waiting, patiently, for the Eject Button to trust that staying is survivable.</p>
-<hr>
-<h2>The Venus Sequence Thread</h2>
-<p>Your Venus Sequence is teaching the difference between <em>freedom from</em> and <em>freedom with</em>. The avoidant attachment pattern is built on freedom from — freedom from the pain of depending on someone who might leave, might betray, might find you too much. It works. And it costs everything it was protecting you from receiving.</p>
-<p>Freedom with is different. It&#39;s the dance. It&#39;s what you felt leading without words. It&#39;s connection that doesn&#39;t require the dissolution of self — it requires the full presence of self. That&#39;s not dependence. That&#39;s the deepest version of sovereignty.</p>
-<p>Staying with Melly — not from obligation, not from fear of the discomfort of leaving, but from genuine choice — is freedom with in practice. One session at a time.</p>
-<hr>
-<h2>What You Carry Forward</h2>
-<p>The practice: when the urge to pull back comes, feet on the floor, three breaths, and then a question — is this a genuine need for space, or is it the Eject Button doing what it always does?</p>
-<p>The question doesn&#39;t have to be answered perfectly every time. It just has to be asked. The asking is the practice.</p>
-<p>The man who led that dance without a word is not a past version of you or an ideal future version. He&#39;s here. He showed up with Melly. He&#39;s showing up in the work.</p>
-<p>What you&#39;re building is the evidence that staying is not the end of freedom. It might be the beginning of it.</p>
-<p><em>With love,</em>
-<em>Jatin &amp; Shalini / Kairos Path</em></p>
+<!-- INVITATION -->
+<section class="fade-section" id="s-invitation" style="padding-top:4rem">
+  <div class="prose">
+    <p>James, you are holding a map of something sacred: the four weeks where you learned that freedom and intimacy are not opposites. This is not a report. It is a letter, written by someone who watched you move from the Eject Button toward staying, from mind-driven problem-solving toward heart-centered presence, and from the beautiful solitude of independence toward the more beautiful aliveness of shared presence.</p>
+    <p>You came into this work already knowing how to lead without words. The Love Burn dance proved it. Now you are learning to lead that same way while fully present with another human. This changes everything. This is the work of becoming whole.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
 
+<!-- SESSION 1: PATTERN RECOGNITION -->
+<section class="fade-section" id="s-session1">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(201,162,85,0.25)" stroke-width="0.5"/><circle cx="30" cy="30" r="18" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="11" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.3)"/></svg></div>
+    <div class="label" style="color:var(--gold)">SESSION 1 &middot; FEBRUARY 16</div>
+    <h2>Pattern Recognition</h2>
+    <div class="gene-path">Autonomy <span class="arr">&rarr;</span> Contradiction <span class="arr">&rarr;</span> Possibility</div>
+  </div>
+  <div class="prose">
+    <p>You arrived already carrying the knowledge. Not as a concept, but as a lived contradiction: <em>I want intimacy. I'm terrified of it. Both are true.</em> There was no confusion in this statement—only clarity. The clarity of someone who has spent years refining the escape route, and is finally wondering what happens if you stay.</p>
+    <p>Your life has been built on a simple architecture: sovereignty through distance. Not coldness—you have never been cold. But a calibrated space. Relationships that allow you to remain fully yourself, fully independent, fully free from the need for another. And this worked. It protected you. It let you create temples and lead teams and maintain the integrity of your own vision.</p>
+    <p>But the cost was becoming visible. The refusal of sustained intimacy, the Eject Button—that moment when depth arrives and you suddenly need to be elsewhere—was no longer serving you. It was protecting you from something that had started to matter more than protection.</p>
+  </div>
+  <div class="pull-quote">
+    I led without saying a word. Just energy. And people followed. I was fully present, fully free, fully in my body. This is the real James.
+    <cite>&mdash; Reflecting on the Love Burn dance, Session 1</cite>
+  </div>
+  <div class="prose">
+    <p>When you named the Love Burn dance—that moment when you moved a group through pure presence, without explanation or control—you were pointing at something crucial: this capacity is real. This is not a performance. This is the actual texture of your consciousness when the fear isn't in charge. You have touched this frequency. You know it exists. The question became: can this same James show up in intimate relationship? Or does intimacy require you to contract into something smaller?</p>
+    <p>The answer that emerged in Session 1 was revolutionary: <strong>intimacy doesn't require contraction. It requires presence. The same presence that moves crowds is exactly what a heart needs.</strong> But your nervous system has learned that maintaining presence while intimate equals loss of freedom. This is the wound you came to heal.</p>
+    <p>You left with a reframing: the Eject Button is not a character flaw. It's your system's most loyal protection. The work is not to eliminate it. It's to thank it, and then practice choosing something else.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- SESSION 2: THE THRESHOLD -->
+<section class="fade-section" id="s-session2">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" fill="none" stroke="rgba(46,95,107,0.3)" stroke-width="0.5"/><path d="M30 8 L30 52" stroke="rgba(46,95,107,0.2)" stroke-width="0.4"/><circle cx="30" cy="30" r="14" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.5" stroke-dasharray="3 4"/><circle cx="30" cy="30" r="3" fill="rgba(46,95,107,0.35)"/></svg></div>
+    <div class="label" style="color:var(--teal)">SESSION 2 &middot; FEBRUARY 24</div>
+    <h2>The Threshold</h2>
+    <div class="gene-path">Longing <span class="arr">&rarr;</span> Tension <span class="arr">&rarr;</span> Choice</div>
+  </div>
+  <div class="prose">
+    <p>Eight days later, you sat down with a specific person: Melly. The contradiction became concrete. Here was someone you genuinely loved—not a projection, not an idea of intimacy, but an actual person whose presence made you feel alive, seen, desired. And here was the problem: she wanted a future that included children. Your current answer was no.</p>
+    <p>The choice was brutal in its simplicity: end it now to avoid the greater heartbreak later, or stay with the tension and explore the connection despite the uncertainty. Most people solve this by choosing. You chose to sit with it instead.</p>
+    <p>This is not a small thing. Type 4 energy wants to resolve the tension, to know if you're meant to be together, to have the romance confirm your specialness. Type 5 energy wants to understand the mechanics, to map the problem, to find the logical answer. But the invitation in Session 2 was different: <em>Can you stay present to the love without needing to resolve the conflict right now?</em></p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    I'm willing to risk greater heartbreak later for the chance to explore this connection now.
+    <cite>&mdash; Choice point, Session 2</cite>
+  </div>
+  <div class="prose">
+    <p>When you said this, something shifted. You were no longer operating from fear. You were operating from love. The distinction is total. Fear says: protect yourself by leaving. Love says: stay curious, stay open, see what becomes possible.</p>
+    <p>Between Session 2 and 3, you began preparing to host your first major leadership container as a temple builder: a 14-person offsite, 2 nights, focused on heart-centered leadership and team coherence. You had named the pattern. You had chosen to stay with Melly. And now you were about to practice what you'd been learning in a pressure-cooker situation: leading from presence while everything else was uncertain.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>The temple became a classroom. And the nervous system practices became medicine.</p>
+</section>
+
+<!-- SESSION 3: EMBODIED LEADERSHIP -->
+<section class="fade-section" id="s-session3">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g style="opacity:0.6"><path d="M30 10 L50 25 L45 50 L30 60 L15 50 L10 25 Z" fill="none" stroke="rgba(155,79,114,0.4)" stroke-width="0.6"/><path d="M30 20 L43 30 L40 48 L30 54 L20 48 L17 30 Z" fill="none" stroke="rgba(155,79,114,0.5)" stroke-width="0.5"/></g><circle cx="30" cy="35" r="3" fill="rgba(155,79,114,0.35)"/></svg></div>
+    <div class="label" style="color:var(--rose)">SESSION 3 &middot; MARCH 4</div>
+    <h2>Embodied Leadership</h2>
+    <div class="gene-path">Activation <span class="arr">&rarr;</span> Regulation <span class="arr">&rarr;</span> Transmission</div>
+  </div>
+  <div class="prose">
+    <p>You arrived with activated nervous energy. High. Excited. Caffeine and anticipation and uncertainty with Melly all moving through your system at high frequency. You had a temple offsite to lead in 48 hours. You wanted to do it differently this time—not from the mind solving problems, but from the heart holding space.</p>
+    <p>The work in Session 3 was somatic and immediate. We introduced practices: the double-inhale with a slow exhale, which creates coherence in your nervous system. Dropping awareness directly to the physical heart, which grounds you instantly. And most crucially: <strong>noticing the urge to grab when excited, and choosing to sit with the tension instead of acting on it.</strong></p>
+    <p>The pattern you named was precise: when you get excited, your nervous system accelerates, and your energy becomes what you called "grabby"—reaching toward, wanting to pull things closer, move too fast. This creates anxiety in others. It's not malicious. It's dysregulation broadcasting itself. And the breakthrough was immediate.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    When I'm regulated, my energy creates authentic connection. When I'm dysregulated, it creates anxiety. My job as a leader is self-regulation first.
+    <cite>&mdash; Core insight, Session 3</cite>
+  </div>
+  <div class="prose">
+    <p>This single insight reorganized your entire understanding of leadership. You realized: <em>I don't lead through what I do. I lead through what I am.</em> The temple offsite happened 48 hours later. Fourteen people. Two nights. Medicine work on Friday. And something unmistakable occurred: your regulated nervous system created genuine coherence. People felt held. The team coalesced. Feedback came back that you had successfully held space—not by fixing problems, but by maintaining your own internal frequency and letting that radiate outward.</p>
+    <p>The somatic work continued. We moved through the chakra system. Your first and second chakras—the roots and the generative center—carried the Exile's fear: <em>If I am truly seen, truly desired, I will be destroyed or rejected.</em> Your fourth chakra, the heart, began opening. And in that opening, something ancient released.</p>
+    <p>You experienced images—partners past and present, the full history of your relational longing—and instead of holding onto them, you let them go. This was not suppression. This was <strong>releasing romantic energy consciously, with gratitude.</strong> You kept the love and the learning. You released the grip. This is the work of the maturing Exile: learning that love doesn't require capture.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--rose)">
+    I can feel the difference when I drop into my heart. My whole body changes. The connection becomes real.
+    <cite>&mdash; Somatic integration, Session 3</cite>
+  </div>
+  <div class="prose">
+    <p>By the end of Session 3, you understood something that most people take years to learn: <strong>presence is a practice, not a state.</strong> You can access it. You can train your nervous system to stay there. And when you do, everything changes—the quality of leadership, the authenticity of connection, the way people respond to you.</p>
+  </div>
+  <div class="rose-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>And then came the final session—the one where you realized the temple itself was burning, and that this burning was exactly what needed to happen.</p>
+</section>
+
+<!-- SESSION 4: INTEGRATION & VISION -->
+<section class="fade-section" id="s-session4">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(46,95,107,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="16" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="8" fill="none" stroke="rgba(46,95,107,0.5)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(46,95,107,0.4)"/><line x1="30" y1="6" x2="30" y2="54" stroke="rgba(46,95,107,0.12)" stroke-width="0.3"/><line x1="6" y1="30" x2="54" y2="30" stroke="rgba(46,95,107,0.12)" stroke-width="0.3"/></g></svg></div>
+    <div class="label" style="color:var(--teal)">SESSION 4 &middot; MARCH 12</div>
+    <h2>Integration & Vision</h2>
+    <div class="gene-path">Coherence <span class="arr">&rarr;</span> Release <span class="arr">&rarr;</span> Epicenter</div>
+  </div>
+  <div class="prose">
+    <p>One week into officially dating Melly. One week after a successful temple offsite where you led from the heart and the team felt it. You arrived in Session 4 with clarity that had shifted from intellectual to visceral. <em>I'm feeling different.</em> Not better, not worse. Different. Integrated.</p>
+    <p>The chakra work moved through you differently this time. Your root was grounded. Your generative center open. Your solar plexus moving from control into service. And your heart—which had been opening in waves—now held a specific image: <em>your heart spreading beams of light to team members and outward to volunteers and visitors.</em></p>
+    <p>This is not metaphorical language. This is your nervous system experiencing itself as a coherence center, radiating outward in gravitational waves. The temple project is a perfect mirror for this. You are learning that your role is not to build the temple through effort. Your role is to <strong>be the coherence that allows the temple to be built through you.</strong></p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--teal)">
+    The temple is burning. And that's exactly what it needs to do. When I let go of controlling it, that's when it can actually be born.
+    <cite>&mdash; Vision insight, Session 4</cite>
+  </div>
+  <div class="prose">
+    <p>This was the most important reframe of all four sessions. The temple, which has occupied enormous psychic space, is being burned in the ceremonial sense: released, not destroyed. The attachment is being severed. And in that severance, something becomes possible: freedom. Not from the project, but within it. You realized that much of your intensity around the temple was actually still carrying an old relationship—your connection with Sylvia, the co-visioner who is no longer present. By burning the temple—by ritually releasing it—you free yourself to build the next thing. The thing that wants to be born <em>now,</em> through <em>you,</em> with Melly, with this team, with this version of yourself.</p>
+    <p>The final revelation was about role. You've been managing as a detailed builder. The shift: you are positioning yourself as the <em>epicenter</em> of the temple's energy. Not the person with all the answers. The person with the coherence. Your nervous system regulating. Your heart open. Your presence steady. And from that place, everything else organizes itself.</p>
+    <p>You left Session 4 with practices anchored in your body. A relationship newly official and deepening. A vision clarified. And most importantly: the knowledge that the real James—the one from the Love Burn dance, the one who moves people through pure presence—is not a past self or an ideal future self. He is here. He's learning to stay.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>What lives in you now is not a fixed self. It is a capacity that keeps expanding—the capacity to hold your own heart while holding others'.</p>
+</section>
+
+<!-- THE IFS SYSTEM MAP -->
+<section class="fade-section" id="s-ifs">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="22" cy="30" r="14" fill="none" stroke="rgba(123,94,167,0.35)" stroke-width="0.5"/><circle cx="38" cy="30" r="14" fill="none" stroke="rgba(155,79,114,0.35)" stroke-width="0.5"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/></svg></div>
+    <div class="label" style="color:var(--amethyst)">THE INTERNAL SYSTEM</div>
+    <h2>The IFS System Map</h2>
+    <div class="gene-path">Protector <span class="arr">&rarr;</span> Escape <span class="arr">&rarr;</span> Longing</div>
+  </div>
+  <div class="prose">
+    <p>Your internal system revealed itself across four sessions. These parts have kept you safe, shaped your sovereignty, and are now learning to work in concert. They are not enemies. They are your system's most loyal attempts to protect you from pain. Meeting them with compassion is the threshold toward integration.</p>
+  </div>
+  <div class="card-ritual">Turn each card to meet the parts within you &ensp;(click to reveal)</div>
+  <div class="card-spread-wrap"><div class="card-spread">
+    <div class="tarot-card" data-accent="amethyst">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(123,94,167,0.4)" stroke-width="1"/><circle cx="60" cy="60" r="28" fill="none" stroke="rgba(123,94,167,0.3)" stroke-width="0.8"/><circle cx="60" cy="60" r="16" fill="none" stroke="rgba(123,94,167,0.5)" stroke-width="0.6"/><circle cx="60" cy="60" r="5" fill="rgba(123,94,167,0.35)"/><line x1="60" y1="15" x2="60" y2="105" stroke="rgba(123,94,167,0.12)" stroke-width="0.5"/><line x1="15" y1="60" x2="105" y2="60" stroke="rgba(123,94,167,0.12)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE SOVEREIGN</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE SOVEREIGN &middot; MANAGER</div>
+          <h4>The Guardian of Freedom</h4>
+          <p>Values independence above almost everything. Has built identity around not needing anyone. Extraordinarily capable at creating distance—not through coldness, but through a calibrated space that lets you remain fully yourself, fully free. His positive intention is perfect: protect your autonomy, preserve your integrity, ensure you never lose yourself to someone else's needs. But autonomy without presence becomes isolation. And protection without risk becomes a prison.</p>
+        </div>
+      </div>
     </div>
+    <div class="tarot-card" data-accent="rose">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-spin" style="animation-duration:50s"><path d="M60 20 L75 50 L105 55 L82 78 L88 108 L60 92 L32 108 L38 78 L15 55 L45 50 Z" fill="none" stroke="rgba(155,79,114,0.35)" stroke-width="0.8"/></g><g class="svg-spin" style="animation-duration:35s;animation-direction:reverse"><path d="M60 30 L70 48 L90 52 L75 67 L78 88 L60 78 L42 88 L45 67 L30 52 L50 48 Z" fill="none" stroke="rgba(155,79,114,0.5)" stroke-width="0.6"/></g><circle cx="60" cy="60" r="4" fill="rgba(155,79,114,0.4)"/></svg></div>
+          <div class="card-prompt">THE EJECT BUTTON</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE EJECT BUTTON &middot; FIREFIGHTER</div>
+          <h4>The Escape Artist</h4>
+          <p>When depth arrives faster than you can manage, this part activates instantly. Emotional withdrawal. A subject change. A sudden need to be elsewhere. The practiced move for creating distance when intimacy threatens to dissolve the boundary between you and another. Works beautifully to prevent fusion. Works beautifully to prevent intimacy, too. The intention is protection. But it leaves a trail of half-connections and unfinished conversations. The practice now is: notice when it activates, breathe, ask if it's genuine need or fear, and choose to stay anyway.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tarot-card" data-accent="gold">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-symbol"><svg viewBox="0 0 120 120"><g class="svg-breathe"><circle cx="60" cy="60" r="42" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.8"/><circle cx="60" cy="60" r="30" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.6"/><polygon points="60,22 70,45 95,45 75,60 82,85 60,70 38,85 45,60 25,45 50,45" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.8"/><circle cx="60" cy="60" r="8" fill="rgba(201,162,85,0.2)" stroke="rgba(201,162,85,0.4)" stroke-width="0.5"/></g></svg></div>
+          <div class="card-prompt">THE LONGING HEART</div>
+          <div class="tap-hint">click to turn</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-label">THE LONGING HEART &middot; EXILE</div>
+          <h4>The Lover Waiting to Be Received</h4>
+          <p>He knows he is alive when someone sees him, truly—not as a leader or a builder or a successful independent, but as a whole person. He has touched this aliveness in the Love Burn dance, in the presence that moves people without words, in the authentic depth that doesn't perform. But he learned early that being truly seen is dangerous. That visibility equals judgment. That the real kind of love is too costly. So he learned to offer the professional kind, the independent kind, the version that keeps him safe. But he has never stopped longing for the person who would choose him anyway. Melly is teaching him what that feels like.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spread-complete">All three parts revealed—the protector, the escape artist, the wounded lover.</div>
+  </div>
+  <div class="rose-line"></div>
+</section>
 
-    <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
-      <div class="gold-line"></div>
-      <p style="margin-top:2rem;">The map serves as a reminder.<br>To those who read it, travel lighter.</p>
-      <div class="colophon">Kairos &middot; Path</div>
-    </section>
-  </main>
+<section class="fade-section breather">
+  <p>Your Gene Key is moving from isolation through diplomacy toward the unified field where there is no separation between leader and field, healer and world.</p>
+</section>
 
-  <script>
-// ─── PARTICLES (color-shifting) ───
+<!-- GENE KEY & RELATIONAL EDUCATION -->
+<section class="fade-section" id="s-genekey">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="24" r="14" fill="none" stroke="rgba(46,95,107,0.4)" stroke-width="0.6"/><line x1="30" y1="38" x2="30" y2="54" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><line x1="22" y1="46" x2="38" y2="46" stroke="rgba(46,95,107,0.35)" stroke-width="0.5"/><circle cx="30" cy="24" r="4" fill="rgba(46,95,107,0.3)"/></svg></div>
+    <div class="label" style="color:var(--teal)">RELATIONAL EDUCATION</div>
+    <h2>The Gene Key: From Conflict to Peace</h2>
+    <div class="gene-path">Isolation <span class="arr">&rarr;</span> Diplomacy <span class="arr">&rarr;</span> Unity</div>
+  </div>
+  <div class="prose">
+    <p>Your Gene Key pattern—the shadow-gift-siddhi arc—is intimately connected to your relational work. The shadow is isolation: the belief that you are only safe when you are alone, that connection will dissolve your boundaries, that the price of intimacy is loss of self. This shadow has a positive intention: it protects your autonomy, ensures your survival, prevents fusion.</p>
+    <p>But it also keeps you lonely.</p>
+    <p>The Gift is diplomacy. In the temple project, you are literally a diplomat—holding competing interests, creating coherence from complexity, influencing people through your presence rather than control. You have the capacity to feel into what a system needs and to offer that without force. This is not a learned skill. This is the frequency you naturally carry. When you are regulated, this frequency is a medicine. When you are dysregulated, this frequency becomes contagion.</p>
+    <p>The Siddhi—the highest frequency—is what you experienced in Session 4. The unified field. The recognition that there is no separation between your heart and the team's heart, between you and Melly, between the coherence you generate and the world that receives it. In the Siddhi, the leader is not separate from the field. The healer is not separate from the world in need. You are extensions of each other. And from that place, no effort is required. Everything moves naturally.</p>
+    <p>The path from isolation to unity runs directly through the person you choose to stay present with. Melly is not separate from your spiritual growth. She is integral to it. Your capacity to hold presence with her while maintaining your autonomy is exactly what the world needs to see modeled: that freedom and connection are not opposites.</p>
+  </div>
+  <div class="teal-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>The somatic map shows where the coherence is establishing itself, where the heart is opening, and where the next frontier lives.</p>
+</section>
+
+<!-- SOMATIC RECORD & FORWARD -->
+<section class="fade-section" id="s-somatic">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><path d="M30 15 L35 25 L45 25 L37 32 L40 42 L30 36 L20 42 L23 32 L15 25 L25 25 Z" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.8"/><circle cx="30" cy="30" r="2" fill="rgba(201,162,85,0.4)"/><line x1="30" y1="10" x2="30" y2="50" stroke="rgba(201,162,85,0.12)" stroke-width="0.3"/></svg></div>
+    <div class="label" style="color:var(--gold)">SOMATIC RECORD</div>
+    <h2>The Body Knows</h2>
+    <div class="gene-path">Activation <span class="arr">&rarr;</span> Awareness <span class="arr">&rarr;</span> Integration</div>
+  </div>
+  <div class="prose">
+    <p><strong>Session 1:</strong> Your system was already in contradiction—wanting both autonomy and connection, both distance and presence. The body held this as a kind of gentle tremor. Not distress, but aliveness. Readiness.</p>
+    <p><strong>Session 2:</strong> The choice to stay with Melly despite uncertainty reorganized your nervous system. The Eject Button remained available (it always will be), but you chose not to pull it. Your body responded by relaxing slightly. The bracing released. For the first time in a long time, you were allowing yourself to be vulnerable to someone else's timeline, someone else's desires.</p>
+    <p><strong>Session 3:</strong> The breakthrough. Double-inhale with slow exhale created immediate coherence. Your entire body recalibrated when you dropped awareness to your physical heart. You experienced what it feels like to regulate yourself intentionally—not forcing, not controlling, but simply bringing presence back to the center. The image of releasing romantic energy with gratitude cleared something stuck in your chest. Chakras moved. The nervous system learned a new operating frequency.</p>
+    <p><strong>Session 4:</strong> Coherence established. Your heart began spreading beams of light—not as metaphor, but as actual neurological transmission of regulated state. Chakras opened sequentially. The integration was complete enough that you could now hold both: full presence with Melly and full presence with the temple project. Not splitting. Both receiving your full self.</p>
+  </div>
+  <div class="pull-quote" style="border-color:var(--gold)">
+    I feel coherent with the temple, with the team, with myself. And that coherence is what people are responding to, not what I'm doing.
+    <cite>&mdash; Integration insight, Session 4</cite>
+  </div>
+  <div class="prose">
+    <p>The somatic work continues. The practices you've learned—breathing, heart-awareness, noticing the urge to grab and choosing presence instead—are now in your nervous system. They are not techniques. They are the actual operating system of your evolving consciousness. Your body will keep teaching you. Trust it.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<section class="fade-section breather">
+  <p>What comes next is not a new self. It is a more present self. The same James, deeper.</p>
+</section>
+
+<!-- FORWARD -->
+<section class="fade-section" id="s-forward">
+  <div class="chapter-marker">
+    <div class="chapter-glyph"><svg viewBox="0 0 60 60"><g class="svg-breathe"><circle cx="30" cy="30" r="24" fill="none" stroke="rgba(201,162,85,0.3)" stroke-width="0.5"/><circle cx="30" cy="30" r="16" fill="none" stroke="rgba(201,162,85,0.4)" stroke-width="0.4"/><circle cx="30" cy="30" r="8" fill="none" stroke="rgba(201,162,85,0.5)" stroke-width="0.4"/><circle cx="30" cy="30" r="3" fill="rgba(201,162,85,0.4)"/><path d="M30 6 L35 26 L55 26 L40 38 L45 58 L30 46 L15 58 L20 38 L5 26 L25 26 Z" fill="none" stroke="rgba(201,162,85,0.25)" stroke-width="0.5"/></g></svg></div>
+    <div class="label" style="color:var(--gold)">NEXT FRONTIERS</div>
+    <h2>The Work Ahead</h2>
+    <div class="gene-path">Staying <span class="arr">&rarr;</span> Deepening <span class="arr">&rarr;</span> Teaching</div>
+  </div>
+  <div class="prose">
+    <p>The Eject Button will activate. When relationships deepen, when the temple becomes more demanding, when discomfort arises—your system will offer you the escape route. The practice: notice it without judgment. Breathe. Ask if it's a genuine need for space or fear masquerading as need. Then choose what comes next from presence, not from panic.</p>
+    <p>The nervous system regulation you've learned is not a one-time achievement. It's a daily practice. Non-negotiable practices: feet on floor, three breaths to the heart, the double-inhale with slow exhale. Your nervous system is the temple. Maintain it the way you maintain everything you build.</p>
+    <p>Heart-centered leadership will be tested when the temple intensifies, when decisions become harder, when you want to return to problem-solving because it feels safer than presence. The invitation is to stay present even then. Especially then. The team doesn't need your solutions. They need your coherence.</p>
+    <p>The relationship with Melly will show you edges you didn't know existed. When they arise—and they will—you have two choices: edit them for comfort, or communicate them with honesty. The second is harder. It is also the only path to real intimacy. Communicate with Melly about the patterns you're noticing. Let her into your nervous system awareness. Make the work visible. Invite her to practice presence with you.</p>
+    <p>Most importantly: you have already proven it's possible. You led a 14-person offsite from presence. You chose to stay with Melly despite uncertainty. You released romantic energy with gratitude. You experienced the coherence that happens when you're regulated. These are not theoretical possibilities. These are lived, embodied truths. The work now is maintaining them as your default, not your exception.</p>
+  </div>
+  <div class="gold-line"></div>
+</section>
+
+<!-- CLOSING LETTER -->
+<section style="padding: 4rem 0 2rem">
+  <div class="prose" style="max-width:640px; margin:0 auto; text-align:center">
+    <p style="font-family:var(--display); font-size:1.15rem; color:var(--gold-pale); line-height:1.9">
+      What you've learned across these four weeks is not that you need to become someone new. It is that presence doesn't require the loss of sovereignty. That intimacy doesn't mean disappearing. That the Love Burn dance—the full aliveness that moves people without words—is exactly what a heart needs. You've already touched this. You've already proven it works. The practice now is choosing it again and again.
+    </p>
+    <p style="font-family:var(--display); font-size:1rem; color:var(--lavender); line-height:1.9; margin-top:2.5rem">
+      In four weeks you have moved from avoidant independence toward embodied presence. This is the hero's journey. This is the work of becoming whole. And there is no going back. Your system has experienced what it feels like to be regulated, to lead from coherence, to stay with someone while fully being yourself. Your body remembers. Keep practicing.
+    </p>
+  </div>
+</section>
+
+<section class="closing fade-section">
+  <div class="gold-line"></div>
+  <p>The Eject Button will forever be part of your system. It will activate. Your work is not to eliminate it, but to thank it for protecting you and then choose something different. When you choose to stay—with Melly, with the temple, with the discomfort of deepening—that is when the real magic begins. That is when you become a beacon for others still learning that freedom and connection are the same thing.</p>
+  <div style="margin-top:2.5rem">
+    <p style="font-size:1.05rem; color:var(--gold); font-family:var(--display)">With deep respect and genuine care,<br>Jatin &amp; Shalini<br>Kairos Path</p>
+  </div>
+</section>
+
+<div class="colophon">Consciousness Cartography &middot; Kairos Path &middot; March 2026</div>
+</main>
+
+<script>
+// PARTICLES
 (function(){
   const c=document.getElementById('cosmos'),x=c.getContext('2d');
   let particles=[], targetColor={r:168,g:155,b:196}, currentColor={r:168,g:155,b:196};
@@ -504,40 +597,35 @@ Wants the thing the Sovereign says he doesn&#39;t need. Wants to be received in 
     requestAnimationFrame(draw);
   })();
 })();
-
-// ─── CURSOR GLOW ───
+// CURSOR GLOW
 const glow=document.getElementById('cursorGlow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-
-// ─── PROGRESS BAR ───
+// PROGRESS BAR
 const progressBar=document.getElementById('progressBar');
 function updateProgress(){
   const h=document.documentElement.scrollHeight-innerHeight;
   progressBar.style.width=(h>0?((scrollY/h)*100):0)+'%';
 }
 addEventListener('scroll',updateProgress);
-
-// ─── SCROLL REVEAL ───
+// SCROLL REVEAL
 const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
-
-// ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
+// AMBIENT GLOW + PARTICLE COLOR SHIFTS
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-archetype': {glow:'glow-gold',color:[201,162,85]},
-  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
-  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
-  's-mental':    {glow:'glow-teal',color:[80,140,160]},
-  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
-  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
-  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
-  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+  's-hero':       {glow:'',          color:[168,155,196]},
+  's-invitation': {glow:'',          color:[168,155,196]},
+  's-session1':   {glow:'glow-gold', color:[201,162,85]},
+  's-session2':   {glow:'glow-teal', color:[80,140,160]},
+  's-session3':   {glow:'glow-rose', color:[155,79,114]},
+  's-session4':   {glow:'glow-teal', color:[80,140,160]},
+  's-ifs':        {glow:'glow-rose', color:[155,79,114]},
+  's-genekey':    {glow:'glow-teal', color:[80,140,160]},
+  's-somatic':    {glow:'glow-gold', color:[210,185,120]},
+  's-forward':    {glow:'glow-synth',color:[210,185,120]},
 };
-
-// ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+// NAV DOTS
+const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-session4','s-ifs','s-genekey','s-somatic','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
   if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
@@ -546,13 +634,11 @@ sects.forEach((id,i)=>{
   nav.appendChild(d);
 });
 const dots=nav.querySelectorAll('.dot');
-
 let lastActiveSection='s-hero';
 addEventListener('scroll',()=>{
   const y=scrollY+innerHeight/2; let a=0;
   sects.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=i});
   dots.forEach((d,i)=>d.classList.toggle('active',i===a));
-  // ambient glow + particle shift
   const activeId=sects[a];
   if(activeId!==lastActiveSection){
     lastActiveSection=activeId;
@@ -561,12 +647,26 @@ addEventListener('scroll',()=>{
     window._setParticleColor(cfg.color[0],cfg.color[1],cfg.color[2]);
   }
 });
-
-// ─── CARD COMPLETION TRACKING ───
+// CARD SIZING — measure back face and set card-inner height
+function sizeCards(){
+  document.querySelectorAll('.tarot-card').forEach(card=>{
+    const back=card.querySelector('.card-back');
+    const inner=card.querySelector('.card-inner');
+    if(!back||!inner) return;
+    // Temporarily make back visible to measure
+    back.style.position='absolute';back.style.visibility='hidden';back.style.transform='none';back.style.inset='0';
+    const bh=back.scrollHeight+36; // padding buffer
+    back.style.position='';back.style.visibility='';back.style.transform='';back.style.inset='';
+    const h=Math.max(340,bh);
+    inner.style.minHeight=h+'px';
+    card.querySelector('.card-front').style.minHeight=h+'px';
+  });
+}
+sizeCards(); addEventListener('resize',sizeCards);
+// CARD COMPLETION TRACKING
 document.querySelectorAll('.tarot-card').forEach(card=>{
   card.addEventListener('click',function(){
     this.classList.toggle('flipped');
-    // check if all cards in this spread are flipped
     const wrap=this.closest('.card-spread-wrap');
     if(!wrap) return;
     const allCards=wrap.querySelectorAll('.tarot-card');
@@ -576,25 +676,6 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
     else if(msg) msg.classList.remove('revealed');
   });
 });
-// Remove inline onclick since we handle via event listener
-document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-  <script>
-    // Simple intersection observer for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
-        el.classList.add('fade-section');
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
