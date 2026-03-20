@@ -151,23 +151,23 @@
     flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
   }
   .tarot-card {
-    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    width: 260px; perspective: 900px; cursor: pointer;
     transition: transform 0.3s ease;
   }
   .tarot-card:hover { transform: translateY(-4px); }
   .tarot-card .card-inner {
-    position: relative; width: 100%; height: 100%; min-height: 340px;
+    position: relative; width: 100%; min-height: 340px;
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
 
   .card-face {
-    position: absolute; inset: 0;
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
   }
   .card-front {
+    position: absolute; inset: 0;
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
@@ -208,12 +208,12 @@
     margin-bottom: 0.6rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.25rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
+    font-family: var(--display); font-size: 1.15rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
     line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
     font-family: var(--body);
   }
 
@@ -374,8 +374,8 @@
     .duality { grid-template-columns: 1fr; }
     .duality-center { padding: 0; }
     .const-nav { display: none; }
-    .tarot-card { width: 220px; min-height: 280px; }
-    .tarot-card .card-inner { min-height: 280px; }
+    .tarot-card { width: 220px; }
+    .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
@@ -419,68 +419,266 @@
       <div class="scroll-hint">DESCEND</div>
     </section>
 
-    <div id="content" class="fade-section">
-      <p><em>The Strength of Aloneness</em>
-<em>Sessions 1–3 | 2026 Cohort</em></p>
-<hr>
-<blockquote>
-<p><em>&quot;I think it&#39;s an intellectualization. I don&#39;t think I&#39;m in touch with myself enough to actually read how emotionally like I want to do things.&quot;</em>
-— Kailash, Session 1</p>
-</blockquote>
-<hr>
-<h2>What Actually Shifted</h2>
-<p>You arrived with a system already fully operational. At twenty-two, you had built an architecture so sophisticated it could calculate the emotional preferences of everyone in a room and adjust your output before anyone noticed. What shifted wasn&#39;t the dismantling of that system. It was the first crack in its claim that it was keeping you alive.</p>
-<p>You cried. That was the shift. Not the understanding that you intellectualize — you already knew that. The tears themselves. The body breaking through what the mind had been managing. Everything else in these three sessions orbits that moment.</p>
-<hr>
-<h2>The Arc</h2>
-<h3>Session 1 — <em>The Pattern Names Itself</em></h3>
-<p>You said it within minutes: you intellectualize your emotions. You knew it before we named it. What was remarkable wasn&#39;t the insight — it was how precisely you could describe the machinery while still being inside it. The Calculator was running in real time, even as you explained the Calculator. You told us about the breakup and immediately assessed whether you were feeling the right amount of sadness. &quot;I should feel sadder, I should feel worse.&quot; Not the grief itself. A performance review of the grief.</p>
-<p>Then the body spoke. Chest tightness. Heart &quot;squashed&quot; — &quot;tiny, like a squashed grape.&quot; That image was more honest than anything the Calculator had offered. And then: &quot;I cried yesterday and it felt good to cry. Like thank god that happened.&quot; The relief in your voice wasn&#39;t about sadness. It was about contact. You had touched something real for the first time in a long time, and you knew it.</p>
-<p>That&#39;s what the Calculator can&#39;t produce. It can model emotion. It cannot feel it.</p>
-<h3>Session 2 — <em>The Surface Peace</em></h3>
-<p>You came in lighter. Birthday celebrations, gratitude journaling, the warmth of friends showing up for you. On the surface: progress. Underneath: the Peacekeeper had retaken the controls. The journaling was genuine, but it was also functioning as a buffer — a way to stay in the pleasant register without descending back into the vulnerability Session 1 had cracked open.</p>
-<p>The Venus Sequence reading exposed it. Your relational pattern isn&#39;t chaotic — it&#39;s controlled. You put people on pedestals. &quot;The only way that they&#39;re ever going to like me is if I say and do the things that I perceive them to like or that I perceive them to value.&quot; That&#39;s not connection. That&#39;s a transaction with better lighting. And when the transaction becomes too costly, you don&#39;t fight. You don&#39;t voice it. You sway to their perspective because it&#39;s easier. Because it keeps the peace.</p>
-<p>The peace you&#39;ve been keeping isn&#39;t peace. It&#39;s the absence of your own voice.</p>
-<h3>Session 3 — <em>The Invitation</em></h3>
-<p>The Venus Sequence deepened. The breakup wasn&#39;t just a breakup — it was the first time the system failed publicly enough for you to notice what it had been costing you. The invitation in this session wasn&#39;t to fix the relationship or strategize your way back to equilibrium. It was simpler and harder than that: stop treating your anxiety as a problem to solve. It is an emotion. It is trying to tell you something. Let it.</p>
-<p>The work landed here: self-love is not a concept you add on top of the existing architecture. It is the foundation that was never poured. You have been building relationships on a slab of &quot;am I enough?&quot; and wondering why they crack. The answer isn&#39;t to build better. It&#39;s to go down to the foundation and do the work there.</p>
-<hr>
-<h2>The IFS System Map</h2>
-<p><strong>The Calculator</strong> <em>(Manager)</em>
-Runs probability trees on every social interaction. What do they want? What will keep them? What response minimizes the chance of rejection? Extraordinarily fast, deeply exhausting, and so embedded you mistake it for your personality. &quot;The fear of missing out on something is greater than my own desire.&quot; That&#39;s the Calculator talking. It has replaced your wanting with its modeling of other people&#39;s wanting.</p>
-<p><strong>The Peacekeeper</strong> <em>(Manager)</em>
-Sways to others&#39; perspectives because conflict feels like the prelude to abandonment. &quot;It keeps the peace of the situation.&quot; The Peacekeeper doesn&#39;t resolve tension — it absorbs it. You become the person who is easy to be around, and the cost of that ease is that no one in the room is actually around <em>you</em>.</p>
-<p><strong>The Numb Protector</strong> <em>(Firefighter)</em>
-When emotion threatens to breach the Calculator&#39;s models, this part pulls the plug. Comfortable numbness. Autopilot. The dissociative flatness that you described as your default state — not depressed, not happy, just... managed. It kept you functional. It also kept you from crying about a breakup that mattered to you until the tears forced their way through.</p>
-<p><strong>The Anxious Scanner</strong> <em>(Firefighter)</em>
-The other side of the numbness. When the Numb Protector&#39;s hold slips, the Scanner floods the system with hypervigilance. Scanning for danger, predicting what could go wrong, running worst-case scenarios. The oscillation between numbness and anxiety isn&#39;t a malfunction. It&#39;s two firefighters taking shifts.</p>
-<p><strong>The Abandoned Child</strong> <em>(Exile)</em>
-Underneath all of it: the belief that you are not enough without the performance. That your unedited self — the one who doesn&#39;t know what to say, who might be boring, who might want something that inconveniences someone — is not worth staying for. &quot;I have this complex of being like boring in my head.&quot; That&#39;s him. He learned early that emotions needed to be justified, and he has been justifying ever since.</p>
-<hr>
-<h2>GK 40: Preservation → Balance</h2>
-<p>Your Gene Key is almost absurdly precise. The Shadow of Gate 40 is depletion through giving — not generous giving, but the kind that hollows you out because it&#39;s driven by the terror of what happens if you stop. You give yourself away in relationships. You lose your own desires inside other people&#39;s preferences. You put them on pedestals and then wonder why you feel small.</p>
-<p>&quot;Your challenge is to enjoy the solidity and strength of your aloneness and to be able to draw upon that strength in any situation.&quot; That line from your reading landed in the room like a dare. Because aloneness is exactly what the Calculator was built to prevent. Every probability tree, every social adjustment, every swayed opinion — all of it oriented toward one outcome: don&#39;t be alone.</p>
-<p>The Gift of Balance isn&#39;t about giving less. It&#39;s about knowing when the giving is coming from wholeness and when it&#39;s coming from fear. Right now, most of yours comes from fear. That&#39;s not a judgment. At twenty-two, with the wiring you have, it would be strange if it didn&#39;t. The work is learning to distinguish between the two. The Venus Sequence pointed directly at this: authentic connection requires a self that shows up whole. You cannot give what you have already given away.</p>
-<p>The strength of aloneness doesn&#39;t mean isolation. It means having a center that doesn&#39;t collapse when someone else&#39;s gravity enters the room.</p>
-<hr>
-<h2>Between-Session Evidence</h2>
-<ul>
-<li>Cried about the breakup for the first time — somatic breakthrough after months of intellectual processing</li>
-<li>Identified the pedestal pattern in real time during session, connected it to broader relational strategy</li>
-<li>Noticed chest tightness and named it without prompting — body awareness emerging beneath the Calculator</li>
-<li>Began gratitude journaling (genuine, though also functioning as emotional buffer — both things are true)</li>
-<li>Articulated the FOMO-over-desire pattern with striking clarity: &quot;The fear of missing out on something is greater than my own desire&quot;</li>
-</ul>
-<hr>
-<h2>What You Carry Forward</h2>
-<p>You are twenty-two. That matters. Not because you need to be told you have time — you know that — but because the system you&#39;ve built is young enough to still be flexible. The Calculator, the Peacekeeper, the numbness-to-anxiety oscillation: these are not who you are. They are what you built when you were too young to build anything else. They worked. They got you here. And they are now costing more than they deliver.</p>
-<p>The tears in Session 1 were not a breakdown. They were the first moment your body overruled your mind&#39;s assessment of how you should feel. That is the door. Every time you catch yourself calculating whether an emotion is appropriate before letting yourself feel it, you are standing in front of that door again. The practice is simple. Walk through it.</p>
-<p>Stop strategizing the breakup. Stop modeling what the other person needs from you. Stop swaying to keep the peace. Sit with the discomfort of not knowing what you want — because the not-knowing is more honest than the Calculator&#39;s best guess. You described your heart as a squashed grape. Hearts don&#39;t unsquash through analysis. They unsquash through use.</p>
-<p>The foundation you&#39;re building now — self-love that isn&#39;t contingent on someone else&#39;s approval — is the only foundation that holds. Everything you build on top of it will be different from everything you&#39;ve built before. Not because you&#39;ll be a different person. Because you&#39;ll finally be the one who&#39;s actually there.</p>
-<p><em>With love,</em>
-<em>Jatin &amp; Shalini / Kairos Path</em></p>
+    <!-- ═══ INVITATION ═══ -->
+    <section id="s-invitation" class="fade-section" style="padding-top:4rem;">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--lavender)">A SACRED LETTER</div>
+        <h2>Dear Kailash</h2>
+      </div>
+      <div class="prose">
+        <p>You arrived with a system already fully operational. At twenty-two, you had built an architecture so sophisticated it could calculate the emotional preferences of everyone in a room and adjust your output before anyone noticed. What shifted wasn't the dismantling of that system. It was the first crack in its claim that it was keeping you alive.</p>
+        <p>You cried. That was the shift. Not the understanding that you intellectualize — you already knew that. The tears themselves. The body breaking through what the mind had been managing. Everything else in these three sessions orbits that moment.</p>
+      </div>
+      <div class="gold-line"></div>
+    </section>
 
-    </div>
+    <!-- ═══ SESSION 1 ═══ -->
+    <section id="s-session1" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--gold)">SESSION 1 · FEBRUARY 14</div>
+        <h2>The Pattern Names Itself</h2>
+        <div class="gene-path">Numbness <span class="arr">→</span> Naming <span class="arr">→</span> First Tears</div>
+      </div>
+      <div class="prose">
+        <p>You said it within minutes: you intellectualize your emotions. You knew it before we named it. What was remarkable wasn't the insight — it was how precisely you could describe the machinery while still being inside it. The Calculator was running in real time, even as you explained the Calculator. You told us about the breakup and immediately assessed whether you were feeling the right amount of sadness.</p>
+      </div>
+
+      <div class="pull-quote">
+        "I think it's an intellectualization. I don't think I'm in touch with myself enough to actually read how emotionally like I want to do things."
+        <cite>— KAILASH, SESSION 1</cite>
+      </div>
+
+      <div class="prose">
+        <p>Not the grief itself. A performance review of the grief. Then the body spoke. Chest tightness. Heart "squashed" — <em>"tiny, like a squashed grape."</em> That image was more honest than anything the Calculator had offered.</p>
+      </div>
+
+      <div class="pull-quote">
+        "I cried yesterday and it felt good to cry. Like thank god that happened."
+        <cite>— KAILASH, THE BODY BREAKING THROUGH</cite>
+      </div>
+
+      <div class="prose">
+        <p>The relief in your voice wasn't about sadness. It was about <strong>contact</strong>. You had touched something real for the first time in a long time, and you knew it. That's what the Calculator can't produce. It can model emotion. It cannot feel it.</p>
+      </div>
+      <div class="gold-line"></div>
+    </section>
+
+    <!-- ═══ SESSION 2 ═══ -->
+    <section id="s-session2" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--rose)">SESSION 2 · FEBRUARY 22</div>
+        <h2>The Surface Peace</h2>
+        <div class="gene-path">Gratitude <span class="arr">→</span> Venus Sequence <span class="arr">→</span> Pedestal Pattern</div>
+      </div>
+      <div class="prose">
+        <p>You came in lighter. Birthday celebrations, gratitude journaling, the warmth of friends showing up for you. On the surface: progress. Underneath: the Peacekeeper had retaken the controls. The journaling was genuine, but it was also functioning as a buffer — a way to stay in the pleasant register without descending back into the vulnerability Session 1 had cracked open.</p>
+        <p>The Venus Sequence reading exposed it. Your relational pattern isn't chaotic — it's controlled. You put people on pedestals.</p>
+      </div>
+
+      <div class="pull-quote">
+        "The only way that they're ever going to like me is if I say and do the things that I perceive them to like or that I perceive them to value."
+        <cite>— KAILASH, NAMING THE TRANSACTION</cite>
+      </div>
+
+      <div class="prose">
+        <p>That's not connection. That's a transaction with better lighting. And when the transaction becomes too costly, you don't fight. You don't voice it. You sway to their perspective because it's easier. Because it keeps the peace. The peace you've been keeping isn't peace. <strong>It's the absence of your own voice.</strong></p>
+      </div>
+      <div class="rose-line"></div>
+    </section>
+
+    <!-- ═══ SESSION 3 ═══ -->
+    <section id="s-session3" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--teal)">SESSION 3 · MARCH 1</div>
+        <h2>The Invitation</h2>
+        <div class="gene-path">Strategy <span class="arr">→</span> Surrender <span class="arr">→</span> Self-Love</div>
+      </div>
+      <div class="prose">
+        <p>The Venus Sequence deepened. The breakup wasn't just a breakup — it was the first time the system failed publicly enough for you to notice what it had been costing you. The invitation in this session wasn't to fix the relationship or strategize your way back to equilibrium. It was simpler and harder than that: <strong>stop treating your anxiety as a problem to solve.</strong> It is an emotion. It is trying to tell you something. Let it.</p>
+        <p>The work landed here: self-love is not a concept you add on top of the existing architecture. It is the foundation that was never poured. You have been building relationships on a slab of <em>"am I enough?"</em> and wondering why they crack. The answer isn't to build better. It's to go down to the foundation and do the work there.</p>
+      </div>
+      <div class="teal-line"></div>
+    </section>
+
+    <!-- ═══ IFS SYSTEM MAP ═══ -->
+    <section id="s-ifs" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--rose)">YOUR INNER SYSTEM</div>
+        <h2>The Parts That Run the Show</h2>
+      </div>
+      <div class="prose">
+        <p>Five voices emerged across our sessions — an intricate system built by a twenty-two-year-old who learned early that emotions needed justification. Tap each card to meet them.</p>
+      </div>
+
+      <p class="card-ritual">~ tap each card to reveal ~</p>
+      <div class="card-spread-wrap">
+        <div class="card-spread">
+
+          <!-- Card 1: The Calculator -->
+          <div class="tarot-card" data-accent="amethyst">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><rect x="30" y="25" width="60" height="70" rx="4" fill="none" stroke="currentColor" stroke-width="0.7" class="svg-breathe"/><line x1="40" y1="45" x2="80" y2="45" stroke="currentColor" stroke-width="0.4" opacity="0.5"/><line x1="40" y1="55" x2="80" y2="55" stroke="currentColor" stroke-width="0.4" opacity="0.4"/><line x1="40" y1="65" x2="80" y2="65" stroke="currentColor" stroke-width="0.4" opacity="0.3"/><line x1="40" y1="75" x2="80" y2="75" stroke="currentColor" stroke-width="0.4" opacity="0.2"/><circle cx="60" cy="35" r="4" fill="none" stroke="currentColor" stroke-width="0.5" class="svg-pulse"/></svg></div>
+                <div class="card-prompt">MANAGER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">MANAGER</div>
+                <h4>The Calculator</h4>
+                <p>Runs probability trees on every social interaction. What do they want? What will keep them? What response minimizes the chance of rejection? Extraordinarily fast, deeply exhausting, and so embedded you mistake it for your personality. "The fear of missing out on something is greater than my own desire." That's the Calculator talking. It has replaced your wanting with its modeling of other people's wanting.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: The Peacekeeper -->
+          <div class="tarot-card" data-accent="gold">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="0.7" class="svg-breathe"/><path d="M40 55 Q60 40 80 55" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/><path d="M40 65 Q60 80 80 65" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5"/><circle cx="60" cy="60" r="5" fill="currentColor" opacity="0.15"/></svg></div>
+                <div class="card-prompt">MANAGER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">MANAGER</div>
+                <h4>The Peacekeeper</h4>
+                <p>Sways to others' perspectives because conflict feels like the prelude to abandonment. The Peacekeeper doesn't resolve tension — it absorbs it. You become the person who is easy to be around, and the cost of that ease is that no one in the room is actually around <em>you</em>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: The Numb Protector -->
+          <div class="tarot-card" data-accent="teal">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><rect x="35" y="35" width="50" height="50" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4" class="svg-breathe"/><line x1="35" y1="60" x2="85" y2="60" stroke="currentColor" stroke-width="0.4" opacity="0.3"/><line x1="60" y1="35" x2="60" y2="85" stroke="currentColor" stroke-width="0.4" opacity="0.3"/></svg></div>
+                <div class="card-prompt">FIREFIGHTER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">FIREFIGHTER</div>
+                <h4>The Numb Protector</h4>
+                <p>When emotion threatens to breach the Calculator's models, this part pulls the plug. Comfortable numbness. Autopilot. The dissociative flatness you described as your default state — not depressed, not happy, just... managed. It kept you functional. It also kept you from crying about a breakup that mattered to you until the tears forced their way through.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card-spread" style="margin-top:0;">
+
+          <!-- Card 4: The Anxious Scanner -->
+          <div class="tarot-card" data-accent="rose">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="55" r="25" fill="none" stroke="currentColor" stroke-width="0.6" class="svg-pulse"/><line x1="60" y1="30" x2="60" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.6"/><line x1="80" y1="55" x2="90" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.6"/><line x1="40" y1="55" x2="30" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.6"/><line x1="75" y1="40" x2="82" y2="33" stroke="currentColor" stroke-width="0.4" opacity="0.4"/><line x1="45" y1="40" x2="38" y2="33" stroke="currentColor" stroke-width="0.4" opacity="0.4"/></svg></div>
+                <div class="card-prompt">FIREFIGHTER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">FIREFIGHTER</div>
+                <h4>The Anxious Scanner</h4>
+                <p>The other side of the numbness. When the Numb Protector's hold slips, the Scanner floods the system with hypervigilance. Scanning for danger, predicting what could go wrong, running worst-case scenarios. The oscillation between numbness and anxiety isn't a malfunction. It's two firefighters taking shifts.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: The Abandoned Child -->
+          <div class="tarot-card" data-accent="amethyst">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="45" r="12" fill="none" stroke="currentColor" stroke-width="0.7" class="svg-breathe"/><path d="M60 57 Q60 85 60 95" stroke="currentColor" stroke-width="0.6" fill="none"/><path d="M48 70 L60 75 L72 70" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.4"/><circle cx="60" cy="45" r="3" fill="currentColor" opacity="0.25" class="svg-pulse"/></svg></div>
+                <div class="card-prompt">EXILE</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">EXILE</div>
+                <h4>The Abandoned Child</h4>
+                <p>Underneath all of it: the belief that you are not enough without the performance. That your unedited self — the one who doesn't know what to say, who might be boring, who might want something that inconveniences someone — is not worth staying for. "I have this complex of being like boring in my head." That's him. He learned early that emotions needed to be justified, and he has been justifying ever since.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="spread-complete" style="text-align:center;font-family:var(--display);font-size:0.8rem;color:var(--gold);letter-spacing:0.15em;opacity:0;transition:opacity 0.8s;">All parts witnessed</div>
+      </div>
+      <div class="rose-line"></div>
+    </section>
+
+    <!-- ═══ GENE KEY 40 ═══ -->
+    <section id="s-genekey" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--amethyst)">GENE KEY 40</div>
+        <h2>Preservation → Balance</h2>
+        <div class="gene-path">Depletion <span class="arr">→</span> Discernment <span class="arr">→</span> Wholeness</div>
+      </div>
+      <div class="prose">
+        <p>Your Gene Key is almost absurdly precise. The Shadow of Gate 40 is <strong>depletion through giving</strong> — not generous giving, but the kind that hollows you out because it's driven by the terror of what happens if you stop. You give yourself away in relationships. You lose your own desires inside other people's preferences. You put them on pedestals and then wonder why you feel small.</p>
+      </div>
+
+      <div class="pull-quote">
+        "Your challenge is to enjoy the solidity and strength of your aloneness and to be able to draw upon that strength in any situation."
+        <cite>— GENE KEY 40 READING</cite>
+      </div>
+
+      <div class="prose">
+        <p>That line landed in the room like a dare. Because aloneness is exactly what the Calculator was built to prevent. Every probability tree, every social adjustment, every swayed opinion — all of it oriented toward one outcome: <em>don't be alone.</em></p>
+        <p>The <strong>Gift of Balance</strong> isn't about giving less. It's about knowing when the giving is coming from wholeness and when it's coming from fear. Right now, most of yours comes from fear. That's not a judgment. At twenty-two, with the wiring you have, it would be strange if it didn't. The work is learning to distinguish between the two.</p>
+        <p>The Venus Sequence pointed directly at this: authentic connection requires a self that shows up whole. You cannot give what you have already given away. The strength of aloneness doesn't mean isolation. It means having a center that doesn't collapse when someone else's gravity enters the room.</p>
+      </div>
+      <div class="gold-line"></div>
+    </section>
+
+    <!-- ═══ SOMATIC RECORD ═══ -->
+    <section id="s-somatic" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--teal)">THE BODY REMEMBERS</div>
+        <h2>Between-Session Evidence</h2>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">EVIDENCE I</div>
+        <h4>The Tears That Broke Through</h4>
+        <p>Cried about the breakup for the first time — somatic breakthrough after months of intellectual processing. The body overruled the Calculator's assessment of how you should feel.</p>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">EVIDENCE II</div>
+        <h4>The Squashed-Grape Heart</h4>
+        <p>Noticed chest tightness and named it without prompting — "tiny, like a squashed grape." Body awareness emerging beneath the Calculator. The heart holds what the mind won't calculate.</p>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">EVIDENCE III</div>
+        <h4>The Pedestal Pattern in Real Time</h4>
+        <p>Identified the pedestal pattern during session itself, connected it to broader relational strategy. Articulated the FOMO-over-desire architecture with striking clarity: "The fear of missing out on something is greater than my own desire."</p>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">EVIDENCE IV</div>
+        <h4>Gratitude as Both Gift and Buffer</h4>
+        <p>Began gratitude journaling — genuine, and also functioning as emotional buffer. Both things are true. The capacity to hold that complexity is itself a sign of emerging Self-energy.</p>
+      </div>
+      <div class="teal-line"></div>
+    </section>
+
+    <!-- ═══ WHAT YOU CARRY FORWARD ═══ -->
+    <section id="s-forward" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--gold)">THE FOUNDATION</div>
+        <h2>What You Carry Forward</h2>
+      </div>
+      <div class="prose">
+        <p>You are twenty-two. That matters. Not because you need to be told you have time — you know that — but because the system you've built is young enough to still be flexible. The Calculator, the Peacekeeper, the numbness-to-anxiety oscillation: these are not who you are. They are what you built when you were too young to build anything else. They worked. They got you here. And they are now costing more than they deliver.</p>
+        <p>The tears in Session 1 were not a breakdown. They were the first moment your body overruled your mind's assessment of how you should feel. That is the door. Every time you catch yourself calculating whether an emotion is appropriate before letting yourself feel it, you are standing in front of that door again. The practice is simple. <strong>Walk through it.</strong></p>
+        <p>Stop strategizing the breakup. Stop modeling what the other person needs from you. Stop swaying to keep the peace. Sit with the discomfort of not knowing what you want — because the not-knowing is more honest than the Calculator's best guess. You described your heart as a squashed grape. Hearts don't unsquash through analysis. They unsquash through use.</p>
+        <p>The foundation you're building now — self-love that isn't contingent on someone else's approval — is the only foundation that holds. Everything you build on top of it will be different from everything you've built before. Not because you'll be a different person. Because you'll finally be the one who's actually there.</p>
+      </div>
+
+      <div class="gold-line"></div>
+      <div class="prose" style="text-align:center; margin-top:2rem;">
+        <p><em>With love,</em><br><em>Jatin & Shalini / Kairos Path</em></p>
+      </div>
+    </section>
 
     <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
       <div class="gold-line"></div>
@@ -540,20 +738,19 @@ document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
 // ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-archetype': {glow:'glow-gold',color:[201,162,85]},
-  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
-  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
-  's-mental':    {glow:'glow-teal',color:[80,140,160]},
-  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
-  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
-  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
-  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+  's-hero':      {glow:'',          color:[168,155,196]},
+  's-invitation':{glow:'',          color:[168,155,196]},
+  's-session1':  {glow:'glow-gold', color:[201,162,85]},
+  's-session2':  {glow:'glow-rose', color:[180,120,150]},
+  's-session3':  {glow:'glow-teal', color:[80,140,160]},
+  's-ifs':       {glow:'glow-rose', color:[155,79,114]},
+  's-genekey':   {glow:'glow-synth',color:[190,170,130]},
+  's-somatic':   {glow:'glow-teal', color:[80,140,160]},
+  's-forward':   {glow:'glow-gold', color:[210,185,120]},
 };
 
 // ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-ifs','s-genekey','s-somatic','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
   if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
@@ -595,22 +792,5 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
 // Remove inline onclick since we handle via event listener
 document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-  <script>
-    // Simple intersection observer for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
-        el.classList.add('fade-section');
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
