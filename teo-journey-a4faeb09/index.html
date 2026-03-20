@@ -151,23 +151,23 @@
     flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
   }
   .tarot-card {
-    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    width: 260px; perspective: 900px; cursor: pointer;
     transition: transform 0.3s ease;
   }
   .tarot-card:hover { transform: translateY(-4px); }
   .tarot-card .card-inner {
-    position: relative; width: 100%; height: 100%; min-height: 340px;
+    position: relative; width: 100%; min-height: 340px;
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
 
   .card-face {
-    position: absolute; inset: 0;
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
   }
   .card-front {
+    position: absolute; inset: 0;
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
@@ -208,12 +208,12 @@
     margin-bottom: 0.6rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.25rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
+    font-family: var(--display); font-size: 1.15rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
     line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
     font-family: var(--body);
   }
 
@@ -374,8 +374,8 @@
     .duality { grid-template-columns: 1fr; }
     .duality-center { padding: 0; }
     .const-nav { display: none; }
-    .tarot-card { width: 220px; min-height: 280px; }
-    .tarot-card .card-inner { min-height: 280px; }
+    .tarot-card { width: 220px; }
+    .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
@@ -419,65 +419,108 @@
       <div class="scroll-hint">DESCEND</div>
     </section>
 
-    <div id="content" class="fade-section">
-      <p><em>The Body Keeps the Invoice</em>
-<em>Sessions 1–3 | 2026 Cohort</em></p>
-<hr>
-<blockquote>
-<p><em>&quot;For me, when I work, I work. It&#39;s work. It&#39;s no passion.&quot;</em>
-— Teo, Session 1</p>
-</blockquote>
-<hr>
-<h2>What Actually Shifted</h2>
-<p>You came in running the most airtight logical system we&#39;ve seen in this cohort. Forty years of it. Every variable accounted for, every risk pre-calculated, every emotion filed under &quot;not useful.&quot; And it worked — in the way that a dam works. It holds everything back. Until it doesn&#39;t.</p>
-<p>What shifted wasn&#39;t that you suddenly became emotional. It&#39;s that you stopped treating emotion as the opposite of logic and started seeing it as data your system had been refusing to process. The lip pain. The breathing difficulty. The heart that physically hurt. These weren&#39;t malfunctions. They were the invoices for decades of suppressed signal, and Session 3 was when you finally opened the mail.</p>
-<p>The teaching that landed hardest: your needs are biology, not luxury. That sentence cracked something. Not because it was new information — you&#39;re too smart for that. Because it named the exact lie your system had been running on.</p>
-<hr>
-<h2>The Arc</h2>
-<p>Session 1 gave us the terrain. You named your workplace &quot;The Hunger Games&quot; — and you meant it literally. A corporate environment running on emotional detachment, political maneuvering, and survival-mode compliance. You were the sole breadwinner. Aging parent to care for. Daughter navigating college decisions. And in the middle of all of it, a woman who had decided, somewhere around age seventeen, that logic was the only tool worth carrying.</p>
-<p>That decision wasn&#39;t wrong. It got you into the top college. It got you through immigration. It got you through decades of providing for everyone around you. The Logical Strategist earned its place. But somewhere along the way, it stopped being a tool and became the entire identity. Everything that wasn&#39;t analytical got classified as waste.</p>
-<p>Session 2 was the body&#39;s rebuttal. You came back from vacation — the one thing that was supposed to help — and the return to work triggered everything. Pain. Breathing difficulty. The lip, specifically. The voice trying to move through a channel that had been locked for years. Your body was not being dramatic. It was being precise.</p>
-<p>Session 3 went two hours. That wasn&#39;t an accident. The childhood origins came up — the high school decision to avoid dating entirely, to strip everything down to the single variable of college admission. A seventeen-year-old building a fortress and calling it a strategy. We drew the parallel to Jatin leaving Google: two people who had constructed perfect logical systems and then had to reckon with what those systems cost. Your heart chakra opened. Not metaphorically. You felt it — sadness, pain, loneliness, depletion. And then, on the other side: gentleness. Connection. The earth under your feet actually registering as something you belonged to.</p>
-<p>Turning on the emotional channel doesn&#39;t erase the logical one. That was the binary you&#39;d been trapped in. As if feeling would make you stupid. As if vulnerability would make you weak. The integration is what your system had been refusing to compute: both channels, running simultaneously, producing something neither could produce alone.</p>
-<hr>
-<h2>The IFS System Map</h2>
-<p><strong>The Logical Strategist</strong> <em>(Manager)</em>
-The architect of your entire adult life. Analyzes risks, creates contingency plans, runs cost-benefit on every human interaction. Has been the primary identity since age seventeen — over forty years of uninterrupted service. Genuinely brilliant. Also genuinely terrified of what happens if it ever lets go of the controls.</p>
-<p><strong>The Duty Keeper</strong> <em>(Manager)</em>
-Income is survival. Family stability is non-negotiable. This part vetoes any action — any feeling, any desire, any need — that might jeopardize the financial structure holding everyone up. It doesn&#39;t care if you&#39;re depleted. Depletion isn&#39;t in its risk model.</p>
-<p><strong>The Suppressor</strong> <em>(Manager)</em>
-Locks down emotional expression as fundamentally unsafe. Learned early that feelings are noise, not signal. Works in close coordination with the Logical Strategist — together they&#39;ve built a system where vulnerability literally cannot reach the surface. Until the body finds another route.</p>
-<p><strong>The Escape Artist</strong> <em>(Firefighter)</em>
-When the emotional pressure builds past what the Suppressor can contain, this part activates. Work becomes the anesthetic. Distraction becomes the protocol. You mentioned giving up on physical appearance — that&#39;s not laziness. That&#39;s a system so overtaxed by managing everything else that self-care got triaged out entirely.</p>
-<p><strong>The Rage Container</strong> <em>(Firefighter)</em>
-Holds the anger at the unfairness — the workplace politics, the weight of being the one who carries everything, the injustice of a system that demands you erase yourself to function within it. Keeps it sealed. Airtight. The containment itself is exhausting.</p>
-<p><strong>The Suppressed Voice</strong> <em>(Exile)</em>
-The one who has something to say and learned it was dangerous to say it. Shows up as lip pain — literally the mouth in distress. Shows up as breathing difficulty — the voice trying to move through a channel the Suppressor locked years ago. This part doesn&#39;t need permission to speak. It needs the system to stop treating speech as threat.</p>
-<p><strong>The Vulnerable Child</strong> <em>(Exile)</em>
-Needs support. Cannot ask. Has been carrying everything alone for so long that the asking mechanism atrophied. The loneliness you felt when the heart opened in Session 3 — that was her. Not broken. Just unseen for a very long time.</p>
-<hr>
-<h2>The Somatic Record</h2>
-<p>Your body has been the most honest part of your system. The lip pain is the suppressed voice trying to exit through the one place it can. The breathing difficulty is the throat closing around words that were never allowed out. The heart chakra pain — sadness, loneliness, depletion — is the emotional backlog of a system that classified feeling as waste for four decades.</p>
-<p>After the meditation in Session 3, the body shifted: heart more open, tension decreasing, a gentler disposition, greater connection to the ground beneath you. That wasn&#39;t relaxation. That was integration. The body saying: <em>this is what it feels like when both channels are running.</em></p>
-<p>The fear you named — &quot;the fear of uncertainty of the future because of the way our brain is programmed is just constantly trying to avoid...what if this happens what if that happens I have to be prepared&quot; — that&#39;s the Logical Strategist&#39;s operating system laid bare. It doesn&#39;t rest because resting means unmonitored variables. But the variables it refuses to monitor — the emotional ones, the somatic ones — are the ones currently running the show.</p>
-<hr>
-<h2>Between-Session Evidence</h2>
-<ul>
-<li>Named the workplace dynamic accurately and without minimization — &quot;Hunger Games&quot; is not hyperbole when the system literally runs on emotional detachment and political survival</li>
-<li>Body began producing undeniable somatic evidence: lip pain, breathing difficulty, heart pain</li>
-<li>Allowed the Session 3 meditation to land — heart opened, tension released, connection to earth registered</li>
-<li>Received the teaching that needs are biology without intellectualizing it away</li>
-<li>Drew the line between the seventeen-year-old&#39;s survival strategy and the present-day system — and held both with something approaching compassion</li>
-</ul>
-<hr>
-<h2>What You Carry Forward</h2>
-<p>The Logical Strategist isn&#39;t retiring. It shouldn&#39;t. It&#39;s genuinely good at what it does, and your life has real structural demands that require strategic thinking. What&#39;s changing is its monopoly. It ran the entire operation for forty years and classified every other signal as noise. The body has now made its counter-argument in terms even a data-oriented mind can&#39;t dismiss: pain is data. Constriction is data. A heart that hurts is data.</p>
-<p>You are not learning to be emotional instead of logical. You are learning to be both. The binary was the prison — work or health, self or family, logic or feeling. Every either/or in your system is a door that only opens when you stop choosing sides.</p>
-<p>Your needs are biology, not luxury. That sentence is yours now. Use it. When the Duty Keeper says you can&#39;t afford to rest, when the Suppressor says feelings are inefficient, when the Logical Strategist says self-care doesn&#39;t compute — remind the whole system: biology doesn&#39;t negotiate. It just sends the invoice. And the invoice always comes.</p>
-<p><em>With love,</em>
-<em>Jatin &amp; Shalini / Kairos Path</em></p>
+    <section id="s-invitation" class="fade-section">
+      <p><em>The Body Keeps the Invoice</em></p>
+      <p><em>Sessions 1–3 | 2026 Cohort</em></p>
+      <hr>
+      <div class="pull-quote">
+        <p><em>"For me, when I work, I work. It's work. It's no passion."</em><br>— Teo, Session 1</p>
+      </div>
+      <hr>
+      <h2>What Actually Shifted</h2>
+      <p>You came in running the most airtight logical system we've seen in this cohort. Forty years of it. Every variable accounted for, every risk pre-calculated, every emotion filed under "not useful." And it worked — in the way that a dam works. It holds everything back. Until it doesn't.</p>
+      <p>What shifted wasn't that you suddenly became emotional. It's that you stopped treating emotion as the opposite of logic and started seeing it as data your system had been refusing to process. The lip pain. The breathing difficulty. The heart that physically hurt. These weren't malfunctions. They were the invoices for decades of suppressed signal, and Session 3 was when you finally opened the mail.</p>
+      <p>The teaching that landed hardest: your needs are biology, not luxury. That sentence cracked something. Not because it was new information — you're too smart for that. Because it named the exact lie your system had been running on.</p>
+    </section>
 
-    </div>
+    <section id="s-session1" class="fade-section">
+      <h2 class="chapter-marker">Session 1 — February 11</h2>
+      <h3>The Hunger Games</h3>
+      <p><strong>Core Theme:</strong> <em>Suppressed voice in toxic system; survival mode</em></p>
+      <p>You named your workplace "The Hunger Games" — and you meant it literally. A corporate environment running on emotional detachment, political maneuvering, and survival-mode compliance. You were the sole breadwinner. Aging parent to care for. Daughter navigating college decisions. And in the middle of all of it, a woman who had decided, somewhere around age seventeen, that logic was the only tool worth carrying.</p>
+      <p>That decision wasn't wrong. It got you into the top college. It got you through immigration. It got you through decades of providing for everyone around you. The Logical Strategist earned its place. But somewhere along the way, it stopped being a tool and became the entire identity. Everything that wasn't analytical got classified as waste.</p>
+      <div class="pull-quote">
+        <p>The binary thinking (work or health, self or family) is the product of survival mode. Logic can't solve this because it's a relational problem.</p>
+      </div>
+    </section>
+
+    <section id="s-session2" class="fade-section">
+      <h2 class="chapter-marker">Session 2 — February 24</h2>
+      <h3>Stress Becoming Physical</h3>
+      <p><strong>Core Theme:</strong> <em>Body keeping score; emotional toll visible</em></p>
+      <p>You came back from vacation — the one thing that was supposed to help — and the return to work triggered everything. Pain. Breathing difficulty. The lip, specifically. The voice trying to move through a channel that had been locked for years. Your body was not being dramatic. It was being precise.</p>
+      <p>The logical solution (quit, reduce expenses, move) requires family transformation you felt impossible alone. The emotional solution requires opening communication and collaborative support. That's the choice your system has been refusing to compute.</p>
+      <div class="pull-quote">
+        <p>The body is keeping score. The lip pain, the breathing difficulty — these are the voice trying to move through a suppressed channel.</p>
+      </div>
+    </section>
+
+    <section id="s-session3" class="fade-section">
+      <h2 class="chapter-marker">Session 3 — March 9</h2>
+      <h3>The Extended Reckoning & Emotional Integration</h3>
+      <p><strong>Core Theme:</strong> <em>Roots of hyperlogic explored; emotional solution emerging</em></p>
+      <p>Two hours. That wasn't an accident. The childhood origins came up — the high school decision to avoid dating entirely, to strip everything down to the single variable of college admission. A seventeen-year-old building a fortress and calling it a strategy.</p>
+      <p>We drew the parallel to Jatin leaving Google: two people who had constructed perfect logical systems and then had to reckon with what those systems cost. Your heart chakra opened. Not metaphorically. You felt it — sadness, pain, loneliness, depletion. And then, on the other side: gentleness. Connection. The earth under your feet actually registering as something you belonged to.</p>
+      <p>Turning on the emotional channel doesn't erase the logical one. That was the binary you'd been trapped in. As if feeling would make you stupid. As if vulnerability would make you weak. The integration is what your system had been refusing to compute: both channels, running simultaneously, producing something neither could produce alone.</p>
+      <div class="pull-quote">
+        <p>Needs can't be put aside, only wants and desires. Your needs are biology, not luxury. The solution is not to abandon family — it's to open emotional communication and collaborative problem-solving.</p>
+      </div>
+      <p><strong>Chakra Work Summary:</strong></p>
+      <ul>
+        <li><strong>Root & Sacral:</strong> Grounding into earth; engaging needs/desires chakras. Tension release.</li>
+        <li><strong>Heart:</strong> Sadness, pain, loneliness, depletion; sending energy to connect with primitive love. Heart opening.</li>
+        <li><strong>Full System:</strong> Earth's magma clearing/tonifying all chakras; universal energy from head; balancing feminine (intuition, receptivity) and masculine (direction, structure). Gentler disposition; greater earth connection.</li>
+      </ul>
+    </section>
+
+    <section id="s-ifs" class="fade-section">
+      <h2>The IFS System Map</h2>
+      <p><strong>The Logical Strategist</strong> <em>(Manager)</em></p>
+      <p>The architect of your entire adult life. Analyzes risks, creates contingency plans, runs cost-benefit on every human interaction. Has been the primary identity since age seventeen — over forty years of uninterrupted service. Genuinely brilliant. Also genuinely terrified of what happens if it ever lets go of the controls.</p>
+      
+      <p><strong>The Duty Keeper</strong> <em>(Manager)</em></p>
+      <p>Income is survival. Family stability is non-negotiable. This part vetoes any action — any feeling, any desire, any need — that might jeopardize the financial structure holding everyone up. It doesn't care if you're depleted. Depletion isn't in its risk model.</p>
+      
+      <p><strong>The Suppressor</strong> <em>(Manager)</em></p>
+      <p>Locks down emotional expression as fundamentally unsafe. Learned early that feelings are noise, not signal. Works in close coordination with the Logical Strategist — together they've built a system where vulnerability literally cannot reach the surface. Until the body finds another route.</p>
+      
+      <p><strong>The Escape Artist</strong> <em>(Firefighter)</em></p>
+      <p>When the emotional pressure builds past what the Suppressor can contain, this part activates. Work becomes the anesthetic. Distraction becomes the protocol. You mentioned giving up on physical appearance — that's not laziness. That's a system so overtaxed by managing everything else that self-care got triaged out entirely.</p>
+      
+      <p><strong>The Rage Container</strong> <em>(Firefighter)</em></p>
+      <p>Holds the anger at the unfairness — the workplace politics, the weight of being the one who carries everything, the injustice of a system that demands you erase yourself to function within it. Keeps it sealed. Airtight. The containment itself is exhausting.</p>
+      
+      <p><strong>The Suppressed Voice</strong> <em>(Exile)</em></p>
+      <p>The one who has something to say and learned it was dangerous to say it. Shows up as lip pain — literally the mouth in distress. Shows up as breathing difficulty — the voice trying to move through a channel the Suppressor locked years ago. This part doesn't need permission to speak. It needs the system to stop treating speech as threat.</p>
+      
+      <p><strong>The Vulnerable Child</strong> <em>(Exile)</em></p>
+      <p>Needs support. Cannot ask. Has been carrying everything alone for so long that the asking mechanism atrophied. The loneliness you felt when the heart opened in Session 3 — that was her. Not broken. Just unseen for a very long time.</p>
+    </section>
+
+    <section id="s-somatic" class="fade-section">
+      <h2>The Somatic Record</h2>
+      <p>Your body has been the most honest part of your system. The lip pain is the suppressed voice trying to exit through the one place it can. The breathing difficulty is the throat closing around words that were never allowed out. The heart chakra pain — sadness, loneliness, depletion — is the emotional backlog of a system that classified feeling as waste for four decades.</p>
+      <p>After the meditation in Session 3, the body shifted: heart more open, tension decreasing, a gentler disposition, greater connection to the ground beneath you. That wasn't relaxation. That was integration. The body saying: <em>this is what it feels like when both channels are running.</em></p>
+      <p>The fear you named — "the fear of uncertainty of the future because of the way our brain is programmed is just constantly trying to avoid...what if this happens what if that happens I have to be prepared" — that's the Logical Strategist's operating system laid bare. It doesn't rest because resting means unmonitored variables. But the variables it refuses to monitor — the emotional ones, the somatic ones — are the ones currently running the show.</p>
+      <h3>Between-Session Evidence</h3>
+      <ul>
+        <li>Named the workplace dynamic accurately and without minimization — "Hunger Games" is not hyperbole when the system literally runs on emotional detachment and political survival</li>
+        <li>Body began producing undeniable somatic evidence: lip pain, breathing difficulty, heart pain</li>
+        <li>Allowed the Session 3 meditation to land — heart opened, tension released, connection to earth registered</li>
+        <li>Received the teaching that needs are biology without intellectualizing it away</li>
+        <li>Drew the line between the seventeen-year-old's survival strategy and the present-day system — and held both with something approaching compassion</li>
+      </ul>
+    </section>
+
+    <section id="s-forward" class="fade-section closing">
+      <h2>What You Carry Forward</h2>
+      <p>The Logical Strategist isn't retiring. It shouldn't. It's genuinely good at what it does, and your life has real structural demands that require strategic thinking. What's changing is its monopoly. It ran the entire operation for forty years and classified every other signal as noise. The body has now made its counter-argument in terms even a data-oriented mind can't dismiss: pain is data. Constriction is data. A heart that hurts is data.</p>
+      <p>You are not learning to be emotional instead of logical. You are learning to be both. The binary was the prison — work or health, self or family, logic or feeling. Every either/or in your system is a door that only opens when you stop choosing sides.</p>
+      <div class="pull-quote">
+        <p>Your needs are biology, not luxury. That sentence is yours now. Use it. When the Duty Keeper says you can't afford to rest, when the Suppressor says feelings are inefficient, when the Logical Strategist says self-care doesn't compute — remind the whole system: biology doesn't negotiate. It just sends the invoice. And the invoice always comes.</p>
+      </div>
+      <p style="margin-top: 2rem;"><em>With love,</em><br><em>Jatin &amp; Shalini / Kairos Path</em></p>
+    </section>
 
     <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
       <div class="gold-line"></div>
@@ -537,20 +580,18 @@ document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
 // ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-archetype': {glow:'glow-gold',color:[201,162,85]},
-  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
-  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
-  's-mental':    {glow:'glow-teal',color:[80,140,160]},
-  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
-  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
-  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
-  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+  's-hero':       {glow:'',          color:[168,155,196]},
+  's-invitation': {glow:'',          color:[168,155,196]},
+  's-session1':   {glow:'glow-gold', color:[201,162,85]},
+  's-session2':   {glow:'glow-rose', color:[155,79,114]},
+  's-session3':   {glow:'glow-gold', color:[201,162,85]},
+  's-ifs':        {glow:'glow-rose', color:[155,100,130]},
+  's-somatic':    {glow:'glow-teal', color:[80,140,160]},
+  's-forward':    {glow:'glow-gold', color:[210,185,120]},
 };
 
 // ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+const sects=['s-hero','s-invitation','s-session1','s-session2','s-session3','s-ifs','s-somatic','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
   if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
@@ -592,22 +633,6 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
 // Remove inline onclick since we handle via event listener
 document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-  <script>
-    // Simple intersection observer for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
-        el.classList.add('fade-section');
-        observer.observe(el);
-      });
-    });
-  </script>
+
 </body>
 </html>
