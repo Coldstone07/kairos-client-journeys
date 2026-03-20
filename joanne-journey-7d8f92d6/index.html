@@ -151,23 +151,23 @@
     flex-wrap: wrap; margin: 0.5rem 0 3rem; padding: 1rem 0;
   }
   .tarot-card {
-    width: 260px; min-height: 340px; perspective: 900px; cursor: pointer;
+    width: 260px; perspective: 900px; cursor: pointer;
     transition: transform 0.3s ease;
   }
   .tarot-card:hover { transform: translateY(-4px); }
   .tarot-card .card-inner {
-    position: relative; width: 100%; height: 100%; min-height: 340px;
+    position: relative; width: 100%; min-height: 340px;
     transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
   }
   .tarot-card.flipped .card-inner { transform: rotateY(180deg); }
 
   .card-face {
-    position: absolute; inset: 0;
     backface-visibility: hidden; border-radius: 6px; padding: 1.8rem;
     display: flex; flex-direction: column;
   }
   .card-front {
+    position: absolute; inset: 0;
     background: linear-gradient(145deg, var(--bg-card), var(--bg-mid));
     align-items: center; justify-content: center; text-align: center;
   }
@@ -208,12 +208,12 @@
     margin-bottom: 0.6rem;
   }
   .card-back h4 {
-    font-family: var(--display); font-size: 1.25rem;
-    font-weight: 400; color: var(--white); margin-bottom: 0.8rem;
+    font-family: var(--display); font-size: 1.15rem;
+    font-weight: 400; color: var(--white); margin-bottom: 0.6rem;
     line-height: 1.4;
   }
   .card-back p {
-    font-size: 0.9rem; line-height: 1.7; color: var(--gold-pale);
+    font-size: 0.82rem; line-height: 1.65; color: var(--gold-pale);
     font-family: var(--body);
   }
 
@@ -374,8 +374,8 @@
     .duality { grid-template-columns: 1fr; }
     .duality-center { padding: 0; }
     .const-nav { display: none; }
-    .tarot-card { width: 220px; min-height: 280px; }
-    .tarot-card .card-inner { min-height: 280px; }
+    .tarot-card { width: 220px; }
+    .card-back p { font-size: 0.78rem; line-height: 1.6; }
     main { padding: 0 1.2rem; }
   }
 </style>
@@ -419,56 +419,214 @@
       <div class="scroll-hint">DESCEND</div>
     </section>
 
-    <div id="content" class="fade-section">
-      <p><em>The Question That Opens Everything</em>
-<em>Session 1 | 2026 Cohort</em></p>
-<hr>
-<blockquote>
-<p><em>&quot;Where did all my anger go? And then when it surfaces it&#39;s like — okay, how do I deal with this?&quot;</em>
-— Joanne Teh, Session 1</p>
-</blockquote>
-<hr>
-<h2>What Actually Shifted</h2>
-<p>One session. Let&#39;s be honest about that upfront. One session does not transform a person. What one session can do — if the person is ready and the question is real — is locate the fault line. Yours was located the moment you said those words: <em>where did all my anger go?</em></p>
-<p>That is not a casual question. That is a woman noticing that an entire dimension of her emotional life has been missing, and instead of looking away from the gap, looking directly into it.</p>
-<hr>
-<h2>The Arc</h2>
-<h3>Session 1 — <em>The Peru Reckoning</em> (February 5)</h3>
-<p>You arrived carrying something specific. At a retreat in Peru, someone attempted to kiss you without your consent. Your response was textbook Type 9: freeze. Stay quiet. Maintain the circle. Don&#39;t rock the boat. Don&#39;t cause trouble. You described it yourself with devastating clarity — <em>&quot;I was in peacemaker mode. I didn&#39;t want to rock the boat. I didn&#39;t want to cause any trouble. I didn&#39;t want to say anything about it. I was just want to maintain the peace until the retreat finished.&quot;</em></p>
-<p>There it is. The entire operating system in four sentences. Peace at the cost of self. Harmony purchased with silence. A woman who had just been violated deciding that the most important thing in the room was everyone else&#39;s comfort.</p>
-<p>And then something happened that you almost glossed over, but we didn&#39;t let you. In the days after, you spoke up. You broke the silence. You named what happened. Not because it was easy or natural, but because you recognized something that most people spend years in therapy trying to articulate: <em>&quot;by not speaking up, I&#39;m doing a dishonor to the circle.&quot;</em> Silence wasn&#39;t peace. Silence was dishonesty. That recognition is not small. That recognition is the whole thing.</p>
-<p>The frameworks landed fast. Type 9 — the Peacemaker with the Challenger wing — wasn&#39;t a label you had to be convinced of. It was a mirror you recognized immediately. The 8 wing matters here. There is a force in you that the peacemaking has been sitting on. The retreat proved it exists. The question now is what you do with it when it&#39;s not triggered by crisis.</p>
-<p>IFS entered as a way of understanding the competing voices. Parts as &quot;little kids&quot; trying to be heard. You took to it immediately, because the metaphor matched your felt experience — something small and urgent underneath the composure, trying to get your attention.</p>
-<p>The session ended with a commitment that was honest and unfinished: <em>sit with the anger and see why they are not tuning in well with it.</em> Not resolve. Not transcend. Sit with.</p>
-<hr>
-<h2>The IFS System Map</h2>
-<p><strong>The Quiet Accommodator</strong> <em>(Manager)</em>
-She runs the show. Her mandate: keep the circle safe by maintaining peace. She is the one who held you still in Peru, who decided that a violation was less dangerous than a disruption. She is not stupid — she made a sophisticated calculation that has kept you safe and connected your entire life. The work is not to fire her. It is to help her see that some silences cost more than they save.</p>
-<p><strong>The Suppressor</strong> <em>(Firefighter)</em>
-When anger rises, this part intercepts it before it can reach your mouth or your fists. Fast, efficient, invisible. You described the experience perfectly — not &quot;I feel angry and I push it down,&quot; but &quot;where did it go?&quot; The Suppressor is so good at its job that you lose track of the anger entirely. It doesn&#39;t feel like suppression. It feels like absence. That is what makes it dangerous.</p>
-<p><strong>The Unheard Child</strong> <em>(Exile)</em>
-The one underneath both protectors. She carries the belief that belonging requires helpfulness and silence. She is the one who was willing to forgive the person in Peru before she had even forgiven herself for freezing. She is not fragile. She is patient. She has been waiting a long time for you to notice her, and she can wait longer. But she shouldn&#39;t have to.</p>
-<hr>
-<h2>Gene Keys: Dishonesty to Transparency, Victimization to Freedom</h2>
-<p>A note: these are preliminary. We are working with GK 55 and GK 59 pending your full birth data. But the arc is already active in your life, whether or not the numbers are final.</p>
-<p><strong>GK 59 — The Shadow of Dishonesty.</strong> Not lying. Suppression. The kind of dishonesty that looks like kindness, that passes for grace, that you described with perfect precision when you talked about maintaining peace at the retreat. Every time you swallowed a true response to keep things smooth, you were living in this shadow. Not because you are dishonest. Because your system genuinely believed that your truth would break things. The Gift is Transparency — which is not radical honesty as a performance, but the quiet willingness to let what is real be visible. You already practiced it. In Peru, when you finally spoke.</p>
-<p><strong>GK 55 — The Shadow of Victimization.</strong> This is not about being a victim. It is about the posture of looking outside yourself for permission, for power, for the signal that it is okay to act. The peacemaker stance — waiting, accommodating, reading the room for cues — is Victimization wearing the mask of agreeableness. The Gift is Freedom. Not freedom from difficulty. Freedom to choose your response rather than defaulting to the one that causes the least friction.</p>
-<hr>
-<h2>Somatic Markers</h2>
-<p><strong>Throat constriction.</strong> You self-interrupted constantly throughout the session. Word-searching. Pausing mid-sentence. The throat physically tight. This is not a speech pattern. This is the Suppressor working in real time, editing your words before they reach air. The throat holds what the Accommodator won&#39;t let you say.</p>
-<p><strong>Smiling while describing pain.</strong> We noticed. You smiled through the hardest parts of the session — the Peru story, the anger inquiry, the moments of genuine distress. This is Type 9 dissociation living in the face. The smile is a broadcast: <em>I&#39;m fine, don&#39;t worry about me, this isn&#39;t as bad as it sounds.</em> It is a kindness directed at everyone in the room except you.</p>
-<p><strong>Anger unlocated in the body.</strong> You could name the absence of anger. You could not locate where it lives. &quot;Where did it go?&quot; is a somatic question, not a psychological one. The anger is somewhere — throat, chest, gut, jaw. You haven&#39;t found it yet. That is not a failure. That is the next piece of work.</p>
-<hr>
-<h2>What You Carry Forward</h2>
-<p>Joanne, this is one session. We are not going to pretend it is more than it is. No arc has been completed. No exile has been fully witnessed. No protector has retired. What has happened is that you asked the right question at the right time, and you already had evidence — from Peru, from your own body — that you know the answer.</p>
-<p>The anger didn&#39;t disappear. It went underground. It tightened your throat. It colored your silences. It hid behind that smile. And at one retreat, in one moment, when you chose your boundary over your peacemaking, it came back. Not as destruction. As honesty.</p>
-<p>You said it yourself: <em>&quot;I could say I don&#39;t want to see this person in front of my face, and to allow, acknowledge that and allow myself to be like, that&#39;s okay. To not want to be nice to someone.&quot;</em> That sentence contains more self-permission than most people grant themselves in a year.</p>
-<p>The seed is this: peace and truth can coexist. Boundaries do not break connections. They ground them. The Accommodator believes that your anger will shatter the circle. Peru proved otherwise. You spoke, and the circle held.</p>
-<p>Sit with the anger. Not to fix it. Not to transcend it. Just to let it know you are listening.</p>
-<p><em>With love,</em>
-<em>Jatin &amp; Shalini / Kairos Path</em></p>
+    <!-- ═══ INVITATION ═══ -->
+    <section id="s-invitation" class="fade-section" style="padding-top:4rem;">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--lavender)">A SACRED LETTER</div>
+        <h2>Dear Joanne</h2>
+      </div>
+      <div class="prose">
+        <p>One session. Let's be honest about that upfront. One session does not transform a person. What one session can do — if the person is ready and the question is real — is locate the fault line.</p>
+        <p>Yours was located the moment you said those words: <em>where did all my anger go?</em></p>
+        <p>That is not a casual question. That is a woman noticing that an entire dimension of her emotional life has been missing, and instead of looking away from the gap, looking directly into it. What follows is our record of that reckoning — the frameworks that gave you language, the parts that spoke, and the single act of courage at a retreat in Peru that proved you already carry what you need.</p>
+      </div>
+      <div class="gold-line"></div>
+    </section>
 
-    </div>
+    <!-- ═══ SESSION 1 ═══ -->
+    <section id="s-session1" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--gold)">FEBRUARY 5, 2026</div>
+        <h2>The Peru Reckoning</h2>
+        <div class="gene-path">Silence <span class="arr">→</span> Speech <span class="arr">→</span> Self-Permission</div>
+      </div>
+      <div class="prose">
+        <p>You arrived carrying something specific. At a retreat in Peru, someone attempted to kiss you without your consent. Your response was textbook Type 9: freeze. Stay quiet. Maintain the circle. Don't rock the boat. Don't cause trouble.</p>
+      </div>
+
+      <div class="pull-quote">
+        "I was in peacemaker mode. I didn't want to rock the boat. I didn't want to cause any trouble. I didn't want to say anything about it. I was just want to maintain the peace until the retreat finished."
+        <cite>— JOANNE, SESSION 1</cite>
+      </div>
+
+      <div class="prose">
+        <p>There it is. The entire operating system in four sentences. Peace at the cost of self. Harmony purchased with silence. A woman who had just been violated deciding that the most important thing in the room was everyone else's comfort.</p>
+        <p>And then something happened that you almost glossed over, but we didn't let you. In the days after, <strong>you spoke up</strong>. You broke the silence. You named what happened. Not because it was easy or natural, but because you recognized something that most people spend years in therapy trying to articulate:</p>
+      </div>
+
+      <div class="pull-quote">
+        "By not speaking up, I'm doing a dishonor to the circle."
+        <cite>— JOANNE, THE TURNING POINT</cite>
+      </div>
+
+      <div class="prose">
+        <p>Silence wasn't peace. Silence was dishonesty. That recognition is not small. That recognition is the whole thing.</p>
+        <p>The frameworks landed fast. <strong>Type 9 — the Peacemaker with the Challenger wing</strong> — wasn't a label you had to be convinced of. It was a mirror you recognized immediately. The 8 wing matters here. There is a force in you that the peacemaking has been sitting on. The retreat proved it exists. The question now is what you do with it when it's not triggered by crisis.</p>
+      </div>
+
+      <div class="pull-quote">
+        "I've always been trying to be peaceful and chill and easygoing — and so when the anger comes out, it's like, well, how do I deal with this? Or first of all, it's like where did it go? Why am I not feeling angry?"
+        <cite>— JOANNE, NAMING THE PATTERN</cite>
+      </div>
+
+      <div class="prose">
+        <p>IFS entered as a way of understanding the competing voices. Parts as "little kids" trying to be heard. You took to it immediately, because the metaphor matched your felt experience — something small and urgent underneath the composure, trying to get your attention.</p>
+        <p>The session ended with a commitment that was honest and unfinished: <em>sit with the anger and see why they are not tuning in well with it.</em> Not resolve. Not transcend. <strong>Sit with.</strong></p>
+      </div>
+      <div class="rose-line"></div>
+    </section>
+
+    <!-- ═══ IFS SYSTEM MAP ═══ -->
+    <section id="s-ifs" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--rose)">YOUR INNER SYSTEM</div>
+        <h2>The Parts That Protect You</h2>
+      </div>
+      <div class="prose">
+        <p>Three voices emerged in our session — each one carrying a piece of wisdom wrapped in a strategy that once kept you safe. Tap each card to meet them.</p>
+      </div>
+
+      <p class="card-ritual">~ tap each card to reveal ~</p>
+      <div class="card-spread-wrap">
+        <div class="card-spread">
+
+          <!-- Card 1: The Quiet Accommodator -->
+          <div class="tarot-card" data-accent="amethyst">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="45" fill="none" stroke="currentColor" stroke-width="0.8" class="svg-breathe"/><circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="svg-breathe"/><line x1="60" y1="15" x2="60" y2="105" stroke="currentColor" stroke-width="0.3" opacity="0.3"/><line x1="15" y1="60" x2="105" y2="60" stroke="currentColor" stroke-width="0.3" opacity="0.3"/></svg></div>
+                <div class="card-prompt">MANAGER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">MANAGER</div>
+                <h4>The Quiet Accommodator</h4>
+                <p>She runs the show. Her mandate: keep the circle safe by maintaining peace. She is the one who held you still in Peru, who decided that a violation was less dangerous than a disruption. She is not stupid — she made a sophisticated calculation that has kept you safe and connected your entire life. The work is not to fire her. It is to help her see that some silences cost more than they save.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: The Suppressor -->
+          <div class="tarot-card" data-accent="rose">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><path d="M60 20 L60 100" stroke="currentColor" stroke-width="0.8" class="svg-pulse"/><path d="M40 40 L80 40" stroke="currentColor" stroke-width="0.5" opacity="0.5"/><path d="M45 60 L75 60" stroke="currentColor" stroke-width="0.5" opacity="0.5"/><path d="M50 80 L70 80" stroke="currentColor" stroke-width="0.5" opacity="0.5"/><circle cx="60" cy="20" r="3" fill="currentColor" opacity="0.4"/></svg></div>
+                <div class="card-prompt">FIREFIGHTER</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">FIREFIGHTER</div>
+                <h4>The Suppressor</h4>
+                <p>When anger rises, this part intercepts it before it can reach your mouth or your fists. Fast, efficient, invisible. You described the experience perfectly — not "I feel angry and I push it down," but "where did it go?" The Suppressor is so good at its job that you lose track of the anger entirely. It doesn't feel like suppression. It feels like absence. That is what makes it dangerous.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: The Unheard Child -->
+          <div class="tarot-card" data-accent="teal">
+            <div class="card-inner">
+              <div class="card-face card-front">
+                <div class="card-symbol"><svg viewBox="0 0 120 120"><circle cx="60" cy="45" r="12" fill="none" stroke="currentColor" stroke-width="0.7" class="svg-breathe"/><path d="M60 57 Q60 90 60 100" stroke="currentColor" stroke-width="0.6" fill="none"/><path d="M45 70 L60 75 L75 70" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.4"/><circle cx="60" cy="45" r="3" fill="currentColor" opacity="0.3" class="svg-pulse"/></svg></div>
+                <div class="card-prompt">EXILE</div>
+                <div class="tap-hint">tap to reveal</div>
+              </div>
+              <div class="card-face card-back">
+                <div class="card-label">EXILE</div>
+                <h4>The Unheard Child</h4>
+                <p>The one underneath both protectors. She carries the belief that belonging requires helpfulness and silence. She is the one who was willing to forgive the person in Peru before she had even forgiven herself for freezing. She is not fragile. She is patient. She has been waiting a long time for you to notice her, and she can wait longer. But she shouldn't have to.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="spread-complete" style="text-align:center;font-family:var(--display);font-size:0.8rem;color:var(--gold);letter-spacing:0.15em;opacity:0;transition:opacity 0.8s;">All parts witnessed</div>
+      </div>
+      <div class="teal-line"></div>
+    </section>
+
+    <!-- ═══ GENE KEYS ═══ -->
+    <section id="s-genekeys" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--amethyst)">PRELIMINARY GENE KEYS</div>
+        <h2>The Maps Within</h2>
+        <div class="gene-path">Pending Birth Data <span class="arr">·</span> Already Active</div>
+      </div>
+
+      <div class="duality">
+        <div class="duality-panel architect" style="border-top-color:var(--rose);">
+          <h3>GK 59</h3>
+          <div class="role" style="color:var(--rose);">Radiance — Clarity</div>
+          <p style="font-size:0.88rem;"><strong style="color:var(--rose);">Shadow: Dishonesty.</strong> Not lying. Suppression. The kind of dishonesty that looks like kindness, that passes for grace. Every time you swallowed a true response to keep things smooth, you were living in this shadow. Not because you are dishonest. Because your system genuinely believed that your truth would break things.</p>
+          <div style="margin-top:1rem;"><strong>Gift: Transparency</strong> — not radical honesty as a performance, but the quiet willingness to let what is real be visible. You already practiced it. In Peru, when you finally spoke.</div>
+        </div>
+        <div class="duality-center">×</div>
+        <div class="duality-panel oracle" style="border-top-color:var(--amethyst);">
+          <h3>GK 55</h3>
+          <div class="role" style="color:var(--amethyst);">Vocation — Abundance</div>
+          <p style="font-size:0.88rem;"><strong style="color:var(--amethyst);">Shadow: Victimization.</strong> Not about being a victim. It is about the posture of looking outside yourself for permission, for power, for the signal that it is okay to act. The peacemaker stance — waiting, accommodating, reading the room for cues — is Victimization wearing the mask of agreeableness.</p>
+          <div style="margin-top:1rem;"><strong>Gift: Freedom</strong> — not freedom from difficulty. Freedom to choose your response rather than defaulting to the one that causes the least friction.</div>
+        </div>
+      </div>
+
+      <div class="synthesis-bar">
+        From <em>Dishonesty</em> to <em>Transparency</em> · From <em>Victimization</em> to <em>Freedom</em>
+      </div>
+      <div class="gold-line"></div>
+    </section>
+
+    <!-- ═══ SOMATIC RECORD ═══ -->
+    <section id="s-somatic" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--teal)">THE BODY REMEMBERS</div>
+        <h2>Somatic Markers</h2>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">MARKER I</div>
+        <h4>Throat Constriction</h4>
+        <p>You self-interrupted constantly throughout the session. Word-searching. Pausing mid-sentence. The throat physically tight. This is not a speech pattern. This is the Suppressor working in real time, editing your words before they reach air. The throat holds what the Accommodator won't let you say.</p>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">MARKER II</div>
+        <h4>Smiling While Describing Pain</h4>
+        <p>We noticed. You smiled through the hardest parts of the session — the Peru story, the anger inquiry, the moments of genuine distress. This is Type 9 dissociation living in the face. The smile is a broadcast: <em>I'm fine, don't worry about me, this isn't as bad as it sounds.</em> It is a kindness directed at everyone in the room except you.</p>
+      </div>
+
+      <div class="shadow-item">
+        <div class="shadow-num">MARKER III</div>
+        <h4>Anger Unlocated in the Body</h4>
+        <p>You could name the absence of anger. You could not locate where it lives. "Where did it go?" is a somatic question, not a psychological one. The anger is somewhere — throat, chest, gut, jaw. You haven't found it yet. That is not a failure. That is the next piece of work.</p>
+      </div>
+      <div class="teal-line"></div>
+    </section>
+
+    <!-- ═══ WHAT YOU CARRY FORWARD ═══ -->
+    <section id="s-forward" class="fade-section">
+      <div class="chapter-marker">
+        <div class="label" style="color:var(--gold)">THE SEED</div>
+        <h2>What You Carry Forward</h2>
+      </div>
+      <div class="prose">
+        <p>Joanne, this is one session. We are not going to pretend it is more than it is. No arc has been completed. No exile has been fully witnessed. No protector has retired. What has happened is that you asked the right question at the right time, and you already had evidence — from Peru, from your own body — that you know the answer.</p>
+        <p>The anger didn't disappear. It went underground. It tightened your throat. It colored your silences. It hid behind that smile. And at one retreat, in one moment, when you chose your boundary over your peacemaking, it came back. Not as destruction. <strong>As honesty.</strong></p>
+      </div>
+
+      <div class="pull-quote">
+        "I could say I don't want to see this person in front of my face, and to allow, acknowledge that and allow myself to be like, that's okay. To not want to be nice to someone."
+        <cite>— JOANNE, ONE YEAR OF SELF-PERMISSION IN A SINGLE SENTENCE</cite>
+      </div>
+
+      <div class="prose">
+        <p>The seed is this: <strong>peace and truth can coexist</strong>. Boundaries do not break connections. They ground them. The Accommodator believes that your anger will shatter the circle. Peru proved otherwise. You spoke, and the circle held.</p>
+        <p>Sit with the anger. Not to fix it. Not to transcend it. Just to let it know you are listening.</p>
+      </div>
+
+      <div class="gold-line"></div>
+      <div class="prose" style="text-align:center; margin-top:2rem;">
+        <p><em>With love,</em><br><em>Jatin & Shalini / Kairos Path</em></p>
+      </div>
+    </section>
 
     <section class="closing fade-section" style="margin-top: 5rem; text-align: center;">
       <div class="gold-line"></div>
@@ -528,20 +686,17 @@ document.querySelectorAll('.fade-section').forEach(el=>obs.observe(el));
 // ─── AMBIENT GLOW + PARTICLE COLOR SHIFTS ───
 const ambientGlow=document.getElementById('ambientGlow');
 const chapterGlows = {
-  's-hero':      {glow:'',         color:[168,155,196]},
-  's-invitation':{glow:'',         color:[168,155,196]},
-  's-archetype': {glow:'glow-gold',color:[201,162,85]},
-  's-gk61':      {glow:'glow-rose',color:[180,120,150]},
-  's-gk36':      {glow:'glow-rose',color:[155,79,114]},
-  's-mental':    {glow:'glow-teal',color:[80,140,160]},
-  's-gk45':      {glow:'glow-gold',color:[201,162,85]},
-  's-synthesis': {glow:'glow-synth',color:[190,170,130]},
-  's-shadows':   {glow:'glow-rose',color:[155,100,130]},
-  's-gifts':     {glow:'glow-synth',color:[210,185,120]},
+  's-hero':      {glow:'',          color:[168,155,196]},
+  's-invitation':{glow:'',          color:[168,155,196]},
+  's-session1':  {glow:'glow-gold', color:[201,162,85]},
+  's-ifs':       {glow:'glow-rose', color:[155,79,114]},
+  's-genekeys':  {glow:'glow-synth',color:[190,170,130]},
+  's-somatic':   {glow:'glow-teal', color:[80,140,160]},
+  's-forward':   {glow:'glow-gold', color:[210,185,120]},
 };
 
 // ─── NAV DOTS ───
-const sects=['s-hero','s-invitation','s-archetype','s-gk61','s-gk36','s-mental','s-gk45','s-synthesis','s-shadows','s-gifts'];
+const sects=['s-hero','s-invitation','s-session1','s-ifs','s-genekeys','s-somatic','s-forward'];
 const nav=document.getElementById('nav');
 sects.forEach((id,i)=>{
   if(i>0){const l=document.createElement('div');l.className='line';nav.appendChild(l)}
@@ -583,22 +738,5 @@ document.querySelectorAll('.tarot-card').forEach(card=>{
 // Remove inline onclick since we handle via event listener
 document.querySelectorAll('.tarot-card[onclick]').forEach(c=>c.removeAttribute('onclick'));
 </script>
-  <script>
-    // Simple intersection observer for fade-in elements
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-section, h2, p, blockquote').forEach(el => {
-        el.classList.add('fade-section');
-        observer.observe(el);
-      });
-    });
-  </script>
 </body>
 </html>
